@@ -6,6 +6,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @item = Item.new
   end
 
   def edit
