@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  suggestion: MyText
+  name: MyString
+  event_id: 1
+
+two:
+  suggestion: MyText
+  name: MyString
+  event_id: 1
