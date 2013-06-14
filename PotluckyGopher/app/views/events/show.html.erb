@@ -13,33 +13,16 @@
 </p>
 
 <p>
-  <%= @event.start_time %>
-</p>
-
-<p>
-  <%= @event.end_time %>
-</p>
-
-<p>
   <%= @event.date %>
 </p>
 
 <p>
   <%= @event.location %>
 </p>
-
-<p>
-  <%= @event.url %>
-</p>
-
-<p>
-  <%= @event.host_provided %>
-</p>
-
 <p>
   <%= @event.user_id %>
 </p>
 
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Back', user_path %>
