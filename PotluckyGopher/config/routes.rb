@@ -3,6 +3,7 @@ root to: 'pages#index'
   resources :users, :only => [:show, :create, :new]
   resources :sessions, :only => [:destroy, :create, :new]
   resources :events
+  resource :items
 
 
   # The priority is based upon order of creation:

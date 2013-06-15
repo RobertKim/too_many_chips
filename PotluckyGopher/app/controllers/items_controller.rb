@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    @item = Item.all
 
     respond_to do |format|
       format.html # index.html.erb
