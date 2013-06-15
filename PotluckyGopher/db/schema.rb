@@ -16,8 +16,11 @@ ActiveRecord::Schema.define(:version => 20130614222046) do
   create_table "event_items", :force => true do |t|
     t.integer  "event_id"
     t.integer  "item_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "guest_name"
+    t.string   "guest_email"
+    t.integer  "quantity_provided"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "events", :force => true do |t|
@@ -38,9 +41,11 @@ ActiveRecord::Schema.define(:version => 20130614222046) do
   create_table "items", :force => true do |t|
     t.text     "suggestion"
     t.string   "name"
+    t.integer  "quantity_needed"
+    t.integer  "quantity_provided"
     t.integer  "event_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "users", :force => true do |t|

@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  respond_to :json, :html
 
   def show
     @event = Event.find(params[:id])
@@ -7,6 +8,7 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @item = Item.new
+    @items = Item.all
   end
 
   def edit
