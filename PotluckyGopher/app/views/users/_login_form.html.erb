@@ -1,19 +1,20 @@
 
-  <%= form_tag new_session_path, :method => 'get', :html => {:class => 'form-horizontal'} do %>
+<%= form_for :session, url: sessions_path, :html => {:class => 'form-horizontal'} do |f| %>
 
-  <div class="control-group">
-    <label class="control-label" for="inputEmail">Email</label>
-    <div class="controls">
-      <%= text_field_tag :email, nil,  :placeholder => "email"%>
-    </div>
+<div class="control-group">
+  <label class="control-label" for="inputEmail">Email</label>
+  <div class="controls">
+    <%= f.text_field :email, :id => "inputEmail", :required => true, :placeholder => :email %>
   </div>
+</div>
 
-  <div class="control-group">
-    <label class="control-label" for="inputPassword">Password</label>
-    <div class="controls">
-      <%= password_field_tag :password, nil, :id => "inputPassword",:placeholder => "password" %>
-    </div>
+<div class="control-group">
+  <label class="control-label" for="inputPassword">Password</label>
+  <div class="controls">
+    <%= f.password_field :password, :id => "inputPassword", :required => true, :placeholder => :password %>
   </div>
+</div>
 
-  <%= submit_tag("Submit")%>
-  <%end%>
+    <%= f.submit "Sign in", class: "btn btn-large btn-primary"%>
+<%end%>
+
