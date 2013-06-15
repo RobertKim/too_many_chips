@@ -6,7 +6,7 @@ module Authentication
 		end
 	end
 
-	def login user
+	def login(user)
 		session[:id] = user.id
 	end
 

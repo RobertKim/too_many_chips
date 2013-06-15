@@ -14,6 +14,6 @@ class SessionsController < ApplicationController
   def destroy
     session[:id] = nil
     session.destroy
-    render nothing: true
+    redirect_to root_path
   end
 end
