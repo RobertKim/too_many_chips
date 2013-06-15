@@ -1,0 +1,53 @@
+/*// Place all the styles related to the events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+*/
+
+div {
+  border: 1px solid red;
+}
+.event {
+  height: 1200px;
+   width: 1000px;
+}
+.event_details {
+   float: left;
+  height: 240px;
+   width: 300px;
+}
+
+.type_options {
+       float: left;
+      height: 240px;
+       width: 150px;
+  list-style: none;
+}
+
+.add_item_form {
+   float: left;
+  height: 240px;
+   width: 300px;
+}
+
+.description {
+  width: 200px;
+  height: 100px;
+}
+
+.added_items {
+   clear: both;
+   width: 900px;
+  height: 480px;
+}
+
+.new_assigned_item {
+  /*display: none;*/
+  float:left;
+  margin: 5px;
+  width: 160px;
+  height: 140px;
+}
+
+.hide {
+}

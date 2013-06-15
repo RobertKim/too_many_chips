@@ -1,13 +1,6 @@
-<%= form_for(@item) do |f| %>
-  <div class="field">
-    <%= f.label :suggestion %><br />
-    <%= f.text_area :suggestion %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= form_for @item, :remote => true do |f| %>
+  <%=f.text_field :name , :class => "items_field", :placeholder => "Item Name" %>
+  <%=f.text_field :suggestion, :class => "items_field", :placeholder => "Suggestions" %>
+  <%=f.text_field :quantity_needed, :class => "items_field", :placeholder => "Quantiy Needed" %>
+  <%= f.submit :class => "add_item", :value => "Add Item" %>
 <% end %>
