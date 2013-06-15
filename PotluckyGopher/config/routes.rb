@@ -1,6 +1,6 @@
 PotluckyGopher::Application.routes.draw do
 root to: 'pages#index'
-  resources :users, :only => [:show, :create, :new]
+  resources :users, :only => [:show, :create, :new, :edit]
   resources :sessions, :only => [:destroy, :create, :new]
   resources :events
   resource :items
