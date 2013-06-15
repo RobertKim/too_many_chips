@@ -13,21 +13,21 @@ div {
 }
 .event_details {
    float: left;
-  height: 240px;
+  height: 160px;
    width: 300px;
 }
 
 .type_options {
        float: left;
-      height: 240px;
+      height: 160px;
        width: 150px;
   list-style: none;
 }
 
-.add_item_form {
+.items_form {
    float: left;
-  height: 240px;
-   width: 300px;
+  height: 160px;
+   width: 240px;
 }
 
 .description {
