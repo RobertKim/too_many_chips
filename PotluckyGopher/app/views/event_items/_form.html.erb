@@ -1,17 +1,7 @@
-<%= form_for(@event_item) do |f| %>
-  <% if @event_item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@event_item.errors.count, "error") %> prohibited this event_item from being saved:</h2>
-
-      <ul>
-      <% @event_item.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= form_for @event_items do |f| %>
+  Send Email Reminder<%= f.radio_button :email_reminder, :class => "email_reminder" %>
+  <%=f.text_field :quanity , :class => "quanity", :placeholder => "quanity" %>
+  <%=f.text_field :guest_email, :class => "guest_email", :placeholder => "guest_email" %>
+  <%=f.text_field :guest_name, :class => "guest_name", :placeholder => "guest_name" %>
+  <%=f.text_field :guest_notes, :class => "guest_notes", :placeholder => "guest_notes" %>
 <% end %>
