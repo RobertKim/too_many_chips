@@ -1,5 +1,20 @@
 <div class='signup_form'>
+
+
   <span>Sign Up</span>
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
   <%= form_for @user do |f| %>
     <%= f.text_field :name, :required => true, :placeholder => :name %>
     <%= f.text_field :email, :required => true, :placeholder => :email %>
