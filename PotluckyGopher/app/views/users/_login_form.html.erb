@@ -1,0 +1,11 @@
+
+ <div class='login_form'>
+    
+
+  <span>Log In</span>
+  <%= form_tag new_session_path, :method => 'get' do %>
+    <%= text_field_tag :email, nil, :placeholder => "email"%>
+    <%= password_field_tag :password, nil, :placeholder => "password" %>
+    <%= submit_tag("Submit")%>
+    <%end%>
+</div>

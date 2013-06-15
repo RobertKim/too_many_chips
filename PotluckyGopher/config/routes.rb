@@ -1,14 +1,8 @@
 PotluckyGopher::Application.routes.draw do
-  resources :event_items
-
-
+root to: 'pages#index'
+  resources :users, :only => [:show, :create, :new]
+  resources :sessions, :only => [:destroy, :create, :new]
   resources :events
-
-
-  resources :items
-
-
-  resources :users
 
 
   # The priority is based upon order of creation:

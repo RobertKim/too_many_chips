@@ -1,0 +1,9 @@
+<div class='signup_form'>
+  <span>Sign Up</span>
+  <%= form_for @user do |f| %>
+    <%= f.text_field :name, :required => true, :placeholder => :name %>
+    <%= f.text_field :email, :required => true, :placeholder => :email %>
+    <%= f.password_field :password, :required => true, :placeholder => :password %>
+    <%= f.submit%>    
+    <%end%>
+</div>
