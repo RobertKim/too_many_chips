@@ -1,15 +1,16 @@
+
   <%= form_for @user, :html => {:class => 'form-horizontal'}  do |f| %>
   <div class="control-group">
     <label class="control-label" for="inputName">Name</label>
     <div class="controls">
-      <%= f.text_field :name, :id => "inputName", nil, :required => true, :placeholder => :name %>
+      <%= f.text_field :name, :id => "inputName", :required => true, :placeholder => :name %>
     </div>
   </div>
 
   <div class="control-group">
     <label class="control-label" for="inputEmail">Email</label>
     <div class="controls">
-      <%= f.text_field :email, :id => "inputEmail", nil, :required => true, :placeholder => :email %>
+      <%= f.text_field :email, :id => "inputEmail", :required => true, :placeholder => :email %>
     </div>
   </div>
 
@@ -17,9 +18,10 @@
   <div class="control-group">
     <label class="control-label" for="inputPassword">Password</label>
     <div class="controls">
-      <%= f.password_field :password, nil,:id => "inputPassword", :required => true, :placeholder => :password %>
+      <%= f.password_field :password, :id => "inputPassword", :required => true, :placeholder => :password %>
     </div>
   </div>
 
   <%= f.submit 'Sign Up', :class => "btn"%>    
   <%end%>
+
