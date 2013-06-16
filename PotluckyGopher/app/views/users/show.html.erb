@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1> Welcome to PotLucky, <%= @user.name %> </h1>
+<h4> Welcome to PotLucky, <%= @user.name %> </h4>
 
 <p>
   <b>Name:</b>
@@ -15,8 +15,7 @@
 <%= button_to "Create an Event!", new_event_path, :method => "get" %>
 
 <div id="created_events">
-<!-- 	<#% if current_user && current_user == @user %> -->
-		<h2> Events created by <%= @user.name %> </h2><br>
+
 		<h4> Upcoming Events: </h4>
 	  <ul>
     <% @upcoming_events.each do |upcoming| %>
@@ -28,7 +27,7 @@
 	  	<% @past_events.each do |past| %>
 	  	<li><%= link_to past.name, event_path(past) %></li>
 	  	<% end %>
- <!--  	<#% end %> -->
+ 
 </div>
 
 

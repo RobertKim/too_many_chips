@@ -13,3 +13,21 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+
+$(document).ready(function(){
+	
+	// Toggle Login Form
+	$('form.login').hide();
+	$('button#login').click(function(){
+		$('form.login').toggle('slow');
+	});
+
+	// Toggle Sign Up Form
+	$('form.new_user').hide();
+	$('button#new_user').click(function(){
+		$('form.new_user').toggle('slow');
+	});
+
+});
+

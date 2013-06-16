@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      session[:id] = @user.id
+      login @user
       redirect_to @user
     else
       render :new

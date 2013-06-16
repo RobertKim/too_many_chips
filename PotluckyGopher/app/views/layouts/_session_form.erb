@@ -11,9 +11,8 @@
 
   <%= f.text_field :name, :id => "inputName", :required => true, placeholder: "Name" %><br>
  
-  <%= f.email_field :email, 
-      <%= f.text_field :email, :id => "inputEmail", :required => true, placeholder: "Email" %><br>
+  <%= f.email_field :email, :id => "inputEmail", :required => true, placeholder: "Email" %><br>
 
   <%= f.password_field :password, :id => "inputPassword", :required => true, placeholder: "Password" %><br>
-  <%= f.submit "Sign Up", :class => 'btn' %>
+  <%= f.submit "Submit", :class => 'btn btn-large btn-primary' %>
 <% end %>

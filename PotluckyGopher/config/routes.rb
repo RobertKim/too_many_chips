@@ -5,7 +5,7 @@ root to: 'pages#index'
   resources :events
   resource :items
 
-
+match '/logout' => 'sessions#destroy'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

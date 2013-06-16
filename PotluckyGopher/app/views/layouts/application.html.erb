@@ -2,15 +2,20 @@
 <html>
 <head>
   <title>PotluckyGopher</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--   <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+   <link href='http://fonts.googleapis.com/css?family=Sniglet:800' rel='stylesheet' type='text/css'>
 </head>
 <body>
+	 <%= render "layouts/header" %>
   <div class='container-fluid'></div>
-  <%= render 'pages/nav' %>
+ 
+<!--   <#%= render 'pages/nav' %> -->
   <%= yield %>
  </div>
 </body>
