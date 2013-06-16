@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-
+    @items = @event.items
   end
 
   def new
@@ -17,15 +17,13 @@ class EventsController < ApplicationController
   end
 
   def create
-    puts params
     items = params.delete(:items)
-    puts 
-    puts items
     @event = Event.create(name: params[:eventName], description: params[:desc], date: params[:date], location: params[:place])
-    items.each do |i| 
+    items.each do |i|
       @event.items << Item.create(name: items[i[0]]["name"] , suggestion: items[i[0]]["suggestion"], quantity_needed: items[i[0]]["quantityNeeded"])
     end
     if @event.save
+      current_user.events << @event
       redirect_to event_path(@event)
     else
       redirect_to new_event_path

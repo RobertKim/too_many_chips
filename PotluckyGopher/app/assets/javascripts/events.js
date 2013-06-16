@@ -111,4 +111,3 @@ function NewEventForm(){
 $(function(){
   NewEventForm();
 });
-q

@@ -1,24 +1,37 @@
-<p id="notice"><%= notice %></p>
+<h1>Your Event!</h1>
 
-<p>
-  <%= @event.name %>
-</p>
+<div class='event'>
+  <div class='event_details'>
+     <div class="event_form">
+      <div class="event_name" placeholder="Title" required>
+        <%= @event.name %>
+      </div>
+      <div class ="place" placeholder="Location">
+        <%= @event.description %>
+      </div>
+      <div type="datetime" class="date" placeholder="Date">
+        <%= @event.date %>
+      </div>
+      <div type="text" class="description" placeholder="Description">
+        <%= @event.location %>
+      </div>
+    </div>
+  </div>
+  <div class='types_form' style="display:none">
 
-<p>
-  <%= @event.description %>
-</p>
+  </div>
+  <div class="added_items">
+    <% @event.items.each do |i| %>
+      <div class="events_items">
+        <div class="name"><%= i.name %></div>
+        <div class="suggestion"><%= i.suggestion %></div>
+        <div class="quantity_needed"><%= i.quantity_needed %></div>
+        <div class="quantity_needed"><%= i.quantity_provided %></div>
+      </div>
+    <% end %>
+  </div>
 
-<p>
-  <%= @event.date %>
-</p>
+  <div class="claimed_items">
 
-<p>
-  <%= @event.location %>
-</p>
-<p>
-  <%= @event.user_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', user_path %>
+  </div>
+</div>
