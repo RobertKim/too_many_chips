@@ -60,3 +60,50 @@ ActiveRecord::Schema.define(:version => 20130616182610) do
   end
 
 end
+
+e.event_items.each do |pair|
+  info << EventItem.where("item_id =?", pair.id)
+  info << {name: pair.name, suggestion: pair.suggestion}
+end
+
+[
+[
+#<EventItem id: 5, event_id: 2, name: nil, description: "Important!", item_id: 3, quantity_needed: 17, created_at: "2013-06-16 22:16:59", updated_at: "2013-06-16 22:16:59">, 
+#<EventItem id: 8, event_id: 13, name: nil, description: "Important!", item_id: 3, quantity_needed: 3, created_at: "2013-06-16 22:16:59", updated_at: "2013-06-16 22:16:59">, 
+#<EventItem id: 16, event_id: 11, name: nil, description: "Important!", item_id: 3, quantity_needed: 13, created_at: "2013-06-16 22:16:59", updated_at: "2013-06-16 22:16:59">, 
+#<EventItem id: 18, event_id: 7, name: nil, description: "Important!", item_id: 3, quantity_needed: 20, created_at: "2013-06-16 22:16:59", updated_at: "2013-06-16 22:16:59">
+], 
+{:name=>"Balloons", :suggestion=>"nothing yet!"}, 
+[
+#<EventItem id: 17, event_id: 20, name: nil, description: "Important!", item_id: 20, quantity_needed: 12, created_at: "2013-06-16 22:16:59", updated_at: "2013-06-16 22:16:59">, 
+#<EventItem id: 19, event_id: 2, name: nil, description: "Important!", item_id: 20, quantity_needed: 11, created_at: "2013-06-16 22:16:59", updated_at: "2013-06-16 22:16:59">
+], 
+{:name=>"Streamers", :suggestion=>"nothing yet!"}, 
+[
+#<EventItem id: 9, event_id: 18, name: nil, description: "Important!", item_id: 10, quantity_needed: 19, created_at: "2013-06-16 22:16:59", updated_at: "2013-06-16 22:16:59">, 
+#<EventItem id: 11, event_id: 17, name: nil, description: "Important!", item_id: 10, quantity_needed: 14, created_at: "2013-06-16 22:16:59", updated_at: "2013-06-16 22:16:59">, 
+#<EventItem id: 25, event_id: 2, name: nil, description: "Important!", item_id: 10, quantity_needed: 4, created_at: "2013-06-16 22:16:59", updated_at: "2013-06-16 22:16:59">
+], 
+{:name=>"grill", :suggestion=>"nothing yet!"}, 
+[
+#<EventItem id: 26, event_id: 10, name: nil, description: "Important!", item_id: 16, quantity_needed: 8, created_at: "2013-06-16 22:16:59", updated_at: "2013-06-16 22:16:59">, 
+#<EventItem id: 27, event_id: 2, name: nil, description: "Important!", item_id: 16, quantity_needed: 8, created_at: "2013-06-16 22:16:59", updated_at: "2013-06-16 22:16:59">
+], 
+{:name=>"Serving-Utensils", :suggestion=>"nothing yet!"}, 
+[
+#<EventItem id: 28, event_id: 10, name: nil, description: "Important!", item_id: 14, quantity_needed: 20, created_at: "2013-06-16 22:16:59", updated_at: "2013-06-16 22:16:59">, 
+#<EventItem id: 30, event_id: 2, name: nil, description: "Important!", item_id: 14, quantity_needed: 7, created_at: "2013-06-16 22:16:59", updated_at: "2013-06-16 22:16:59">
+], 
+{:name=>"Streamers", :suggestion=>"nothing yet!"}, 
+[
+#<EventItem id: 4, event_id: 11, name: nil, description: "Important!", item_id: 1, quantity_needed: 19, created_at: "2013-06-16 22:16:59", updated_at: "2013-06-16 22:16:59">, 
+#<EventItem id: 34, event_id: 2, name: nil, description: "Important!", item_id: 1, quantity_needed: 3, created_at: "2013-06-16 22:16:59", updated_at: "2013-06-16 22:16:59">
+], 
+{:name=>"Candy", :suggestion=>"nothing yet!"}, 
+[
+#<EventItem id: 21, event_id: 14, name: nil, description: "Important!", item_id: 11, quantity_needed: 10, created_at: "2013-06-16 22:16:59", updated_at: "2013-06-16 22:16:59">, 
+#<EventItem id: 37, event_id: 2, name: nil, description: "Important!", item_id: 11, quantity_needed: 12, created_at: "2013-06-16 22:16:59", updated_at: "2013-06-16 22:16:59">
+], 
+{:name=>"Spoons", :suggestion=>"nothing yet!"}]
+
+

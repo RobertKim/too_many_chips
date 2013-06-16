@@ -21,19 +21,9 @@
 
   </div>
   <div class="added_items">
-    <% @event.items.each do |i| %>
-      <% counter = 0 + counter %>
-      <div class="events_items">
-        <div class="name"><%= i.name %></div>
-        <div class="suggestion"><%= i.suggestion %></div>
-        <div class="quantity_asked_for"><%= i.quantity_needed %></div>
-        <div class="quantity_needed"><%= i.quantity_provided %></div>
-         <!-- need to clarify on the quantities. Here asked for = needed and needed = should be the difference between needed and provided.   -->
-      </div>
-      <div class="item_providers">
-      </div>
-      <% counter += 1 %>
-    <% end %>
+
+    <%= render 'items/single' %>
+
   </div>
 
   <div class="claimed_items">

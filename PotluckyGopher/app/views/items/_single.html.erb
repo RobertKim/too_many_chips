@@ -1,6 +1,22 @@
-<div class="single_item">
-  <p><%= @item.name %></p>
-  <p><%= @item.suggestion %></p>
-  <p><%= @item.quantity_needed %></p>
-  <p><%= @item.quantity_provided %></p>
-<div>
+<% @event.event_items.each do |ei| %>
+<div class="item">
+  <% item = Item.find_by_id(ei.item_id) %>
+  <div class="single_item_details">
+    <p class="item_name"><%= item.name %></p>
+    <p class="suggestion"><%= item.suggestion %></p>
+  </div>
+  <div class="event_item_details">
+    <p><%= ei.quantity_needed %></p>
+  </div>
+  <% assigned_items = AssignedItem.where("event_item_id =?", ei.id) %>
+  <div class="assigned_items">
+    <% assigned_items.each do |ai| %>
+    <div class="provided_item">
+      <p class="guest_name"> <%= ai.guest_name %> </p>
+      <p class="quantity_provided"> <%= ai.quantity_provided %> </p>
+      <p class="guest_email"> <%= ai.guest_email %> </p>
+    </div>
+    <% end %>
+  </div>
+</div>
+<% end %>
