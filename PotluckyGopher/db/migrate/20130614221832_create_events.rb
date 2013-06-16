@@ -8,7 +8,6 @@ class CreateEvents < ActiveRecord::Migration
       t.date :date
       t.string :location
       t.string :url
-      t.string :host_provided
       t.integer :user_id
 
       t.timestamps

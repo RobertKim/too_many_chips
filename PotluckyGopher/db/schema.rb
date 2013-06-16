@@ -18,10 +18,13 @@ ActiveRecord::Schema.define(:version => 20130616182610) do
     t.integer "quantity_provided"
     t.string  "guest_email"
     t.string  "guest_name"
+    t.string  "url"
   end
 
   create_table "event_items", :force => true do |t|
     t.integer  "event_id"
+    t.string   "name"
+    t.string   "description"
     t.integer  "item_id"
     t.integer  "quantity_needed"
     t.datetime "created_at",      :null => false
@@ -36,10 +39,9 @@ ActiveRecord::Schema.define(:version => 20130616182610) do
     t.date     "date"
     t.string   "location"
     t.string   "url"
-    t.string   "host_provided"
     t.integer  "user_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "items", :force => true do |t|
@@ -58,6 +60,3 @@ ActiveRecord::Schema.define(:version => 20130616182610) do
   end
 
 end
-
-
-

@@ -5,6 +5,8 @@ class CreateClaimedItems < ActiveRecord::Migration
       t.integer :quantity_provided
       t.string :guest_email
       t.string :guest_name
+      t.string :url
     end
   end
 end
+r
