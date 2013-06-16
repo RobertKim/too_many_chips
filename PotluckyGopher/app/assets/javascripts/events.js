@@ -6,11 +6,13 @@
 // t.string  :guest_email
 // t.integer :quantity_provided
 //----------------------------Event related  functions ----------------------------//
-function Item(name, suggestion, quantity){
+function Item(name, suggestion, quantity, quantNeed){
   this.name                  = name;
   this.suggestion            = suggestion;
   this.quantityNeeded        = quantity;
-  this.eventsItemsTemplate   = '<div class="events_items"><div class="name">'+ this.name +'</div><div class="suggestion">'+ this.suggestion +'</div><div class="quantity_needed">' + this.quantityNeeded +'</div><div>';
+  this.quantNeed             = quantNeed || 0;
+  this.eventsItemsTemplate   = '<div class="events_items"><div class="name">'+ this.name +'</div><div class="suggestion">'+ this.suggestion +'</div><div class="quantity_needed">' + this.calculateNeed() +'</div><div>';
+  this.assignedItemsTemplate = '<div class="assigned_item">' + this.name + '<input class="name" placeholder="Your Name"><input class="guest_name"><input class="guest_email"><input class="quantity_provided"></div><button class="bring_item">Bring Item</button>';
 }
 
 Item.prototype = {
@@ -19,13 +21,17 @@ Item.prototype = {
                       this.name                   = name;
                       this.suggestion             = suggestion;
                       this.quantityNeeded         = quantity;
-                    },
+                      },
     addGuestDetails: function(quantityProvided, guestEmail, guestName){
                        this.quantityProvided      = quantityProvided;
                        this.guestEmail            = guestEmail;
                        this.guestName             = guestName;
-                       this.assignedItemsTemplate = '<div class="assigned_item"><div class="name">'+ this.name +'</div><div class="guest_name">'+ this.guestName + '</div><div class="guest_email">'+ this.guestEmail + '</div><div class="quantity_provided">' + this.quantityProvided + '</div>';
-                    }
+                       this.assignedItemsTemplate = '<div class="assigned_item"><input class="name"><input class="guest_name"><input class="guest_email"><input class="quantity_provided"></div>';
+                      },
+       calculateNeed: function(){
+                        return (parseInt(this.quantityNeeded) - parseInt(this.quantNeed));
+
+                      }
 };
 
 function Event(){
