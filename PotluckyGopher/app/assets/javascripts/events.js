@@ -10,7 +10,7 @@ function Item(name, suggestion, quantity){
   this.name                  = name;
   this.suggestion            = suggestion;
   this.quantityNeeded        = quantity;
-  this.eventsItemsTemplate   = '<div class="events_items"><div class="name">'+ this.name +'</div><div class="suggestion">'+ this.suggestion +'</div><div class="quantity_needed">' + this.quantityNeeded +'</div><div>';  
+  this.eventsItemsTemplate   = '<div class="events_items"><div class="name">'+ this.name +'</div><div class="suggestion">'+ this.suggestion +'</div><div class="quantity_needed">' + this.quantityNeeded +'</div><div>';
 }
 
 Item.prototype = {
@@ -21,7 +21,7 @@ Item.prototype = {
                       this.quantityNeeded         = quantity;
                     },
     addGuestDetails: function(quantityProvided, guestEmail, guestName){
-                       this.quantityProvided      = quantity_provided;
+                       this.quantityProvided      = quantityProvided;
                        this.guestEmail            = guestEmail;
                        this.guestName             = guestName;
                        this.assignedItemsTemplate = '<div class="assigned_item"><div class="name">'+ this.name +'</div><div class="guest_name">'+ this.guestName + '</div><div class="guest_email">'+ this.guestEmail + '</div><div class="quantity_provided">' + this.quantityProvided + '</div><div>';
@@ -52,7 +52,7 @@ Event.prototype = {
 //----------------------------Rendering functions ----------------------------//
 var EventRenderer = {
           render: function(newEvent){
-                    console.log(newEvent);
+                    // console.log(newEvent);
                     $('.event_form').hide();
                     $('.event_details').append(newEvent.template);
                   },
@@ -82,15 +82,6 @@ var ItemRenderer = {
       render: function(element, index, array){
                 $('.added_items').append(element.eventsItemsTemplate);//.fadeIn(800);
               }
-  // $('.add_item').on('click', function(){
-  //   var name = $('.item_name').val();
-  //   var sug = $('.suggestion').val();
-  //   var quantity = $('.quantity_needed').val();
-  //   var item = new Item(name, sug, quantity);
-  //   console.log(item);
-  //   createdEvent.add(item);
-  //   createdEvent.renderEventsItems();
-  // });
 };
 
 // function render(){
@@ -112,8 +103,12 @@ function NewEventForm(){
       myEvent.add(createdItem);
       ItemRenderer.render(createdItem);
     });
+    $('.save_event').on('click', function(){
+      $.post('/events', myEvent);
+    });
 }
 
 $(function(){
   NewEventForm();
 });
+q
