@@ -1,13 +1,17 @@
 require 'sidekiq/web'
 
 PotluckyGopher::Application.routes.draw do
-root to: 'pages#index'
+  match 'auth/:provider/callback', to: 'session#create'
+  match 'auth/failure', to: redirect('/')
+  match 'signout', to: 'session#destroy', as: 'signout'
+
+  root to: 'pages#index'
   resources :users, :only => [:show, :create, :new, :edit]
   resources :sessions, :only => [:destroy, :create, :new]
   resources :events
   resource :items
 
-match '/logout' => 'sessions#destroy'
+# match '/logout' => 'sessions#destroy'
 
 mount Sidekiq::Web, at: "/sidekiq"
   # The priority is based upon order of creation:

@@ -185,7 +185,6 @@ DEPENDENCIES
   debugger
   jquery-rails
   mail
-  omniauth
   omniauth-facebook
   pg
   rails (= 3.2.13)

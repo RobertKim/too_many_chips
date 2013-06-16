@@ -49,9 +49,15 @@ PotluckyGopher::Application.configure do
   # config.assets.precompile += %w( search.js )
 
   # Disable delivery errors, bad email addresses will be ignored
-  config.action_mailer.raise_delivery_errors = false
-
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+   :port =>           '587',
+   :address =>        'smtp.mandrillapp.com',
+   :user_name =>      ENV['MANDRILL_USERNAME'],
+   :password =>       ENV['MANDRILL_APIKEY'],
+   :domain =>         'heroku.com',
+   :authentication => :plain
+     }
 
   # Enable threaded mode
   # config.threadsafe!

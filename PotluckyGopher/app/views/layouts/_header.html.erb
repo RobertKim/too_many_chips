@@ -1,9 +1,10 @@
 <header>
 	<nav class="navbar">
 		<div class= "navbar-inner">
-			<h1 id="brand" ><%= link_to "PotLucky!", root_path%></h1>
+			<h1 id="brand" ><%= link_to "GopherPotLuck!", root_path%></h1>
 			<ul id="top_nav" class="nav nav-pills">
 				<% unless current_user %>
+				  <li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
 					<li><button id="new_user" class="btn btn-large btn-success"> Sign Up </button></li>
 					<li><%= render 'layouts/session_form' %></li>
 					<li><button id="login" class="btn btn-large btn-success"> Log In </button></li>
@@ -11,8 +12,10 @@
 				<% end %>
 
 				<% if current_user %>
+				    <li> Signed in as <strong><%= current_user.name.titleize %></strong>! </li>
+				
 
-						<li><%= button_to "Log Out", logout_path, :method => :delete %></li>
+						<li><%= button_to "Log Out", signout_path, :method => :delete %></li>
 			
 				<% end %>
 			</ul>
