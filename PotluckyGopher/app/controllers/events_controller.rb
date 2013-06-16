@@ -18,7 +18,7 @@ class EventsController < ApplicationController
 
   def create
     items = params.delete(:items)
-    @event = Event.create(name: params[:eventName], description: params[:desc], date: params[:date], location: params[:place])
+    @event = Event.create(name: params[:eventName], description: params[:desc], date: params[:date], location: params[:place], url: SecureRandom.urlsafe_base64)
     items.each do |i|
       @event.items << Item.create(name: items[i[0]]["name"] , suggestion: items[i[0]]["suggestion"], quantity_needed: items[i[0]]["quantityNeeded"])
     end
