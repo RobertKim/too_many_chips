@@ -17,7 +17,14 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(params[:event])
+    puts params
+    items = params.delete(:items)
+    puts 
+    puts items
+    @event = Event.create(name: params[:eventName], description: params[:desc], date: params[:date], location: params[:place])
+    items.each do |i| 
+      @event.items << Item.create(name: items[i[0]]["name"] , suggestion: items[i[0]]["suggestion"], quantity_needed: items[i[0]]["quantityNeeded"])
+    end
     if @event.save
       redirect_to event_path(@event)
     else

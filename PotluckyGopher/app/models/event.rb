@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  attr_accessible :date, :description, :end_time, :host_provided, :location, :name, :start_time, :type, :url, :user_id
+  attr_accessible :date, :description, :end_time, :host_provided, :location, :name, :start_time, :url, :user_id
 
   belongs_to :user
   has_many :event_items
