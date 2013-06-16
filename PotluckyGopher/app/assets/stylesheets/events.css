@@ -37,17 +37,14 @@ div {
 
 .added_items {
    clear: both;
-   width: 900px;
+   width: 400px;
   height: 480px;
 }
 
-.new_assigned_item {
+.events_items {
   /*display: none;*/
   float:left;
   margin: 5px;
-  width: 160px;
-  height: 140px;
-}
-
-.hide {
+  width: 60px;
+  height: 80px;
 }
