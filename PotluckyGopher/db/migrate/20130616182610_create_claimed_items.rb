@@ -9,4 +9,3 @@ class CreateClaimedItems < ActiveRecord::Migration
     end
   end
 end
-r
