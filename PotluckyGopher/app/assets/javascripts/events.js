@@ -24,7 +24,7 @@ Item.prototype = {
                        this.quantityProvided      = quantityProvided;
                        this.guestEmail            = guestEmail;
                        this.guestName             = guestName;
-                       this.assignedItemsTemplate = '<div class="assigned_item"><div class="name">'+ this.name +'</div><div class="guest_name">'+ this.guestName + '</div><div class="guest_email">'+ this.guestEmail + '</div><div class="quantity_provided">' + this.quantityProvided + '</div><div>';
+                       this.assignedItemsTemplate = '<div class="assigned_item"><div class="name">'+ this.name +'</div><div class="guest_name">'+ this.guestName + '</div><div class="guest_email">'+ this.guestEmail + '</div><div class="quantity_provided">' + this.quantityProvided + '</div>';
                     }
 };
 
@@ -94,12 +94,13 @@ function NewEventForm(){
     var addItemNode    = $('.add_item');
     var eventItemsNode = $('.added_items');
 
-    addEventNode.on('click', function(){
+    $('.add_event').on('submit', function(e){
+      e.preventDefault();
       EventRenderer.submitForm(myEvent);
     });
 
-    addItemNode.on('click', function(){
-      createdItem = ItemRenderer.createItem();
+    $('.add_item').on('click', function(){
+      var createdItem = ItemRenderer.createItem();
       myEvent.add(createdItem);
       ItemRenderer.render(createdItem);
     });

@@ -3,5 +3,19 @@
 <%= f.text_field :location, :class => "location", :placeholder => "Location"%>
 <%= f.date_select :date, :class => "date", :placeholder => "Date"%>
 <%= f.text_area :description, :class => "description", :placeholder => "Description"%>
-<%= f.submit %>
+<%= render :partial => 'items/form', :locals => {:f => builder} %>
 <% end %>
+
+
+<!-- 
+t.string   "name"
+    t.text     "description"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.date     "date"
+    t.string   "location"
+    t.string   "url"
+    t.string   "host_provided"
+    t.integer  "user_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false -->

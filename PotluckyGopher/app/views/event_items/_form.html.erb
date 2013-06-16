@@ -1,7 +1,23 @@
-<%= form_for @event_items do |f| %>
-  Send Email Reminder<%= f.radio_button :email_reminder, :class => "email_reminder" %>
-  <%=f.text_field :quanity , :class => "quanity", :placeholder => "quanity" %>
-  <%=f.text_field :guest_email, :class => "guest_email", :placeholder => "guest_email" %>
-  <%=f.text_field :guest_name, :class => "guest_name", :placeholder => "guest_name" %>
-  <%=f.text_field :guest_notes, :class => "guest_notes", :placeholder => "guest_notes" %>
+<%= event_form.fields_for :event_items do |event_item| %> 
+<%= f.text_field :quantity , :class => "item_name", :placeholder => "Item" %>
+  <%=f.text_field :quantity , :class => "description", :placeholder => "Description" %>
+  <%=f.text_field :quantity , :class => "quantity_needed", :placeholder => "Quantity Needed" %>
 <% end %>
+
+<!-- 
+t.integer  "event_id"
+t.integer  "item_id"
+t.integer  "quantity_needed"
+t.text     "suggestion"
+
+t.datetime "created_at",      :null => false
+t.datetime "updated_at",      :null => false -->
+
+<!--   create_table "event_items", :force => true do |t|
+    t.integer  "event_id"
+    t.integer  "item_id"
+    t.integer  "quantity_needed"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end -->
+
