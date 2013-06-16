@@ -48,5 +48,5 @@ production:
   adapter: postgresql
   encoding: unicode
   database: PotluckyGopher_production
-  pool: 5
+  pool: 25
 

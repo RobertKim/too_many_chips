@@ -7,5 +7,21 @@ class User < ActiveRecord::Base
   validates :password, :length => {:minimum => 6, :too_short  => "must have at least %{count} characters"}
   validates_confirmation_of :password
 
+  after_create :registration_emails!
+
+    def registration_emails!
+    # schedule_result_email unless self.result_date == nil
+    send_email
+  end
+
+def schedule_result_email
+    EmailWorker.perform_at(self.result_date, self.user_id, self.id, 'result')
+  end
+
+
+  def send_email
+    EmailWorker.perform_async(self.id)
+  end
+
 end
 

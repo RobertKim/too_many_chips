@@ -15,8 +15,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+
       login @user
-      redirect_to @user
+     
+      redirect_to @user, :notice => 'User was successfully created.'
     else
       flash[:errors] = @user.errors.messages
       redirect_to root_path

@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
+gem 'sinatra', require: false
+gem 'slim'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -12,6 +14,11 @@ gem 'chronic'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+gem "mail"
+
+gem 'sidekiq', '>= 2.12.1'
+gem 'sidekiq-status'
+gem 'sidekiq-failures'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

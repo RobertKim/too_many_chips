@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 PotluckyGopher::Application.routes.draw do
 root to: 'pages#index'
   resources :users, :only => [:show, :create, :new, :edit]
@@ -6,6 +8,8 @@ root to: 'pages#index'
   resource :items
 
 match '/logout' => 'sessions#destroy'
+
+mount Sidekiq::Web, at: "/sidekiq"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
