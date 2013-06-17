@@ -9,7 +9,7 @@ class SessionController < ApplicationController
   def create
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
-      login user
+      session[:id] = user.id
       redirect_to user_path(user)
     else
       flash[:errors] = {"Login" => ["Email and Password combination not found"]}
