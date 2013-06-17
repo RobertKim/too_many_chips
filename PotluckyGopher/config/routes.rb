@@ -12,12 +12,6 @@ PotluckyGopher::Application.routes.draw do
   resource :items
   resources :assigned_items, :only => [:new, :create, :edit]
 
-
-  resources :events 
-
-
-
-
 # match '/logout' => 'sessions#destroy'
 
 # mount Sidekiq::Web, at: "/sidekiq"
