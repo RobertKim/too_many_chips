@@ -42,7 +42,7 @@ class EventItemsController < ApplicationController
   # PUT /event_items/1.json
   def update
     @event_item = EventItem.find(params[:id])
-    end
+
   end
 
   # DELETE /event_items/1
@@ -51,9 +51,5 @@ class EventItemsController < ApplicationController
     @event_item = EventItem.find(params[:id])
     @event_item.destroy
 
-    respond_to do |format|
-      format.html { redirect_to event_items_url }
-      format.json { head :no_content }
-    end
   end
 end

@@ -12,26 +12,11 @@ class UsersController < ApplicationController
  
   end
 
-  # def create
-  #   @user = User.new(params[:user])
-
-  #   if @user.save
-  #     # UserMailer.signup_confirmation(@user).deliver
-  #     redirect_to user_path(@user), notice: "Signed up successfully."
-  #   else
-  #     render :new
-  #   end
-   
-  # end
-
   def create
     @user = User.new(params[:user])
     if @user.save
-
-
       login @user
-      UserMailer.signup_confirmation(@user).deliver
-     
+      # UserMailer.signup_confirmation(@user.id).deliver
       redirect_to @user, :notice => 'User was successfully created.'
     else
       flash[:errors] = @user.errors.messages
