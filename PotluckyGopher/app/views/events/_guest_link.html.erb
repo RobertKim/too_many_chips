@@ -1,3 +1,13 @@
+<div>
+<h1>Here's a link to share with your guests.</h1>
+<%= @event.url %>
+</div>
+
+
+<h1>Here's how your event will appear to you guest</h1>
+<h2> You can edit your event at any time</h2>
+<h2> Add event edit button </h2>
+
 <h1>Your Event!</h1>
 
 <div class='event'>
@@ -21,9 +31,14 @@
 
   </div>
   <div class="added_items">
-
-    <%= render 'items/single' %>
-
+    <% @event.items.each do |i| %>
+      <div class="events_items">
+        <div class="name"><%= i.name %></div>
+        <div class="suggestion"><%= i.suggestion %></div>
+        <div class="quantity_needed"><%= i.quantity_needed %></div>
+        <div class="quantity_needed"><%= i.quantity_provided %></div>
+      </div>
+    <% end %>
   </div>
 
   <div class="claimed_items">

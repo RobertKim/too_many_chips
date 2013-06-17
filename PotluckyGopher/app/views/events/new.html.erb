@@ -2,21 +2,10 @@
 
 <div class='event'>
   <div class='event_details'>
-     <div class="event_form">
-      <input class="event_name" placeholder="Title" required>
-      <input class ="place" placeholder="Location">
-      <input type="datetime" class="date" placeholder="Date">
-      <input type="text" class="description" placeholder="Description">
-      <button class="add_event">Create Event</button>
-    </div>
-  </div>
-  <div class='items_form' style="display:none">
-    <input class="item_name" placeholder="Name">
-    <input class="suggestion" placeholder="Description">
-    <input class="quantity_needed" placeholder="Quantiy Needed">
-    <button class="add_item">Add Item</button>
+    <%= render 'form' %>
   </div>
   <div class="added_items">
+    <button class="add_item">Add Item</button>
 
   </div>
   <button class="save_event">Save Event</button>

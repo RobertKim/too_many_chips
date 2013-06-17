@@ -1,13 +1,11 @@
 class CreateEventItems < ActiveRecord::Migration
   def change
     create_table :event_items do |t|
-
     	t.integer :event_id
-    	t.integer :item_id
-
-      t.string  :guest_name
-      t.string  :guest_email
-      t.integer :quantity_provided
+    	t.string  :name
+      t.string  :description
+      t.integer :item_id
+      t.integer :quantity_needed
 
       t.timestamps
     end

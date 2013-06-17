@@ -38,13 +38,21 @@ div {
 .added_items {
    clear: both;
    width: 400px;
-  height: 480px;
+  height: 400px;
 }
 
 .events_items {
   /*display: none;*/
   float:left;
+  cursor: hand; 
+  cursor: pointer;
   margin: 5px;
   width: 60px;
   height: 80px;
+}
+
+.claimed_items{
+   float:  left;
+   width: 400px;
+  height: 480px;
 }
