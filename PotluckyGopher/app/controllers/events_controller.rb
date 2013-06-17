@@ -9,9 +9,7 @@ class EventsController < ApplicationController
 
   def new
    @event = Event.new
-   @item = @event.items.build
-   @item.event_items.build
-   @event.event_items.build
+   @event.event_items.build.item = Item.new
  end
 
  def edit
@@ -20,8 +18,7 @@ end
 
 
 def create
-  @event = Event.new(params[:event]
-    )
+  @event = Event.new(params[:event])
   @event.url = SecureRandom.urlsafe_base64
   @event.user_id = current_user.id
   if @event.save

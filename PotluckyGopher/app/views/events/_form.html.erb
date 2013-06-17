@@ -1,16 +1,18 @@
 <div class='new_event'>
-    <%= form_for(@event) do |f| %>
-    <%= f.text_field :name, :class => ".name", :placeholder => "Title"%>
-    <%= f.text_field :location, :class => "location", :placeholder => "Location"%>
-    <%= f.date_select :date, :class => "date", :placeholder => "Date"%>
-    <%= f.text_area :description, :class => "description", :placeholder => "Description"%>
-    <%= f.fields_for :items do |builder| %>     
-    <div class='add_items'>
-        <%= render 'items/form', f: builder %>
-        <% end %>
-    <%= link_to_add_fields "Add Item", f, :items %>
-    <%= f.submit %>
-    <% end %>
+  <%= form_for(@event) do |e| %>
+  	<%= e.text_field :name, :class => ".name", :placeholder => "Title"%>
+  	<%= e.text_field :location, :class => "location", :placeholder => "Location"%>
+  	<%= e.date_select :date, :class => "date", :placeholder => "Date"%>
+  	<%= e.text_area :description, :class => "description", :placeholder => "Description"%>
+    <ul class='event_items'>
+      <%= e.fields_for :event_items do |ei| %>     
+    		<%= render 'event_items/form', f: ei %>
+      <% end %>
+    </ul>
+    
+    <%= link_to_add_fields "Add Item", e, :event_items %>
+  	<%= e.submit %>
+	<% end %>
 </div>
 
 

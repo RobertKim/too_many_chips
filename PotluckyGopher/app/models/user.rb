@@ -24,7 +24,6 @@ class User < ActiveRecord::Base
 
 
   def registration_emails!
-  
     # schedule_result_email unless self.result_date == nil
     send_email
   end
