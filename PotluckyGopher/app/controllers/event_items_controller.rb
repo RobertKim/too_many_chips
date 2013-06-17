@@ -24,21 +24,21 @@ class EventItemsController < ApplicationController
 
   # POST /event_items
   # POST /event_items.json
-  def create
-    @event_item = EventItem.new(params[:event_item])
+  # def create
+  #   @event_item = EventItem.new(params[:event_item])
 
-    respond_to do |format|
-      if @event_item.save
-        puts "THE CONTROLLERS EVENT ITEM!!!!!!!!!!!!!!"
-        puts @event_item
-        format.html { redirect_to @event_item, notice: 'Event item was successfully created.' }
-        format.json { render json: @event_item, status: :created, location: @event_item }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @event_item.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  #   respond_to do |format|
+  #     if @event_item.save
+  #       puts "THE CONTROLLERS EVENT ITEM!!!!!!!!!!!!!!"
+  #       puts @event_item
+  #       format.html { redirect_to @event_item, notice: 'Event item was successfully created.' }
+  #       format.json { render json: @event_item, status: :created, location: @event_item }
+  #     else
+  #       format.html { render action: "new" }
+  #       format.json { render json: @event_item.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # PUT /event_items/1
   # PUT /event_items/1.json
