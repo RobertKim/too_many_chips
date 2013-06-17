@@ -16,7 +16,7 @@
 
 
 $(document).ready(function(){
-	
+
 	// Toggle Login Form
 	$('form.login').hide();
 	$('button#login').click(function(){
