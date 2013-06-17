@@ -13,7 +13,7 @@
   <div class="assigned_items">
     <% if ei.quantity_needed > 0 %>
       
-      <%= form_for @assigned_item, :remote => true do |ai| %>
+      <%= form_for @assigned_item do |ai| %>
         <%= ai.text_field :guest_name, :class => 'field', :placehoder => 'Guest Name' %>
         <%= ai.text_field :quantity_provided, :class => 'field', :placehoder => 'How Much?', :in => 1..ei.quantity_needed%>
         <%= ai.text_field :guest_email, :class => 'field', :placehoder => 'Email'%>

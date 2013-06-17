@@ -20,7 +20,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.create(params[:event], url: SecureRandom.urlsafe_base64, user_id: current_user.id)
-
+    
     if @event.save
       redirect_to edit_event_path(@event)
     else
