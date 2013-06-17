@@ -21,17 +21,6 @@ class EventsController < ApplicationController
       )
     @event.url = SecureRandom.urlsafe_base64
     @event.user_id = current_user.id
-
-
-    # items = params[:event][:event_items_attributes]
-    # items.each do |item_array|
-    #   @events_item = EventItem.create
-    #   @event_item.item_id = Item.find_or_create_by_name(item_array[1][:name]).id
-    #   @event_item.quantity_needed = item_array[1][:quantity_needed]
-    #   @event_item.description = item_array[1][:description]
-    #   @event_item.event_id = @event.id
-    #   @event_item.save
-    # end
     if @event.save
       redirect_to event_path(@event)
     else
