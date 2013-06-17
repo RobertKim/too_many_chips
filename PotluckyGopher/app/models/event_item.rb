@@ -9,6 +9,8 @@ class EventItem < ActiveRecord::Base
   }
   validates :description, :length => { :maximum => 140 }
 
+  validates :guest_email, :format => {:with => /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/}
+
   has_many :assigned_items
   belongs_to :event, :inverse_of => :event_items
   belongs_to :item, :inverse_of => :event_items
