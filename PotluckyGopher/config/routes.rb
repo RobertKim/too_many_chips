@@ -1,4 +1,4 @@
-require 'sidekiq/web'
+# require 'sidekiq/web'
 
 PotluckyGopher::Application.routes.draw do
   match 'auth/:provider/callback', to: 'session#create'
