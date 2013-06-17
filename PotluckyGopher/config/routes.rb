@@ -8,6 +8,11 @@ PotluckyGopher::Application.routes.draw do
   resources :users, :only => [:show, :create, :new, :edit]
   resources :sessions, :only => [:destroy, :create, :new]
 
+  resources :events
+  resource :items
+  resources :assigned_items, :only => [:new, :create, :edit]
+
+
   resources :events 
 
 

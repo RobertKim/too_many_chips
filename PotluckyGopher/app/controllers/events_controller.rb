@@ -4,6 +4,8 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @items = @event.items
+    session[:event_id] = @event.id
+    @assigned_item = AssignedItem.new
   end
 
   def new

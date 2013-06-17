@@ -1,4 +1,4 @@
-<% @event.event_items.each do |ei| %>
+ <% @event.event_items.each do |ei| %>
 <div class="item">
   <% item = Item.find_by_id(ei.item_id) %>
   <div class="single_item_details">
@@ -6,11 +6,22 @@
     <p class="suggestion"><%= item.suggestion %></p>
   </div>
   <div class="event_item_details">
-    <p><%= ei.quantity_needed %></p>
+    <p>Amount Needed: <%= ei.quantity_needed %></p>
+    <p>Description: <%= ei.description %></p>
   </div>
-  <% assigned_items = AssignedItem.where("event_item_id =?", ei.id) %>
+  <% @assigned_items = AssignedItem.where("event_item_id =?", ei.id) %>
   <div class="assigned_items">
-    <% assigned_items.each do |ai| %>
+    <% if ei.quantity_needed > 0 %>
+      
+      <%= form_for @assigned_item, :remote => true do |ai| %>
+        <%= ai.text_field :guest_name, :class => 'field', :placehoder => 'Guest Name' %>
+        <%= ai.text_field :quantity_provided, :class => 'field', :placehoder => 'How Much?', :in => 1..ei.quantity_needed%>
+        <%= ai.text_field :guest_email, :class => 'field', :placehoder => 'Email'%>
+        <%= ai.hidden_field :event_item_id, {:value => "#{ei.id}"} %>
+        <%= ai.submit :value => "Bring Item" %>
+      <% end %>
+    <% end %>
+    <% @assigned_items.each do |ai| %>
     <div class="provided_item">
       <p class="guest_name"> <%= ai.guest_name %> </p>
       <p class="quantity_provided"> <%= ai.quantity_provided %> </p>
