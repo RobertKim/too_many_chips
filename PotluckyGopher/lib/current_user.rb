@@ -6,13 +6,13 @@ module Authentication
     end
   end
 
-  def authenticate_user(info)
-    @user = User.find_by_email(info[:email])
-    if @user && @user.authenticate(info[:password])
-      session[:id] = @user.id
-      redirect_to '/profile'
-    else
-      flash[:notice] = "Bad password"
-    end
-  end
+  # def authenticate_user(info)
+  #   @user = User.find_by_email(info[:email])
+  #   if @user && @user.authenticate(info[:password])
+  #     session[:id] = @user.id
+  #     redirect_to '/profile'
+  #   else
+  #     flash[:notice] = "Bad password"
+  #   end
+  # end
 end

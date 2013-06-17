@@ -1,5 +1,5 @@
 class EventItem < ActiveRecord::Base
-  attr_accessible :event_id, :description, :item_id, :quantity_needed, :_destroy
+  attr_accessible :event_id, :description, :item_id, :quantity_needed
   
   validates :quantity_needed, :presence => true#, :message => "Please tell your guest how much you need."
   validates :quantity_needed, :numericality => { 
