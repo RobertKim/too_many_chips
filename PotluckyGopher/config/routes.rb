@@ -4,6 +4,7 @@ root to: 'pages#index'
   resources :sessions, :only => [:destroy, :create, :new]
   resources :events
   resource :items
+  resources :assigned_items, :only => [:new, :create, :edit]
 
 match '/logout' => 'sessions#destroy'
   # The priority is based upon order of creation:
