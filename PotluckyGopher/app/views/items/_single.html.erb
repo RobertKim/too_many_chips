@@ -11,7 +11,7 @@
   </div>
   <% @assigned_items = AssignedItem.where("event_item_id =?", ei.id) %>
   <div class="assigned_items">
-    <% if ei.quantity_needed > 0 %>
+    <% if ei.needed? %>
       
       <%= form_for @assigned_item do |ai| %>
         <%= ai.text_field :guest_name, :class => 'field', :placeholder => "Guest Name" %>

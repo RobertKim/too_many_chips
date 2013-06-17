@@ -21,4 +21,8 @@ class EventItem < ActiveRecord::Base
     end
     return self.quantity_needed - provided_items
   end
+
+  def needed?
+   quantity_still_needed > 0
+  end
 end
