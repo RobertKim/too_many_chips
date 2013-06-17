@@ -4,12 +4,14 @@ PotluckyGopher::Application.routes.draw do
   match 'auth/:provider/callback', to: 'session#create'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'session#destroy', as: 'signout'
-
   root to: 'pages#index'
   resources :users, :only => [:show, :create, :new, :edit]
   resources :sessions, :only => [:destroy, :create, :new]
-  resources :events
-  resource :items
+
+  resources :events 
+
+
+
 
 # match '/logout' => 'sessions#destroy'
 

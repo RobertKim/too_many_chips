@@ -1,21 +1,18 @@
-<%= form_for @event do |f| %>
-<%= f.text_field :name, :class => ".name", :placeholder => "Title"%>
-<%= f.text_field :location, :class => "location", :placeholder => "Location"%>
-<%= f.date_select :date, :class => "date", :placeholder => "Date"%>
-<%= f.text_area :description, :class => "description", :placeholder => "Description"%>
-<%= render :partial => 'items/form', :locals => {:f => builder} %>
+<div class='new_event'>
+
+<%= form_for(@event) do |f| %>
+    <%= f.text_field :name, :class => ".name", :placeholder => "Title"%>
+    <%= f.text_field :location, :class => "location", :placeholder => "Location"%>
+    <%= f.date_select :date, :class => "date", :placeholder => "Date"%>
+    <%= f.text_area :description, :class => "description", :placeholder => "Description"%>
+
+    <%= f.fields_for :items do |builder| %>     
+  <div class='add_items'>
+    <h5>Item</h5>
+        <%= render 'items/form', f: builder %>
+    <% end %>
+  </div>
+    <%= link_to_add_fields "Add Item", f, :items %>
+    <%= f.submit %>
 <% end %>
-
-
-<!-- 
-t.string   "name"
-    t.text     "description"
-    t.time     "start_time"
-    t.time     "end_time"
-    t.date     "date"
-    t.string   "location"
-    t.string   "url"
-    t.string   "host_provided"
-    t.integer  "user_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false -->
+</div>

@@ -3,11 +3,13 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @items = @event.items
   end
 
   def new
     @event = Event.new
-    @items = Item.all
+    @item = @event.items.build
+    @item.event_items.build
   end
 
   def edit
@@ -16,9 +18,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.create(params[:event], url: SecureRandom.urlsafe_base64, user_id: current_user.id)
-    # items.each do |i|
-    #   @event.items << EventItem.create(name: items[i[0]]["name"] , suggestion: items[i[0]]["suggestion"], quantity_needed: items[i[0]]["quantityNeeded"])
-    # end
+
     if @event.save
       redirect_to edit_event_path(@event)
     else
