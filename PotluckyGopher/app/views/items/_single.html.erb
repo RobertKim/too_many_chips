@@ -6,7 +6,7 @@
     <p class="suggestion"><%= item.suggestion %></p>
   </div>
   <div class="event_item_details">
-    <p>Amount Needed: <%= ei.quantity_needed %></p>
+    <p>Amount Needed: <%= ei.quantity_still_needed %></p>
     <p>Description: <%= ei.description %></p>
   </div>
   <% @assigned_items = AssignedItem.where("event_item_id =?", ei.id) %>
@@ -14,9 +14,9 @@
     <% if ei.quantity_needed > 0 %>
       
       <%= form_for @assigned_item do |ai| %>
-        <%= ai.text_field :guest_name, :class => 'field', :placehoder => 'Guest Name' %>
-        <%= ai.text_field :quantity_provided, :class => 'field', :placehoder => 'How Much?', :in => 1..ei.quantity_needed%>
-        <%= ai.text_field :guest_email, :class => 'field', :placehoder => 'Email'%>
+        <%= ai.text_field :guest_name, :class => 'field', :placeholder => "Guest Name" %>
+        <%= ai.text_field :quantity_provided, :class => 'field', :placeholder => 'How Much?', :in => 1..ei.quantity_needed%>
+        <%= ai.text_field :guest_email, :class => 'field', :placeholder => 'Email'%>
         <%= ai.hidden_field :event_item_id, {:value => "#{ei.id}"} %>
         <%= ai.submit :value => "Bring Item" %>
       <% end %>
