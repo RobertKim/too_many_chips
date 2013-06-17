@@ -2,8 +2,8 @@
 
 <%= render 'form' %>
 <div class='footer'>
-  <%= link_to 'Delete' , @events, :method => :delete, :confirm =>
-  "Are you sure you want to delete your event?" %>
+  <%= link_to 'Delete' , @event, :confirm =>
+  "Are you sure you want to delete your event?", :method => :delete %>
   <%= link_to 'Show', @event %> |
   <%= link_to 'Back', user_path %>
 </div>

@@ -3,11 +3,14 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    session[:event_id] = @event.id
+    @assigned_item = AssignedItem.new
   end
 
   def new
     @event = Event.new
-    @items = Item.all
+    @item = @event.items.build
+    @item.event_items.build
   end
 
   def edit
@@ -15,12 +18,11 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.create(params[:event], url: SecureRandom.urlsafe_base64, user_id: current_user.id)
-    # items.each do |i|
-    #   @event.items << EventItem.create(name: items[i[0]]["name"] , suggestion: items[i[0]]["suggestion"], quantity_needed: items[i[0]]["quantityNeeded"])
-    # end
+    p params
+    @event = Event.new(params[:event])
+    @event.url = SecureRandom.urlsafe_base64
     if @event.save
-      redirect_to edit_event_path(@event)
+      redirect_to event_path(@event)
     else
       redirect_to new_event_path
     end
@@ -38,5 +40,9 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
+    respond_to do |format|
+      format.html { redirect_to user_path(current_user) }
+      format.xml  { head :ok }
+    end
   end
 end

@@ -1,11 +1,10 @@
-<% form_for @event, :remote => true do |event_form| %>
-  <%= event_form.fields_for :items do |item| %> 
-    <%=item.text_field :name , :class => "items_field", :placeholder => "Item Name" %>
-    <%=item.text_field :suggestion, :class => "items_field", :placeholder => "Suggestions" %>
-    
-    <%= item.fields_for :event_items do |event_item| %> 
-      <%=event_item.text_field :quantity , :class => "quantity_needed", :placeholder => "Quantity Needed" %>
+  
+<fieldset>
+  <%= f.text_field :name , :class => "items_field", :placeholder => "Item Name" %>
+  <%= f.hidden_field :_destroy %>  
+  <%= link_to "remove", '#', class: "remove_item" %>
+    <%= f.fields_for :event_items do |builder| %>
+      <%= render 'event_items/form', f: builder %>
     <% end %>
-  <%= f.submit :class => "add_item", :value => "Add Item" %>
-  <% end %>
-<% end %>
+
+</fieldset>

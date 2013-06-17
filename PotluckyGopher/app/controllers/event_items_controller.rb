@@ -29,6 +29,8 @@ class EventItemsController < ApplicationController
 
     respond_to do |format|
       if @event_item.save
+        puts "THE CONTROLLERS EVENT ITEM!!!!!!!!!!!!!!"
+        puts @event_item
         format.html { redirect_to @event_item, notice: 'Event item was successfully created.' }
         format.json { render json: @event_item, status: :created, location: @event_item }
       else

@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130616185649) do
+=======
+ActiveRecord::Schema.define(:version => 20130616182610) do
+>>>>>>> 13f35206aa0edf7b41e5578e40af7f76ba28aa6b
 
   create_table "assigned_items", :force => true do |t|
     t.integer "event_item_id"
