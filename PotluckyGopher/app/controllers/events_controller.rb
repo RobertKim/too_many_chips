@@ -38,5 +38,9 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
+     respond_to do |format|
+      format.html { redirect_to user_path(current_user) }
+      format.xml  { head :ok }
+    end
   end
 end
