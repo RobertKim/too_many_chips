@@ -1,6 +1,6 @@
 class EventItem < ActiveRecord::Base
-
-  attr_accessible :event_id, :description, :item_id, :quantity_needed
+  attr_accessible :event_id, :description, :item_id, :quantity_needed, :_destroy
+  before_create :valid_quantity?
 
   validates :quantity_needed, :presence => true#, :message => "Please tell your guest how much you need."
   validates :quantity_needed, :numericality => {
@@ -12,6 +12,10 @@ class EventItem < ActiveRecord::Base
   has_many :assigned_items
   belongs_to :event, :inverse_of => :event_items
   belongs_to :item, :inverse_of => :event_items
+
+  def valid_quantity?
+    raise TypeError unless quantity_needed.class == Integer
+  end
 
   def quantity_still_needed
     provided_items = 0
