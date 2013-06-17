@@ -6,7 +6,7 @@ class SessionController < ApplicationController
     redirect_to user_path(current_user), notice: "Signed in!"
   end
 
- def create
+  def create
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
       login user

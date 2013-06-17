@@ -8,42 +8,44 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new
-    @event.event_items.build
-  end
+   @event = Event.new
+   @item = @event.items.build
+   @item.event_items.build
+   @event.event_items.build
+ end
 
-  def edit
-    @event = Event.find(params[:id])
-  end
+ def edit
+  @event = Event.find(params[:id])
+end
 
-  def create
-    @event = Event.new(params[:event]
-      )
-    @event.url = SecureRandom.urlsafe_base64
-    @event.user_id = current_user.id
-    if @event.save
-      redirect_to event_path(@event)
-    else
-      redirect_to new_event_path
-    end
+def create
+  @event = Event.new(params[:event]
+    )
+  @event.url = SecureRandom.urlsafe_base64
+  @event.user_id = current_user.id
+  if @event.save
+    redirect_to event_path(@event)
+  else
+    redirect_to new_event_path
   end
+end
 
-  def update
-    @event = Event.find(params[:id])
-    if @event.update_attributes(params[:event])
-      redirect_to event_path
-    else
-      redirect_to edit_event_path
-    end
+def update
+  @event = Event.find(params[:id])
+  if @event.update_attributes(params[:event])
+    redirect_to event_path
+  else
+    redirect_to edit_event_path
   end
+end
 
-  def destroy
-    @event = Event.find(params[:id])
-    @event.destroy
-    respond_to do |format|
-      format.html { redirect_to user_path(current_user) }
-      format.xml  { head :ok }
-    end
+def destroy
+  @event = Event.find(params[:id])
+  @event.destroy
+  respond_to do |format|
+    format.html { redirect_to user_path(current_user) }
+    format.xml  { head :ok }
   end
+end
 end
 
