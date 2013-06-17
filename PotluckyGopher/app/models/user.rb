@@ -7,35 +7,38 @@ class User < ActiveRecord::Base
   validates :password, :length => {:minimum => 6, :too_short  => "must have at least %{count} characters"}
   validates_confirmation_of :password
 
-  after_create :registration_emails!
+  # after_save :registration_emails!
 
-  def self.from_omniauth(auth)
-  	where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
-  		user.provider = auth.provider
-  		user.uid = auth.uid
-  		user.email = auth.info.email
-  		user.name = auth.info.name
-  		user.oauth_token = auth.credentials.token
-  		user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-  		user.password = SecureRandom.hex(4)
-  		user.save!
-  	end
-  end
-
-
-  def registration_emails!
-    # schedule_result_email unless self.result_date == nil
-    send_email
-  end
-
-  def schedule_result_email
-    EmailWorker.perform_at(self.result_date, self.user_id, self.id, 'result')
-  end
+  # def self.from_omniauth(auth)
+  # 	where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+  # 		user.provider = auth.provider
+  # 		user.uid = auth.uid
+  # 		user.email = auth.info.email
+  # 		user.name = auth.info.name
+  # 		user.oauth_token = auth.credentials.token
+  # 		user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+  # 		user.password = SecureRandom.hex(4)
+  # 		user.save!
+  # 	end
+  # end
 
 
-  def send_email
-    EmailWorker.perform_async(self.id)
-  end
+  # def registration_emails!
+  #   # schedule_result_email unless self.result_date == nil
+  #   send_email
+  # end
+
+  # def schedule_result_email
+  #   EmailWorker.perform_at(self.result_date, self.user_id, self.id, 'result')
+  # end
+
+
+  # def send_email
+  #   EmailWorker.perform_async(self.id)
+  # end
+
+#   App ID: 505556099515765
+# App Secret: e69b8e34f1011bf7c5aac0be544faa42
 
 end
 

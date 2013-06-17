@@ -13,7 +13,7 @@ PotluckyGopher::Application.routes.draw do
 
 # match '/logout' => 'sessions#destroy'
 
-mount Sidekiq::Web, at: "/sidekiq"
+# mount Sidekiq::Web, at: "/sidekiq"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

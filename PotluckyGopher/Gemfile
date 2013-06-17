@@ -13,7 +13,7 @@ gem 'chronic'
 
 gem 'omniauth-facebook'
 
-gem "mail"
+# gem "mail"
 
 gem 'sidekiq', '>= 2.12.1'
 gem 'sidekiq-status'
