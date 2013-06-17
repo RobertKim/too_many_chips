@@ -38,6 +38,8 @@ group :development, :test do
   gem 'sextant'
   gem 'better_errors'
   gem 'faker'
+  gem 'factory_girl'
+  gem 'shoulda'
 end
 
 # To use ActiveModel has_secure_password
