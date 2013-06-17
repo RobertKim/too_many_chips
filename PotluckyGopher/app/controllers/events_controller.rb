@@ -18,7 +18,9 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.create(params[:event], url: SecureRandom.urlsafe_base64, user_id: current_user.id)
+    p params
+    @event = Event.new(params[:event])
+    @event.url = SecureRandom.urlsafe_base64
     if @event.save
       redirect_to event_path(@event)
     else
@@ -38,7 +40,7 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
-     respond_to do |format|
+    respond_to do |format|
       format.html { redirect_to user_path(current_user) }
       format.xml  { head :ok }
     end

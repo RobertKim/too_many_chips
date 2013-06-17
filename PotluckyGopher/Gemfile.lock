@@ -37,7 +37,6 @@ GEM
     celluloid (0.14.1)
       timers (>= 1.0.0)
     chronic (0.9.1)
-    cocoon (1.1.2)
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -184,7 +183,6 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   better_errors
   chronic
-  cocoon
   coffee-rails (~> 3.2.1)
   debugger
   faker

@@ -11,6 +11,7 @@ class SessionController < ApplicationController
     if user && user.authenticate(params[:password])
       login user
       redirect_to user_path(current_user)
+      session[:id] = user.id
     else
       flash[:errors] = {"Login" => ["Email and Password combination not found"]}
       redirect_to root_path
@@ -18,7 +19,7 @@ class SessionController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
+    session.destroy
     redirect_to root_path
   end
 
