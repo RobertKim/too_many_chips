@@ -1,0 +1,18 @@
+<%= render 'event_details' %>
+
+  <div class="added_items">
+    <h5>Items Needed</h5>
+    <% @event.event_items.each do |i| %>
+      <div class="events_items">
+        <div class="name"><%= i.item.name %></div>
+        <div class="suggestion"><%= i.item.suggestion %></div>
+        <div class="quantity_needed"><%= i.quantity_still_needed %></div>
+        <div class="quantity_needed"><%= i.quantity_assigned %></div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="claimed_items">
+
+  </div>
+</div>

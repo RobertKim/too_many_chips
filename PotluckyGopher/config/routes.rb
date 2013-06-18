@@ -14,7 +14,7 @@ PotluckyGopher::Application.routes.draw do
 
   resources :items
   
-  resources :assigned_items, :only => [:new, :create, :edit, :destroy]
+  resources :assigned_items, :except => [:index]
   match 'edit_RSVP/:url' => 'assigned_items#edit'
 
 mount Sidekiq::Web, at: "/sidekiq"

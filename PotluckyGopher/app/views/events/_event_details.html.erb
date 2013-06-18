@@ -1,14 +1,8 @@
 
-<div class="event_name" placeholder="Title" required>
-  <%= @event.name %>
-</div>
-<div class ="place" placeholder="Location">
-  <%= @event.description %>
-</div>
-<div type="datetime" class="date" placeholder="Date">
-  <%= @event.date %>
-</div>
-<div type="text" class="description" placeholder="Description">
-  <%= @event.location %>
-</div>
+  <div class='hero-unit'>
+        <h1><%= @event.name %></h1><br>
+        <h3><%= @event.description %></h3>
+        <h3><%= @event.date %> </h3> 
+        <h3><%= @event.location %> </h3>
+   </div>
 
