@@ -1,27 +1,5 @@
-<h1>Your Event!</h1>
-<div class='event'>
-  <div class='event_details'>
-     <div class="event_form">
-      <div class="event_name" placeholder="Title" required>
-        <%= @event.name %>
-      </div>
-      <div class ="place" placeholder="Location">
-        <%= @event.description %>
-      </div>
-      <div type="datetime" class="date" placeholder="Date">
-        <%= @event.date %>
-      </div>
-      <div type="text" class="description" placeholder="Description">
-        <%= @event.location %>
-      </div>
-    </div>
-  </div>
-  <div class='types_form' style="display:none">
-
-  </div>
+<%= render 'event_details' %>
   <div class="added_items">
-
     <%= render 'items/single' %>
-
   </div>
-</div>
+

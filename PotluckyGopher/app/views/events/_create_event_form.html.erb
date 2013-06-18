@@ -1,0 +1,19 @@
+<div class='new_event'>
+  <%= form_for(@event) do |e| %>
+  	<%= e.text_field :name, :class => ".name", :placeholder => "Title"%>
+  	<%= e.text_field :location, :class => "location", :placeholder => "Location"%>
+  	<%= e.date_select :date, :class => "date", :placeholder => "Date"%>
+  	<%= e.text_area :description, :class => "description", :placeholder => "Description"%>
+    <ul class='event_items'>
+      <%= e.fields_for :event_items do |ei| %>     
+    		<%= render 'event_items/create_event_items_form', f: ei %>
+      <% end %>
+    </ul>
+    <%= link_to_add_fields "Add Item", e, :event_items %>
+  	<%= e.submit %>
+	<% end %>
+</div>
+
+
+
+

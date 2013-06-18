@@ -10,9 +10,15 @@ PotluckyGopher::Application.routes.draw do
   post '/login' => 'session#create', :as => 'login'
 
   resources :events
-  resource :items
-  resources :assigned_items, :only => [:new, :create, :edit]
+  match '/:url' => 'events#invitation'
 
+  resource :items
+  match 'edit_RSVP/:url' => 'events#edit_bringing'
+
+  resources :assigned_items, :only => [:new, :create, :edit]
+  
+  
+  
 # match '/logout' => 'sessions#destroy'
 
 mount Sidekiq::Web, at: "/sidekiq"
