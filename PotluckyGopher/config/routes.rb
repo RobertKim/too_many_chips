@@ -1,15 +1,13 @@
 # require 'sidekiq/web'
-
 PotluckyGopher::Application.routes.draw do
 
   match 'auth/:provider/callback', to: 'session#oauth_create'
-   match 'auth/failure', to: redirect('/')
+  match 'auth/failure', to: redirect('/')
 
   root to: 'pages#index'
-  resources :users, :only => [:show, :create, :new, :edit]
+  resources :users, :only => [:show, :create, :new, :edit] 
   resources :session, :only => [:destroy, :create]
   post '/login' => 'session#create', :as => 'login'
-  # delete '/logout' => 'session#destroy', :as => "logout"
 
   resources :events
   resource :items

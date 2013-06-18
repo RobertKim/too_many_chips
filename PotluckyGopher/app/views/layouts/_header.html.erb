@@ -10,14 +10,10 @@
 					<li><button id="login" class="btn btn-large btn-success"> Log In </button></li>
 					<li><%= render 'layouts/session_form_login' %></li>
 				<% end %>
-
 				<% if current_user %>
 				    <li> Signed in as <strong><%= current_user.name.titleize %></strong>! </li>
-				
-
-						<li><%= button_to "Log Out", session_path(session[:user_id]), :method => :delete %></li>
-			
-				<% end %>
+					  <li><%= button_to "Log Out", session_path(session), :method => :delete %></li>
+					  <%end%>
 			</ul>
 
 	

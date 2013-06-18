@@ -1,0 +1,9 @@
+    <% @assigned_items.each do |ai| %>
+    <div class="provided_item">
+      <p class="guest_name"> <%= ai.guest_name %> </p>
+      <p class="quantity_provided"> <%= ai.quantity_provided %> </p>
+        <% if current_user.id == @event.user.id %>
+      <p class="guest_email"> <%= ai.guest_email %> </p>
+        <% end %>
+    </div>
+    <% end %>
