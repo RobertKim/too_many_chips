@@ -2,8 +2,8 @@
     <div class="provided_item">
       <p class="guest_name"> <%= ai.guest_name %> </p>
       <p class="quantity_provided"> <%= ai.quantity_provided %> </p>
-        <% if current_user.id == @event.user.id %>
-      <p class="guest_email"> <%= ai.guest_email %> </p>
-        <% end %>
+      <p class="guest_email">
+        <%= ai.guest_email  if current_user && @event.user_id == current_user.id %>
+      </p>
     </div>
     <% end %>

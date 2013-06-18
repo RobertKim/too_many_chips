@@ -17,7 +17,10 @@ class EventsController < ApplicationController
   def edit
     @event = Event.find(params[:id])
   end
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b726ee80530ce6b2fcf81567bae7236c3b5b385
 
   def create
     @event = Event.new(params[:event])

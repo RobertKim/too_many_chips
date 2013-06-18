@@ -13,7 +13,8 @@
     <% if ei.needed? %>
       <%= form_for @assigned_item do |ai| %>
         <%= ai.text_field :guest_name, :class => 'field', :placeholder => "Guest Name" %>
-        <%= ai.text_field :quantity_provided, :class => 'field', :placeholder => 'How Much?', :in => 1..ei.quantity_needed%>
+        <%= ai.number_field :quantity_provided, :class => 'field', :placeholder => 'How Much?', :in => 1..ei.quantity_needed%>
+<!-- TODO: ei.quantity needed lets users bring too many items through the seed. -->
         <%= ai.text_field :guest_email, :class => 'field', :placeholder => 'Email'%>
         <%= ai.hidden_field :event_item_id, {:value => "#{ei.id}"} %>
         <%= ai.submit :value => "Bring Item" %>

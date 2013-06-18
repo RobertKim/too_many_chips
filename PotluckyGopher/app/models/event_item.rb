@@ -1,7 +1,6 @@
 class EventItem < ActiveRecord::Base
 
-  attr_accessible :event_id, :description, :item_id, :quantity_needed, :item_attributes
-
+attr_accessible :event_id, :description, :item_id, :quantity_needed, :item_attributes
 
   validates :quantity_needed, :presence => true#, :message => "Please tell your guest how much you need."
   validates :quantity_needed, :numericality => {
@@ -33,3 +32,4 @@ class EventItem < ActiveRecord::Base
    quantity_still_needed > 0
   end
 end
+
