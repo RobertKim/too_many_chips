@@ -8,9 +8,11 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
  *= require_tree .
+ *= require_self
  */
+
+ 
 
 #top_nav{
  	margin-top: 0px;
@@ -28,3 +30,25 @@
  	float:left;
  	max-width: 450px;
  }
+
+.navbar-inner {
+    background-color: red;
+    background-image: linear-gradient(to bottom, #44036F, #FFC176);
+    background-repeat: repeat-x;
+    /*border: 1px solid black;*/
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+    min-height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+body {
+	background-image: linear-gradient(to bottom, #44036F, #FFC176);
+}
+
+/*.hero-unit {
+	background-image: url(http://barlowvincentchurchofchrist.com/hp_wordpress/wp-content/uploads/2012/04/00000.jpg);
+	background-repeat:no-repeat;
+}*/
+
