@@ -22,10 +22,14 @@ describe AssignedItem do
 
   it { should_not allow_value("wrong").for :guest_email }
 
-  it "should update its events quantity needed after save" do
+  it "should cause an event_item's quant needed to change after it saves" do
     quant_before = event_item.quantity_needed
     assert assigned_item.save
-    event_item.quantity_needed.should < quant_before
+    event_item.quantity_still_needed.should == 0
+  end
+
+  describe "find_all_user_items" do
+    assigned_item.find_all_user_items.should == 2
   end
 
 end
