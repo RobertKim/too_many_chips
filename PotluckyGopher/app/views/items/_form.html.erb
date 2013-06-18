@@ -3,8 +3,8 @@
     <%= f.text_field :name , :class => "items_field", :placeholder => "Item Name" %>
     <%= f.hidden_field :_destroy %>
     <%= link_to "remove", '#', class: "remove_item" %>
-    <%= f.fields_for :event_items do |ei| %>
-      <%= render 'event_items/form', f: ei %>
+    <%= f.fields_for :items do |ei| %>
+      <%= render 'items/form', f: ei %>
     <% end %>
   </fieldset>
 </div>
