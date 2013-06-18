@@ -1,5 +1,7 @@
 FactoryGirl.define do
   factory :item do
-    :name
+    sequence(:id)          { |n| n }
+    sequence(:name)        { |n| "stuff#{n}" }
+    suggestion            "Eat it"
   end
 end
