@@ -57,15 +57,23 @@ body {
     background-repeat:no-repeat;
 }
 
-.hero-unit {
-	background-image: url(http://barlowvincentchurchofchrist.com/hp_wordpress/wp-content/uploads/2012/04/00000.jpg);
-	background-repeat: no-repeat;
-    float:left;
-    clear:right
+.carousel-inner .item{
+    background-size: 1500px 550px;
 }
 
-.hero-unit h1, h4, h3 {
+.hero-unit {
+    background-image: url('black_pants.png');
+	background-repeat: no-repeat;
+    background-size: 1500px 550px;
+  
+}
+
+.hero-unit h1 {
     color: #FF5600;
+}
+
+.hero-unit h3, h4 {
+    color: #00A392;
 }
 
 body {
@@ -90,5 +98,5 @@ background-color: transparent;
 }
 
 .carousel-caption h1 {
-    color: white;
+    color: #FF5600;
 }

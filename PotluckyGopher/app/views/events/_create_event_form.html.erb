@@ -1,3 +1,4 @@
+<div class="span 4">
 <div class='new_event'>
   <%= form_for(@event) do |e| %>
   	<%= e.text_field :name, :class => ".name", :placeholder => "Title"%>
@@ -12,6 +13,7 @@
     <%= link_to_add_fields "Add Item", e, :event_items %>
   	<%= e.submit %>
 	<% end %>
+</div>
 </div>
 
 
