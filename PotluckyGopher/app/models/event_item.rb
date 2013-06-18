@@ -1,9 +1,6 @@
 class EventItem < ActiveRecord::Base
-<<<<<<< Updated upstream
+
 attr_accessible :event_id, :description, :item_id, :quantity_needed, :item_attributes
-=======
-  attr_accessible :event_id, :description, :item_id, :quantity_needed, :_destroy
->>>>>>> Stashed changes
 
   validates :quantity_needed, :presence => true#, :message => "Please tell your guest how much you need."
   validates :quantity_needed, :numericality => {
@@ -16,11 +13,7 @@ attr_accessible :event_id, :description, :item_id, :quantity_needed, :item_attri
   belongs_to :event, :inverse_of => :event_items
   belongs_to :item, :inverse_of => :event_items
 
-<<<<<<< Updated upstream
   accepts_nested_attributes_for :item
-
-=======
->>>>>>> Stashed changes
   def quantity_still_needed
     provided_items = 0
     self.assigned_items.each do |item|
