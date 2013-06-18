@@ -1,7 +1,8 @@
 <li class="event_item">
-  <%= f.text_field :quantity_needed, :class => "quantity_needed", :placeholder => "Quantity Needed" %>
-  <%= f.text_field :description, :class => "description", :placeholder => "Description" %>
-  <%= f.fields_for :item, :index => nil do |i| %>
+   <%= f.fields_for :item do |i| %>
     <%= i.text_field :name, :placeholder => "Name" %>
   <% end %>
-</li>
+
+  <%= f.text_field :quantity_needed, :class => "quantity_needed", :placeholder => "Quantity Needed" %>
+  <%= f.text_field :description, :class => "description", :placeholder => "Description" %>
+ </li>
