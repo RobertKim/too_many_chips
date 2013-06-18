@@ -31,24 +31,64 @@
  	max-width: 450px;
  }
 
+.navbar {
+    background-color: #FFBB76;
+}
+
 .navbar-inner {
-    background-color: red;
-    background-image: linear-gradient(to bottom, white, #44036F);
+  /*  color: black;
+    background-color: black;
+    background-image: linear-gradient(to bottom, #FF7D51, #FF7D51);*/
     background-repeat: repeat-x;
     /*border: 1px solid black;*/
-    border-radius: 4px 4px 4px 4px;
+    border-radius: 14px 14px 14px 14px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
     min-height: 40px;
-    padding-left: 20px;
+    padding-left: 80px;
     padding-right: 20px;
 }
 
-body {
-	background-image: linear-gradient(to bottom, #44036F, white);
+.navbar-inner a {
+  color: #FF7D51;
 }
 
-/*.hero-unit {
-	background-image: url(http://barlowvincentchurchofchrist.com/hp_wordpress/wp-content/uploads/2012/04/00000.jpg);
-	background-repeat:no-repeat;
-}*/
+body {
+	background-image: linear-gradient(to bottom, #FFBB76, white);
+    background-repeat:no-repeat;
+}
 
+.hero-unit {
+	background-image: url(http://barlowvincentchurchofchrist.com/hp_wordpress/wp-content/uploads/2012/04/00000.jpg);
+	background-repeat: no-repeat;
+    float:left;
+    clear:right
+}
+
+.hero-unit h1, h4, h3 {
+    color: #FF5600;
+}
+
+body {
+padding-bottom: 40px;
+color: #5a5a5a;
+}
+
+body {
+margin: 0;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 20px;
+}
+
+body {
+display: block;
+margin: 8px;
+}
+
+.carousel-caption {
+background-color: transparent;
+}
+
+.carousel-caption h1 {
+    color: white;
+}

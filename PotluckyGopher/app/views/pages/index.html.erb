@@ -4,41 +4,46 @@
 		<div class="welcome"><h1>Welcome to PartyGopher!</h1></div><br><br><br><br><br><br>
 		<div class="greeting"><h3>Organize.. Invite.. Enjoy!</h3></div> -->
 	<!-- </div> -->
-
+<div id="myCarousel" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="item">
+        	<%= image_tag 'black_pants.png' %>
+          
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Organize.</h1>
+              <p class="lead">Sign up with PartyGopher start planning.  It's that simple.</p>
+              <a class="btn btn-large btn-primary" href="#">Sign up today</a>
+            </div>
+          </div>
+        </div>
+        <div class="item active">
+          <%= image_tag 'hotdog.png' %>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Another example headline.</h1>
+              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <a class="btn btn-large btn-primary" href="#">Learn more</a>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <%= image_tag 'potluck.png' %>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>One more for good measure.</h1>
+              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <a class="btn btn-large btn-primary" href="#">Browse gallery</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+    </div>
 	<!--  Carousel - consult the Twitter Bootstrap docs at 
       http://twitter.github.com/bootstrap/javascript.html#carousel -->
-<div id="homepage_slider" class="carousel slide"><!-- class of slide for animation -->
-  <div class="carousel-inner">
-    <div class="item active"><!-- class of active since it's the first item -->
-      <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ8zBORt9INSYsnBz8XZKfkmZIqC4qywXlGqcQWNU7saE24zQF1bQ" alt="" />
-      <div class="carousel-caption">
-        <p>Caption text here</p>
-      </div>
-    </div>
-    <div class="item">
-      <img src="http://barlowvincentchurchofchrist.com/hp_wordpress/wp-content/uploads/2012/04/00000.jpg" alt="" />
-      <div class="carousel-caption">
-        <p>Caption text here</p>
-      </div>
-    </div>
-    <div class="item">
-      <img src="http://assets.homesessive.com/styles/gallery_large/s3/5-Ideas-for-Reviving-the-potluck-Dinner-Party2.jpg" alt="" />
-      <div class="carousel-caption">
-        <p>Caption text here</p>
-      </div>
-    </div>
-    <div class="item">
-      <img src="http://gushevents.files.wordpress.com/2011/12/potluck.jpg" alt="" />
-      <div class="carousel-caption">
-        <p>Caption text here</p>
-      </div>
-    </div>
-  </div><!-- /.carousel-inner -->
-  <!--  Next and Previous controls below
-        href values must reference the id for this carousel -->
-    <a class="carousel-control left" href="#homepage_slider" data-slide="prev">&lsaquo;</a>
-    <a class="carousel-control right" href="#homepage_slider" data-slide="next">&rsaquo;</a>
-</div><!-- /.carousel -->
+
 
 	<% unless current_user %>
 

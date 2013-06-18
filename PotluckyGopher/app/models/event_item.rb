@@ -14,18 +14,14 @@ attr_accessible :event_id, :description, :item_id, :quantity_needed, :item_attri
   belongs_to :item, :inverse_of => :event_items
 
   accepts_nested_attributes_for :item
+ 
 
-  def quantity_still_needed
-    provided_items = 0
-    self.assigned_items.each do |item|
-      provided_items += item.quantity_provided
-    end
-    quant_needed = self.quantity_needed - provided_items
-    quant_needed >= 0 ? quant_needed : 0
+  def quantity_assigned
+    AssignedItem.find_all_by_event_item_id(self.id).map { |i| i.quantity_provided}.sum
   end
 
-  def update_quant_needed
-    self.update_attribute("quantity_needed", self.quantity_still_needed)
+  def quantity_still_needed
+     self.quantity_needed - self.quantity_assigned
   end
 
   def needed?

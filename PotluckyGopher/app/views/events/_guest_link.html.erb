@@ -4,12 +4,12 @@
 
   </div>
   <div class="added_items">
-    <% @event.items.each do |i| %>
+    <% @event.event_items.each do |i| %>
       <div class="events_items">
-        <div class="name"><%= i.name %></div>
-        <div class="suggestion"><%= i.suggestion %></div>
-        <div class="quantity_needed"><%= i.quantity_needed %></div>
-        <div class="quantity_needed"><%= i.quantity_provided %></div>
+        <div class="name"><%= i.item.name %></div>
+        <div class="suggestion"><%= i.item.suggestion %></div>
+        <div class="quantity_needed"><%= i.quantity_still_needed %></div>
+        <div class="quantity_needed"><%= i.quantity_assigned %></div>
       </div>
     <% end %>
   </div>
