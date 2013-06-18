@@ -5,7 +5,7 @@
     <p class="suggestion"><%= ei.item.suggestion %></p>
   </div>
   <div class="event_item_details">
-    <p>Amount Needed: <%= ei.quantity_still_needed %></p>
+    <p>Amount Needed: <%= ei.quantity_needed %></p>
     <p>Description: <%= ei.description %></p>
   </div>
   <% @assigned_items = AssignedItem.where("event_item_id =?", ei.id) %>

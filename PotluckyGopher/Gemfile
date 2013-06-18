@@ -39,7 +39,7 @@ group :development, :test do
   gem 'sextant'
   gem 'better_errors'
   gem 'faker'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'shoulda'
   gem 'capybara'
   gem 'selenium-webdriver'
