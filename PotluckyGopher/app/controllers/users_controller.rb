@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      login @user
+      session[:id] = @user.id
       # UserMailer.signup_confirmation(@user.id).deliver
       redirect_to @user, :notice => 'User was successfully created.'
     else

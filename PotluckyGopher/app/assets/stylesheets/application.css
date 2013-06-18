@@ -33,7 +33,7 @@
 
 .navbar-inner {
     background-color: red;
-    background-image: linear-gradient(to bottom, #44036F, #FFC176);
+    background-image: linear-gradient(to bottom, white, #44036F);
     background-repeat: repeat-x;
     /*border: 1px solid black;*/
     border-radius: 4px 4px 4px 4px;
@@ -44,7 +44,7 @@
 }
 
 body {
-	background-image: linear-gradient(to bottom, #44036F, #FFC176);
+	background-image: linear-gradient(to bottom, #44036F, white);
 }
 
 /*.hero-unit {
