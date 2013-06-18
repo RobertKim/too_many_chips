@@ -8,6 +8,11 @@ class EventsController < ApplicationController
     session[:event_id] = @event.id
     @assigned_item = AssignedItem.new
   end
+  
+  def invitation
+    @event = Event.find_by_url(params[:url])
+    redirect_to event_path(@event)
+  end
 
   def new
     @event = Event.new
@@ -17,10 +22,6 @@ class EventsController < ApplicationController
   def edit
     @event = Event.find(params[:id])
   end
-<<<<<<< HEAD
-
-=======
->>>>>>> 2b726ee80530ce6b2fcf81567bae7236c3b5b385
 
   def create
     @event = Event.new(params[:event])
@@ -50,16 +51,6 @@ class EventsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-
-  def invitation
-    @event = Event.find_by_url(params[:id])
-  end
-
-  def edit_bringing
-  
-  end
-
-
 
  private 
 
