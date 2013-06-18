@@ -8,8 +8,6 @@ class EventItem < ActiveRecord::Base
     :greater_than_or_equal_to => 0
   }
   validates :description, :length => { :maximum => 140 }
-  before_save :validate_quanity
-
 
   has_many :assigned_items
   belongs_to :event, :inverse_of => :event_items
@@ -17,13 +15,13 @@ class EventItem < ActiveRecord::Base
 
   accepts_nested_attributes_for :item
 
-
   def quantity_assigned
-    AssignedItem.find_all_by_event_item_id(self.id).map { |i| i.quantity_provided }.sum
+    self.assigned_items.map { |i| i.quantity_provided }.sum
   end
 
   def quantity_still_needed
-     self.quantity_needed - self.quantity_assigned
+    quant_needed = self.quantity_needed - self.quantity_assigned
+    quant_needed >= 0 ? quant_needed : 0
   end
 
   def needed?

@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
   validates :name, :presence => true
   before_save :set_url
   attr_accessible :name, :date, :description, :host_provided,
-    :location, :url, :user_id, :event_items_attributes #, :items_attributes
+    :location, :user_id, :event_items_attributes #, :items_attributes
 
   belongs_to :user
   has_many :event_items, :inverse_of => :event
