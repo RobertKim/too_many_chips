@@ -1,54 +1,59 @@
 
 <div class="hero-unit">
 	
-		<%flash.each do |name,msg| %>
-		<div class="alert alert-<%= name == :notice %>">
-			<!-- <p id="notice"><%= notice %></p> -->
-			<%=msg%>
-		</div>
-		<%end%>
+	<%flash.each do |name,msg| %>
+	<div class="alert alert-<%= name == :notice %>">
+		<!-- <p id="notice"><%= notice %></p> -->
+		<%=msg%>
+	</div>
+	<%end%>
 
-	   <div class="well well-small">
-	   	
-			<h1> Welcome, <%= @user.name.titleize %>, to TooManyChips! </h1><br><br><br><br>
+	<div class="well well-small">
+
+		<h1> Welcome, <%= @user.name.titleize %>, to TooManyChips! </h1><br><br><br><br>
 		
-	    
-			<h3> 
-				Account Details:
-			</h3>
 
-			<h4>
-				Name:<%= @user.name.titleize %>
-			</h4>
+		<h3> 
+			Account Details:
+		</h3>
 
-			<h4>
-				Email:<%= @user.email %>
-			</h4><br><br>
+		<h4>
+			Name:<%= @user.name.titleize %>
+		</h4>
+
+		<h4>
+			Email:<%= @user.email %>
+		</h4><br><br>
 		
-		</div>
-
-				
-				
-<%= button_to 'Edit', edit_user_path(@user), class: "btn btn-warning" %>
-<%= button_to "Create an Event!", new_event_path, :method => "get", class: "btn btn-warning" %>
+	</div>
 
 
-<div id="created_events">
-  <h4> Upcoming Events: </h4>
-  <ul>
-    <% @user.events do |event| %>
-      <% if event.upcoming? %>
-        <li><%= link_to upcoming.name, event_path(event) %> </li>
-      <%end%>
-      </ul>
-      <h4> Past Events: </h4>
-      <ul>
-      <% if event.past? %>
-      <li><%= link_to past.name, event_path(past) %></li>
-    <% end %>
 
-  </ul><br>
-</div>
+	<%= button_to 'Edit', edit_user_path(@user), class: "btn btn-warning" %>
+	<%= button_to "Create an Event!", new_event_path, :method => "get", class: "btn btn-warning" %>
+
+
+	<div id="created_events">
+		<h4> 
+			Upcoming Events: 
+		</h4>
+		<ul>
+			<% @user.events do |event| %>
+			<% if event.upcoming? %>
+			<li><%= link_to upcoming.name, event_path(event) %> </li>
+			<%end%>
+			<%end%>
+		</ul>
+		<h4> Past Events: </h4>
+		<ul>
+			<% @user.events do |event| %>
+			<% if event.past? %>
+			<li><%= link_to past.name, event_path(past) %></li>
+			<% end %>
+			<%end%>
+
+		</ul><br>
+	</div>
 
 
 
