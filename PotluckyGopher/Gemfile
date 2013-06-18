@@ -46,6 +46,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'database_cleaner'
   gem 'quiet_assets'
+  gem "nyan-cat-formatter"
 end
 
 # To use ActiveModel has_secure_password
