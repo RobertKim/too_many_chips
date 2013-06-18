@@ -6,8 +6,9 @@ PotluckyGopher::Application.routes.draw do
 
   root to: 'pages#index'
   resources :users, :only => [:show, :create, :new, :edit] 
-  resources :session, :only => [:destroy, :create]
-  post '/login' => 'session#create', :as => 'login'
+  resources :sessions, :only => [:destroy, :create]
+  post '/login' => 'sessions#create', :as => 'login'
+  match 'signout', to: 'sessions#destroy', as: 'signout'
 
   resources :events
   get '/:url' => 'events#invitation', :as => 'invitation'
@@ -16,7 +17,6 @@ PotluckyGopher::Application.routes.draw do
   
   resources :assigned_items, :except => [:index]
   match 'edit_RSVP/:url' => 'assigned_items#edit'
-
 mount Sidekiq::Web, at: "/sidekiq"
   # The priority is based upon order of creation:
   # first created -> highest priority.

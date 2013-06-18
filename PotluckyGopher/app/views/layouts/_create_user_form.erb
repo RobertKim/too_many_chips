@@ -1,0 +1,18 @@
+<div id="new_account_errors">
+  <% if flash[:errors] %>
+  <% flash[:errors].each do |k, v| %>
+  <p class="session_errors"><%= k %>: <%= v.join(", ") %></p>
+  <% end %>
+  <% end %>
+</div>
+
+<% @user = User.new %>
+<%= form_for @user do |f| %>
+
+  <%= f.text_field :name, :id => "inputName", :required => true, placeholder: "Name" %><br>
+ 
+  <%= f.email_field :email, :id => "inputEmail", :required => true, placeholder: "Email" %><br>
+
+  <%= f.password_field :password, :id => "inputPassword", :required => true, placeholder: "Password" %><br>
+  <%= f.submit "Submit", :class => 'btn btn-primary' %>
+<% end %>
