@@ -1,9 +1,8 @@
  <% @event.event_items.each do |ei| %>
 <div class="item">
-  <% item = Item.find_by_id(ei.item_id) %>
   <div class="single_item_details">
-    <p class="item_name"><%= item.name %></p>
-    <p class="suggestion"><%= item.suggestion %></p>
+    <p class="item_name"><%= ei.item.name %></p>
+    <p class="suggestion"><%= ei.item.suggestion %></p>
   </div>
   <div class="event_item_details">
     <p>Amount Needed: <%= ei.quantity_still_needed %></p>
@@ -12,22 +11,16 @@
   <% @assigned_items = AssignedItem.where("event_item_id =?", ei.id) %>
   <div class="assigned_items">
     <% if ei.needed? %>
-      
       <%= form_for @assigned_item do |ai| %>
         <%= ai.text_field :guest_name, :class => 'field', :placeholder => "Guest Name" %>
-        <%= ai.text_field :quantity_provided, :class => 'field', :placeholder => 'How Much?', :in => 1..ei.quantity_needed%>
+        <%= ai.number_field :quantity_provided, :class => 'field', :placeholder => 'How Much?', :in => 1..ei.quantity_needed%>
+<!-- TODO: ei.quantity needed lets users bring too many items through the seed. -->
         <%= ai.text_field :guest_email, :class => 'field', :placeholder => 'Email'%>
         <%= ai.hidden_field :event_item_id, {:value => "#{ei.id}"} %>
         <%= ai.submit :value => "Bring Item" %>
       <% end %>
     <% end %>
-    <% @assigned_items.each do |ai| %>
-    <div class="provided_item">
-      <p class="guest_name"> <%= ai.guest_name %> </p>
-      <p class="quantity_provided"> <%= ai.quantity_provided %> </p>
-      <p class="guest_email"> <%= ai.guest_email %> </p>
-    </div>
-    <% end %>
+     <%= render 'items/assigned_items_show' %>
   </div>
 </div>
 <% end %>

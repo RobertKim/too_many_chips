@@ -1,5 +1,12 @@
 .item {
-  float:left;
+/*  float:left;
   height:460px;
-  width: 200px;
+  width: 200px;*/
+
+  border: 1px dotted green;
+}
+
+
+.event_items{
+  list-style-type: none;
 }

@@ -41,6 +41,11 @@ group :development, :test do
   gem 'faker'
   gem 'factory_girl'
   gem 'shoulda'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'pry-rails'
+  gem 'database_cleaner'
+  gem 'quiet_assets'
 end
 
 # To use ActiveModel has_secure_password

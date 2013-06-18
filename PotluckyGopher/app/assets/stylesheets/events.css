@@ -4,9 +4,7 @@
 
 */
 
-/*div {
-  border: 1px solid red;
-}*/
+
 .event {
   height: 1200px;
    width: 1000px;
@@ -42,7 +40,7 @@
 .events_items {
   /*display: none;*/
   float:left;
-  cursor: hand; 
+  cursor: hand;
   cursor: pointer;
   margin: 5px;
   width: 60px;

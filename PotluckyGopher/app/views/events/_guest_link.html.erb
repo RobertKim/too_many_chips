@@ -1,33 +1,6 @@
 <div>
-<h1>Here's a link to share with your guests.</h1>
-<%= @event.url %>
-</div>
-
-
-<h1>Here's how your event will appear to you guest</h1>
-<h2> You can edit your event at any time</h2>
-<h2> Add event edit button </h2>
-
-<h1>Your Event!</h1>
-
-<div class='event'>
-  <div class='event_details'>
-     <div class="event_form">
-      <div class="event_name" placeholder="Title" required>
-        <%= @event.name %>
-      </div>
-      <div class ="place" placeholder="Location">
-        <%= @event.description %>
-      </div>
-      <div type="datetime" class="date" placeholder="Date">
-        <%= @event.date %>
-      </div>
-      <div type="text" class="description" placeholder="Description">
-        <%= @event.location %>
-      </div>
-    </div>
-  </div>
-  <div class='types_form' style="display:none">
+<%= render 'public_link' %>
+<%= render 'event_details' %>
 
   </div>
   <div class="added_items">

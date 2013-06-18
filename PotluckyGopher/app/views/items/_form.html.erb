@@ -2,9 +2,6 @@
   <fieldset>
     <%= f.text_field :name , :class => "items_field", :placeholder => "Item Name" %>
     <%= f.hidden_field :_destroy %>
-    <%= link_to "remove", '#', class: "remove_item" %>
-    <%= f.fields_for :event_items do |builder| %>
-    <%= render 'event_items/form', f: builder %>
-    <% end %>
+
   </fieldset>
 </div>

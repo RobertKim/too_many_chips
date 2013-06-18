@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :event do
-    name         "bbq"
-    description  "Super fun"
-    date         "tomorrow"
-    location     "DBC"
-    url          rand(1500000).to_s
+    sequence(:name)  { |n| "bbq#{n}" }
+    description       "Super fun"
+    date              "tomorrow"
+    location          "DBC"
+    url              { |n| "0000#{n}" }
   end
 end
