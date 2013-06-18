@@ -1,0 +1,15 @@
+<h4>You're signed up to bring: <h4>
+<table>
+  <% @assigned_items.each do |item| %>
+<tr>
+<td><%= item.event_item.item.name %></td>
+<td><%= item.quantity_provided %></td>
+<td><%= item.event_item.description%><td>
+<td> <%= link_to event_path(item.event_item.event)%></td>
+</tr>
+<% end %>
+</table>
+
+
+
+

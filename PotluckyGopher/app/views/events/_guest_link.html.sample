@@ -1,8 +1,5 @@
-<div>
-<%= render 'public_link' %>
 <%= render 'event_details' %>
 
-  </div>
   <div class="added_items">
     <h5>Items Needed</h5>
     <% @event.event_items.each do |i| %>

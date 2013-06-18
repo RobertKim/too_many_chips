@@ -1,6 +1,7 @@
 $(document).ready(function(){
-  $('.new_event form').on('click','.remove_item', function(e){
+  $('.new_event form').on('click','.remove_fields', function(e){
     e.preventDefault();
+    console.log('hi');
     $(this).prev('input[type=hidden]').val('1');
     $(this).closest('fieldset').hide();
   });

@@ -1,9 +1,8 @@
-<%= render 'event_details' %>
-  <div class="needed_items">
-    <%= render 'items/single' %>
+
+  <div class='span12'>
+      <%= render 'event_details' %>
+          <%= render 'items/view_needed_items' %> 
+      <h3>Items We Have!</h3>
+      <%= render 'items/assigned_items_show' %>
+
   </div>
-<div class="unneeded_items">
-  <%= render 'items/assigned_items_show' %>
-</div>
-
-
