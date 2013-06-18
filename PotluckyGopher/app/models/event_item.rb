@@ -14,6 +14,7 @@ attr_accessible :event_id, :description, :item_id, :quantity_needed, :item_attri
   belongs_to :item, :inverse_of => :event_items
 
   accepts_nested_attributes_for :item
+
   def quantity_still_needed
     provided_items = 0
     self.assigned_items.each do |item|
@@ -31,3 +32,4 @@ attr_accessible :event_id, :description, :item_id, :quantity_needed, :item_attri
    quantity_still_needed > 0
   end
 end
+
