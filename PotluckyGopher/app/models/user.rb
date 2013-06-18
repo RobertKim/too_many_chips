@@ -22,7 +22,6 @@ class User < ActiveRecord::Base
   	end
   end
 
-
   def registration_emails!
     # schedule_result_email unless self.result_date == nil
     send_email
@@ -33,11 +32,7 @@ class User < ActiveRecord::Base
   # end
 
   def send_email
-
     EmailWorker.perform_async(self.id)
-      puts "*****************************"
-      puts "inside send_email"
-    puts "****************************"
   end
 
 #   App ID: 505556099515765

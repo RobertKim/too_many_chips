@@ -1,3 +1,4 @@
+
 <div class="hero-unit">
 	
 		<%flash.each do |name,msg| %>
@@ -9,7 +10,7 @@
 
 	   <div class="well well-small">
 	   	
-			<h1> Welcome, <%= @user.name.titleize %>, to PartyGopher! </h1><br><br><br><br>
+			<h1> Welcome, <%= @user.name.titleize %>, to TooManyChips! </h1><br><br><br><br>
 		
 	    
 			<h3> 
@@ -32,34 +33,22 @@
 <%= button_to "Create an Event!", new_event_path, :method => "get", class: "btn btn-warning" %>
 
 
+<div id="created_events">
+  <h4> Upcoming Events: </h4>
+  <ul>
+    <% @user.events do |event| %>
+      <% if event.upcoming? %>
+        <li><%= link_to upcoming.name, event_path(event) %> </li>
+      <%end%>
+      </ul>
+      <h4> Past Events: </h4>
+      <ul>
+      <% if event.past? %>
+      <li><%= link_to past.name, event_path(past) %></li>
+    <% end %>
+
+  </ul><br>
 </div>
-			<% if current_user.events.any? %>
-
-			<div class="rows">
-				<div class="span6" id="created_events">
-
-					<h4> Upcoming Events: </h4>
-					<ul>
-						<% @upcoming_events.each do |upcoming| %>
-						<li><%= link_to upcoming.name, event_path(upcoming) %> </li>
-						<% end %>
-					</ul><br>
-				</div>
-				<div class="span6">
-					<h4> Past Events: </h4>
-					<ul>
-						<% @past_events.each do |past| %>
-						<li><%= link_to past.name, event_path(past) %></li>
-						<% end %>
-					</div>
-
-				</div>
-				<%end%>
 
 
-
-
-
-
-			</div>
 
