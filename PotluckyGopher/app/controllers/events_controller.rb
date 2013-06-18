@@ -25,7 +25,6 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(params[:event])
-    @event.url = SecureRandom.urlsafe_base64
     @event.user_id = current_user.id
     if @event.save
       redirect_to event_path(@event)

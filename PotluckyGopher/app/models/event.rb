@@ -1,8 +1,9 @@
 class Event < ActiveRecord::Base
 
-  attr_accessible :date, :description, :end_time, :name,
-    :host_provided, :location, :name, :start_time, :url, :user_id,
-    :event_items_attributes #, :items_attributes
+  validates :name, :presence => true
+  before_save :set_url
+  attr_accessible :name, :date, :description, :host_provided,
+    :location, :url, :user_id, :event_items_attributes #, :items_attributes
 
   belongs_to :user
   has_many :event_items, :inverse_of => :event
@@ -10,4 +11,8 @@ class Event < ActiveRecord::Base
 
   accepts_nested_attributes_for :event_items, :reject_if => :all_blank, :allow_destroy => true
   # accepts_nested_attributes_for :items
+  def set_url
+    self.url ||= SecureRandom.urlsafe_base64
+  end
+
 end
