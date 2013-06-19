@@ -67,6 +67,7 @@ PotluckyGopher::Application.configure do
    :domain =>         'heroku.com',
    :authentication => :plain
      }
+    ActionMailer::Base.delivery_method = :smtp
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify

@@ -21,7 +21,7 @@ PotluckyGopher::Application.routes.draw do
   match 'remove', to: 'assigned_items#destroy', as: 'remove'
   resources :guest, :only => [:show, :edit, :new, :create]
 
-mount Sidekiq::Web, at: "/sidekiq"
+  mount Sidekiq::Web, at: "/sidekiq"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
