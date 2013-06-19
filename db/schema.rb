@@ -16,11 +16,11 @@ ActiveRecord::Schema.define(:version => 20130619044053) do
   create_table "assigned_items", :force => true do |t|
     t.integer "event_item_id"
     t.integer "quantity_provided"
+    t.integer "guest_id"
   end
 
   create_table "event_items", :force => true do |t|
     t.integer  "event_id"
-    t.string   "name"
     t.string   "description"
     t.integer  "item_id"
     t.integer  "quantity_needed"
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(:version => 20130619044053) do
   end
 
   create_table "guests", :force => true do |t|
-    t.string "guest_email"
-    t.string "guest_name"
+    t.string "email"
+    t.string "name"
     t.string "url"
   end
 

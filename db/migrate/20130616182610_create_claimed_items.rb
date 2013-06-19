@@ -7,9 +7,6 @@ class CreateClaimedItems < ActiveRecord::Migration
       t.string :guest_name
       t.string :url
     end
-   remove_column :assigned_items, :guest_name
-   remove_column :assigned_items, :guest_email
-   remove_column :assigned_items, :url
   end
 end
 

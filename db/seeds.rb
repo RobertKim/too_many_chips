@@ -50,12 +50,16 @@ events = %w{
 end
 
 20.times do 
-  Event.create(name: events.sample, description: "Awesome Party!", date: Chronic.parse("tomorrow"), location: "#{Faker::Name.name}'s House", url: SecureRandom.urlsafe_base64, user_id: 1 + rand(20))
+  Event.create(name: events.sample, description: "Awesome Party!", date: Chronic.parse("tomorrow"), location: "#{Faker::Name.name}'s House", user_id: 1 + rand(20))
 end
 
 40. times do 
-  AssignedItem.create(event_item_id: 1 + rand(20) , quantity_provided: rand(6), guest_email: Faker::Internet.email, guest_name: Faker::Name.name , url: SecureRandom.urlsafe_base64 )
+  AssignedItem.create(event_item_id: 1 + rand(20) , quantity_provided: rand(6), guest_id: 1 + rand(20)  )
 end 
+
+20.times do
+  Guest.create(email: Faker::Internet.email, name: Faker::Name.name , url: SecureRandom.urlsafe_base64)
+end
 
 40. times do 
   Item.create(suggestion: "nothing yet!", name: items.sample )

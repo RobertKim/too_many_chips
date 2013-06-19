@@ -1,13 +1,14 @@
 class CreateGuests < ActiveRecord::Migration
   def up 
     create_table :guests do |t|
-      t.string :guest_email
-      t.string :guest_name
+      t.string :email
+      t.string :name
       t.string :url
     end
     remove_column :assigned_items, :guest_name
     remove_column :assigned_items, :guest_email
     remove_column :assigned_items, :url
+    add_column :assigned_items, :guest_id, :integer
   end 
 
   def down
@@ -15,5 +16,6 @@ class CreateGuests < ActiveRecord::Migration
     add_column :assigned_items, :guest_name
     add_column :assigned_items, :guest_email
     add_column :assigned_items, :url
+    remove_column :assigned_items, :guest_id
   end
 end
