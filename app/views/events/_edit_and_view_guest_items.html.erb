@@ -1,0 +1,11 @@
+<% @event.event_items.each do |ei| %>
+  <%= ei.item.name %> 
+  <%= ei.quantity_needed %> 
+  <%= ei.quantity_assigned %> 
+    <%= ei.assigned_items.each do |ai| %>
+        <%= ai.guest.name %>
+        <%= ai.guest.email %>
+        <%= ai.quantity_provided %>
+        <%= link_to 'remove',remove(ai), :remote => true %>
+    <% end %>
+<% end %>

@@ -3,7 +3,7 @@ class AssignedItem < ActiveRecord::Base
   validates :quantity_provided, :presence => true
   validates :quantity_provided, :numericality => {:only_integer => true, :greater_than => 0}
   belongs_to :event_item
-  belongs_to :user
+  belongs_to :guest
   def find_all_user_items #this name isn't very descriptive.
     AssignedItem.where('guest_email=?', self.guest_email)
   end
