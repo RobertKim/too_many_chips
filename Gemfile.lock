@@ -250,6 +250,7 @@ DEPENDENCIES
   pry-rails
   quiet_assets
   rails (= 3.2.13)
+  redis
   rspec-rails
   sass-rails (~> 3.2.3)
   selenium-webdriver
