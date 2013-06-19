@@ -1,13 +1,11 @@
 class GuestsController < ApplicationController
 
   def create
-    @guest = Guest.new(params[:guest])
-    @guest.assigned_items.build
-    @event = Event.find(EventItem.find(@assigned_item.event_item_id).event_id)
-    @assigned_item = AssignedItem.new
-    @event_items = @event.event_items
-    if @assigned_item.save
-      redirect_to assigned_item_path(@assigned_item)
+    @guest = Guest.new(params[:guest])    
+    if @guest.save
+      redirect_to root_path  
+    else
+      render :new
     end
   end
 
@@ -15,8 +13,14 @@ class GuestsController < ApplicationController
 
   end
 
+  def new
+    @guest = Guest.new
+    @guest.assigned_items.build
+    @assigned_item = AssignedItem.new
+  end
+
   def show
-    @assigned_items = AssignedItem.find(params[:id]).find_all_user_items
+    @guest = Guest.find(params[:guest])
   end
 
   def destroy
