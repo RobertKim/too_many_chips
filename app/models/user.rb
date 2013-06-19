@@ -40,3 +40,8 @@ class User < ActiveRecord::Base
 
 end
 
+
+
+# <% if flash[:errors] %>
+#   <% flash[:errors].each do |k, v| %>
+#   <p class="session_errors"><%= k %>: <%= v.join(", ") %></p>

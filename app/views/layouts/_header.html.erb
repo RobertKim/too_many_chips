@@ -5,11 +5,9 @@
 		<div class= "navbar-inner">
 			<h1 id="brand" ><a href="/">TOO<strong>MANY</strong>CHIPS</a></h1>
 
-			<ul id="top_nav" class="nav nav-pills">
-
 				<% if current_user %>
-				    <li> Signed in as <strong><%= current_user.name.titleize %></strong>! </li>
-					  <li><%= link_to "Sign Out", signout_path, id: "sign_out" %></li>
+				   
+					  <%= button_to "Sign Out", signout_path, id: "sign_out", class: :"btn btn-warning" %></li>
 					  <%end%>
 			</ul>
 
