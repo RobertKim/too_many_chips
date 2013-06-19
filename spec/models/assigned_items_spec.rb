@@ -1,10 +1,10 @@
-require_relative "../spec_helper"
+require 'spec_helper'
 
 
 describe AssignedItem do
 
   let(:assigned_item)  { build(:assigned_item) }
-  let(:assigned_item3) { build(:assigned_item, quantity_provided: 3) }
+  let(:assigned_item3) { create(:assigned_item, quantity_provided: 3) }
   let(:event_item)     { create(:event_item) }
 
   it { should belong_to :event_item }
@@ -29,7 +29,10 @@ describe AssignedItem do
   end
 
   describe "find_all_user_items" do
-    assigned_item.find_all_user_items.should == 2
+    it "should find all assigned_items associated with the email address " do
+      assigned_item.save
+      assigned_item.find_all_user_items.length.should == 1
+    end
   end
 
 end
