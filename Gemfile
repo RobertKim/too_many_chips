@@ -14,7 +14,7 @@ gem 'chronic'
 gem 'omniauth-facebook'
 
 # gem "mail"
-
+gem 'redis'
 gem 'sidekiq', '>= 2.12.1'
 gem 'sidekiq-status'
 gem 'sidekiq-failures'

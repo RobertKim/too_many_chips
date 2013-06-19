@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default :from => "movesf.dbc@gmail.com"
+  default :from => "admin@toomanychips.com"
   
   # def registration(user_id)
   #   @user = User.find(user_id)
@@ -17,6 +17,6 @@ class UserMailer < ActionMailer::Base
     @user = User.find(user_id)
     email_with_name = "#{@user.name} <#{@user.email}>"
 
-    mail(:to => email_with_name, subject: "GopherPotLuck! sign up confirmation.")
+    mail(:to => email_with_name, subject: "Welcome to TooManyChips!")
   end
 end
