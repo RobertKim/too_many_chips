@@ -1,39 +1,33 @@
-<div class="container">
-	<!-- <div class='hero-unit'>
-
-		<div class="welcome"><h1>Welcome to PartyGopher!</h1></div><br><br><br><br><br><br>
-		<div class="greeting"><h3>Organize.. Invite.. Enjoy!</h3></div> -->
-		<!-- </div> -->
+<!-- <div class="container"> -->
+	
 		<div id="myCarousel" class="carousel slide">
 			<div class="carousel-inner">
-				<div class="item active">
-					<%= image_tag 'black_pants.png' %>
-
-					<div class="container">
-						<div class="carousel-caption">
-							<h1>Organize.</h1>
-							<p class="lead">Sign up with PartyGopher start planning.  It's that simple.</p>
-							<!-- <a class="btn btn-large btn-primary" href="#">Sign up today</a> -->
+				<div class="item item1 active">
+					
+						<div class="container">
+							<div class="carousel-caption">
+								<h1>Organize.</h1>
+								<p class="lead">Sign up with PartyGopher and start planning.  It's that simple.</p>
+							</div>
 						</div>
-					</div>
 				</div>
-				<div class="item">
-					<%= image_tag 'hotdog.png' %>
+				<div class="item item2">
+					
 					<div class="container">
 						<div class="carousel-caption">
-							<h1>Another example headline.</h1>
+							<h1>Invite.</h1>
 							<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-							<a class="btn btn-large btn-primary" href="#">Learn more</a>
+						
 						</div>
 					</div>
 				</div>
-				<div class="item">
-					<%= image_tag 'potluck.png' %>
+				<div class="item item3">
+					
 					<div class="container">
 						<div class="carousel-caption">
 							<h1>One more for good measure.</h1>
 							<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-							<a class="btn btn-large btn-primary" href="#">Browse gallery</a>
+						
 						</div>
 					</div>
 				</div>
@@ -45,29 +39,40 @@
 	http://twitter.github.com/bootstrap/javascript.html#carousel -->
 
 
-	<% unless current_user %>
-
-	<div class="row">
+<div class="container">
+	<div class="row signup_forms">
 		<div class="span6">
-			<h4>Sign up and start</h4>
-			<h4>planning your potluck!</h4>
-			<%= render 'layouts/create_user_form' %>
+			<div class="signup_container">
+				<div class="signup_form">
+					<h4>Sign up and start</h4>
+					<h4>planning your potluck!</h4>
+					<%= render 'layouts/create_user_form' %>
 
-			<div class="signin_button">
-				<button id="new_user" class="btn btn-success"> Sign Up </button>
-			</div><br>
-			<div class="fb_button"><%= button_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", class: :"btn btn-primary" %>
-			</div>
+					<div class="signin_button">
+						<button id="new_user" class="btn btn-success"> Sign Up </button>
+					</div><br>
+					<div class="fb_button"><%= button_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", class: :"btn btn-primary" %>
+					</div>
+				</div>
+				<div class="cover"></div>
+		  </div>
 		</div>
 
 		<div class="span6">
-			<h4>Login to check on your</h4>
-			<h4>event, or add more to it!</h4>
-			<%= render 'layouts/user_login_form' %>
-			<button id="login" class="btn btn-success"> Log In </button>
+			<div class="signup_container">
+				<div class="signup_form">
+					<h4>Login to check on your</h4>
+					<h4>event, or add more to it!</h4>
+					<%= render 'layouts/user_login_form' %>
+					<button id="login" class="btn btn-success"> Log In </button>
+				</div>
+				<div class="cover"></div>
+		  </div>
 		</div>
+	</div>
+</div>
 
-		<% end %>
+	
 
 		<% if current_user %>
 		<div class="span12">

@@ -2,9 +2,9 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password
   has_many :events, :class_name => 'Event', :foreign_key => 'user_id'
   has_secure_password
-  validates :name, :length  => {:minimum => 2, :too_short  => "must have at least %{count} letters"}
+  validates :name, :length  => {:minimum => 2, :too_short  => "must have at least 2 letters"}
   validates :email, :uniqueness => {:case_sensitive => false, :message => "has already been taken"}, :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i,:message    => "must be a valid format" }
-  validates :password, :length => {:minimum => 6, :too_short  => "must have at least %{count} characters"}
+  validates :password, :length => {:minimum => 6, :too_short  => "must have at least 6 characters"}
   validates_confirmation_of :password
 
   after_save :registration_emails!

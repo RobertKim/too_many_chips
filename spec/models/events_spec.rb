@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Event do
   let(:event)  { build(:event) }
+
   it { should allow_mass_assignment_of :name }
   it { should allow_mass_assignment_of :date  }
   it { should allow_mass_assignment_of :description }
@@ -13,11 +14,10 @@ describe Event do
   it { should belong_to :user }
   it { should have_many :event_items }
   it { should have_many(:items).through :event_items }
-
   it { should accept_nested_attributes_for(:event_items).allow_destroy true }
 
   it { should validate_presence_of :name }
-  it { should }
+
   describe "set_url" do
     it "should be a url when it is saved" do
       event.save
