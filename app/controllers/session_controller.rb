@@ -3,7 +3,7 @@ class SessionController < ApplicationController
   def oauth_create
     user = User.from_omniauth(env["omniauth.auth"])
     session[:id] = user.id 
-    redirect_to user_path(user), notice: "Signed in!"
+    redirect_to profile_path, notice: "Signed in!"
   end
 
   def create

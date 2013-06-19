@@ -5,6 +5,11 @@ class UsersController < ApplicationController
   def show
   end
 
+  def profile
+    @user = current_user
+    render :show
+  end
+
   def new
     @user = User.new
   end
@@ -32,5 +37,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
   end
+
+
 
 end

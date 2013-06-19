@@ -6,6 +6,7 @@ PotluckyGopher::Application.routes.draw do
 
   root to: 'pages#index'
   resources :users, :only => [:show, :create, :new, :edit] 
+  get '/profile', to: 'users#profile', as: 'profile'
   resources :session, :only => [:destroy, :create]
   post '/login' => 'session#create', :as => 'login'
   match 'signout', to: 'session#destroy', as: 'signout'
