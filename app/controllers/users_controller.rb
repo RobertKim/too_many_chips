@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:id] = @user.id
       # UserMailer.signup_confirmation(@user.id).deliver
-      redirect_to @user, :notice => 'Your account has been created.'
+      redirect_to your_profile_path, notice: "Signed in!"
     else
       flash[:errors] = @user.errors.messages
       redirect_to root_path
