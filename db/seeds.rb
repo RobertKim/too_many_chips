@@ -54,8 +54,8 @@ end
 end
 
 40. times do 
-  AssignedItem.create(event_item_id: 1 + rand(20) , quantity_provided: rand(6), guest_id: 1 + rand(20)  )
-end 
+  AssignedItem.create(event_item_id: 1 + rand(20) , quantity_provided: rand(6), guest_id: 1 + rand(20)  ) 
+end
 
 20.times do
   Guest.create(email: Faker::Internet.email, name: Faker::Name.name , url: SecureRandom.urlsafe_base64)
