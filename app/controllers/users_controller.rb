@@ -2,10 +2,7 @@ class UsersController < ApplicationController
   before_filter :logged_in?, :only => [:show, :edit, :update, :destroy]
   before_filter :load_and_authorize_user, :only => [:show, :edit, :update, :destroy]
 
-  def show
-  end
-
-  def profile
+  def your_profile
     @user = current_user
     render :show
   end
@@ -26,14 +23,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-
-  def update
-  end
-
- 
   def destroy
     @user.destroy
   end
