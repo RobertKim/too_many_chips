@@ -1,31 +1,33 @@
 
 <div class="hero-unit">
+	<div class='container'>
+		<div class="row profile_windows">
+			<div class="span8">
+				<div class="welcome_container">
+					<div class="errors">
+					  <%flash.each do |name,msg| %>
+	          <div class="alert alert-<%= name == :notice %>">
+		        <p id="notice"><%= notice %></p>
+		        <%=msg%>
+	          </div>
+	          <%end%>
+	        </div>
+
+					<div class="welcome_info">
+						<h1> Welcome, <%= @user.name.titleize %>! </h1>
+							<h3> 
+								Account Details:
+							</h3>
+							<h4>
+								Name:<%= @user.name.titleize %>
+							</h4>
+							<h4>
+								Email:<%= @user.email %>
+							</h4><br><br>
 	
-	<%flash.each do |name,msg| %>
-	<div class="alert alert-<%= name == :notice %>">
-		<!-- <p id="notice"><%= notice %></p> -->
-		<%=msg%>
-	</div>
-	<%end%>
-
-	<div class="well well-small">
-
-		<h1> Welcome, <%= @user.name.titleize %>, to TooManyChips! </h1><br><br><br><br>
-		
-
-		<h3> 
-			Account Details:
-		</h3>
-
-		<h4>
-			Name:<%= @user.name.titleize %>
-		</h4>
-
-		<h4>
-			Email:<%= @user.email %>
-		</h4><br><br>
-		
-	</div>
+	
+  </div>
+</div>
 
 
 
