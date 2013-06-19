@@ -22,6 +22,6 @@ class Event < ActiveRecord::Base
   end
 
   def past?
-    self.date  < DateTime.now
+    self.date  <= DateTime.now
   end
 end
