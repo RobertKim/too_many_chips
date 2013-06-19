@@ -4,8 +4,8 @@
   <%= ei.quantity_assigned %> 
     <%= ei.assigned_items.each do |ai| %>
         <%= ai.guest.name %>
-        <%= ai.guest.email %>
         <%= ai.quantity_provided %>
+        <%= ai.guest.email %>
         <%= link_to 'remove',remove(ai), :remote => true %>
     <% end %>
 <% end %>
