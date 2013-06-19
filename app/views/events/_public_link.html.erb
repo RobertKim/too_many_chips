@@ -1,5 +1,5 @@
 <div>
 <h3>Here's a link to share with your guests.</h3>
-  <%= link_to "#{@event.url}", event_path(@event) %>
-  <h3> <%= link_to 'Click here to view your event as a guest', event_path(@event) %></h3>
+  <%= link_to "www.toomanychips.com/#{@event.url}", event_path(@event) %>
+  <h3> You can also <%= link_to 'edit your event', edit_event_path(@event) %></h3>
 </div>
