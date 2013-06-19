@@ -18,7 +18,7 @@ gem 'omniauth-facebook'
 gem 'sidekiq', '>= 2.12.1'
 gem 'sidekiq-status'
 gem 'sidekiq-failures'
-gem 'mandrill-api'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

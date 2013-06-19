@@ -6,9 +6,9 @@ PotluckyGopher::Application.routes.draw do
 
   root to: 'pages#index'
   resources :users, :only => [:show, :create, :new, :edit] 
-  resources :sessions, :only => [:destroy, :create]
-  post '/login' => 'sessions#create', :as => 'login'
-  match 'signout', to: 'sessions#destroy', as: 'signout'
+  resources :session, :only => [:destroy, :create]
+  post '/login' => 'session#create', :as => 'login'
+  match 'signout', to: 'session#destroy', as: 'signout'
 
   resources :events
   get '/:url' => 'events#invitation', :as => 'invitation'
