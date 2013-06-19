@@ -8,44 +8,6 @@
 </div>
 
 <ul class="event_items">
-<%= form_for @guest, :url => new_guest_path, :remote => true do |g| %> 
-
-  <li class="event_item_row"><div class="name">NAME</div> | <div class="suggestion">Suggestions</div> | <div class="quantity_needed">Quant Needed</div> | <div class"quantity_needed">Item Description</div> | <div class="quantity_needed">Bring some</div></li>
-  <% @event.event_items.each do |ei| %>
-  <li class="event_item_row">
-    <div class="name"> <%= ei.item.name %> </div>
-    <div class="suggestion"> <%= ei.item.suggestion %> </div>
-    <div class="quantity_needed"> <%= ei.quantity_still_needed %> </div>    
-    <div class="description"> <%= ei.description %> </div>
-
-    <div class="quantity_needed">
-      <% @guest.assigned_items.build %>
-    <%= g.fields_for :assigned_items do |ai| %>
-      <%= ai.select :quantity_provided, options_for_select(0..ei.quantity_still_needed) %>
-    <% end %>
-    </div>
-
-  </li>
-
-  <% end %>
-  <%= g.text_field :name, :name => "guest_name", :placeholder =>"Your Name", :required => true %>
-  <%= g.text_field :email, :name => "guest_email", :placeholder => "Your Email", :required => true %>
-  <%= g.submit %>
-<% end %>
+  <%= render 'guest_form', :guest => @guest %>
 </ul>
-
-<ul class="assigned_items">Items We Have!
-    <div>
-  <% @event.event_items.each do |ei| %>
-    <div class="brought_item">
-      <li class="item_name"> <%= ei.item.name %> </li>
-    <% ei.assigned_items.each do |ai|%>
-      <ul class="guest_item">
-        <li class="guest_name"> <%= ai.guest.name %> </li>
-        <li class="quantity_provided"> Bringing: <%= ai.quantity_provided %> </li>
-      </ul>
-    <% end %>
-      </div>
-  <% end %>
-    </div>
-</ul>
+<%= render 'assigned_items' %>
