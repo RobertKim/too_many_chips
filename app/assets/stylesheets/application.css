@@ -64,6 +64,12 @@ body {
   color: #FF7D51;
 }
 
+.navbar-inner #sign_out {
+    right: 55px;
+    top: 15px;
+    position: absolute;
+}
+
 .hero-unit {
     background-image: url('black_pants.png');
 	background-repeat: no-repeat;
@@ -119,15 +125,34 @@ background-color: transparent;
 
 .signup_forms {
     position: absolute;
-    top: 175px;
+    top: 110px;
+}
+
+.ignup_forms {
+    position: absolute;
+   
 }
 
 .signup_forms .span6 {
     position: relative;
+    height: 350px;
+}
+
+.ignup_forms .span4 {
+    position: relative;
     height: 240px;
 }
 
+.ignup_forms .span4 h2{
+    color: #FF7D51;
+}
+
 .signup_container {
+    padding-top: 25px;
+    padding-left: 90px;
+}
+
+.ignup_container {
     padding: 25px;
 }
 
@@ -137,7 +162,25 @@ background-color: transparent;
     z-index: 1;
 }
 
+.ignup_form,
+.ignin_form {
+    position: relative;
+    z-index: 1;
+}
+
 .signup_container .cover {
+    background-color: #f8f8f8;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    border-radius: 4px;
+}
+
+.ignup_container .cover {
     background-color: #f8f8f8;
     position: absolute;
     top: 0;

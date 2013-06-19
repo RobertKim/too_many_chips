@@ -1,9 +1,9 @@
-require 'spec_helper'
-describe Items do
+# require 'spec_helper'
+# describe Items do
 
-  it { should }
+#   it { should }
 
-end
+# end
 # suggestion
 # name
 # created_at

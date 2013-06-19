@@ -35,8 +35,6 @@
 			<a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
 			<a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
 		</div>
-	<!--  Carousel - consult the Twitter Bootstrap docs at 
-	http://twitter.github.com/bootstrap/javascript.html#carousel -->
 
 
 <div class="container">
@@ -45,12 +43,10 @@
 			<div class="signup_container">
 				<div class="signup_form">
 					<h4>Sign up and start</h4>
-					<h4>planning your potluck!</h4>
+					<h4>planning your potluck!</h4><br>
 					<%= render 'layouts/create_user_form' %>
 
-					<div class="signin_button">
-						<button id="new_user" class="btn btn-success"> Sign Up </button>
-					</div><br>
+					
 					<div class="fb_button"><%= button_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", class: :"btn btn-primary" %>
 					</div>
 				</div>
@@ -62,9 +58,9 @@
 			<div class="signup_container">
 				<div class="signup_form">
 					<h4>Login to check on your</h4>
-					<h4>event, or add more to it!</h4>
+					<h4>event, or add more to it!</h4><br>
 					<%= render 'layouts/user_login_form' %>
-					<button id="login" class="btn btn-success"> Log In </button>
+					
 				</div>
 				<div class="cover"></div>
 		  </div>
@@ -72,19 +68,47 @@
 	</div>
 </div>
 
+<div class="container">
+	<div class="row ignup_forms">
+		<div class="span4">
+			<div class="signup_container">
+				<div class="signup_form">
+
+					<h2>Join Us.</h2>
+					<h4>planning your potluck!</h4>
+					
+
+					
+				</div>
+				<div class="cover"></div>
+		  </div>
+		</div>
+
+		<div class="span4">
+			<div class="ignup_container">
+				<div class="ignup_form">
+					<h2>Organize.</h2>
+					<h4>event, or add more to it!</h4>
+				
+				</div>
+				<div class="cover"></div>
+		  </div>
+		</div>
+
+		<div class="span4">
+			<div class="ignup_container">
+				<div class="ignup_form">
+					<h2>Enjoy!</h2>
+					<h4>event, or add more to it!</h4>
+				
+				</div>
+				<div class="cover"></div>
+		  </div>
+		</div>
+
+	</div>
+</div>
+
 	
 
-		<% if current_user %>
-		<div class="span12">
-			<h4> Checkout your events!</h4>
-			<% else %>
-			<div class="span4">
-
-
-				<ul>
-
-				</ul>
-			</div>
-			<% end %>  
-
-		</div>
+		
