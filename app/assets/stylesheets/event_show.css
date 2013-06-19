@@ -1,0 +1,40 @@
+.event_items{
+  float:left;
+}
+
+li * {
+  display:inline;
+  width: 25%;
+}
+.event_item_row {
+  width:100%;
+}
+.name {
+  width:20%;
+}
+.suggestion {
+  width:25%;
+}
+.quantity_needed {
+  width:15%;
+}
+.description {
+  width:25%;
+}
+
+ul {
+  list-style: none;
+}
+
+.assigned_items {
+  float:left;
+}
+.brought_item {
+  border: 1px solid orange;
+  margin: px;
+}
+
+.guest_item {
+  margin: 5px;
+  border: 1px solid purple;
+}

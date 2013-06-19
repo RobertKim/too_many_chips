@@ -17,6 +17,8 @@ PotluckyGopher::Application.routes.draw do
   
   resources :assigned_items, :except => [:index]
   match 'edit_RSVP/:url' => 'assigned_items#edit'
+
+  resources :guest, :only => [:show, :edit, :new, :create]
 mount Sidekiq::Web, at: "/sidekiq"
   # The priority is based upon order of creation:
   # first created -> highest priority.

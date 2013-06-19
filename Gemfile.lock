@@ -197,6 +197,9 @@ GEM
       sidekiq (>= 2.2.1)
     sidekiq-status (0.3.0)
       sidekiq (~> 2.7)
+    simple_form (2.1.0)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
     sinatra (1.4.3)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -259,6 +262,7 @@ DEPENDENCIES
   sidekiq (>= 2.12.1)
   sidekiq-failures
   sidekiq-status
+  simple_form
   sinatra
   slim
   twitter-bootstrap-rails
