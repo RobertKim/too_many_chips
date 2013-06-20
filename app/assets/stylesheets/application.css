@@ -51,12 +51,12 @@ body {
   
 }
 
-.hero-unit h1 {
+.hero-unit h1, h2 {
   color: #FF5600;
 }
 
 .hero-unit h3, h4 {
-  color: #00A392;
+  color: #363636;
 }
 
 
