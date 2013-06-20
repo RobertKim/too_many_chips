@@ -55,7 +55,11 @@ class EventsController < ApplicationController
  private 
 
   def check_permissions
-    current_user.id == @event.user.id
+    @event = Event.find(params[:id])
+    unless current_user.id == @event.user.id
+       redirect_to event_path(@event)
+    end
+
   end
   
   def logged_in?

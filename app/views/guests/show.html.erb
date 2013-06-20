@@ -14,8 +14,10 @@
           <td><%= item.quantity_provided %></td>
           <td><%= item.event_item.description%></td>
             <td> <%= link_to "#{item.event_item.event.name}", event_path(item.event_item.event)%></td></tr>
-            <td> <%= button_to 'remove', assigned_items_path(item), :method => 'destroy', :remote => :true %></td>
+            <td> <%= button_to 'remove', assigned_items_path(item), :method => :delete, :remote => :true %></td>
         <% end %>
       </table>
   </div>
 </div> 
+
+
