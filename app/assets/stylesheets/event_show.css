@@ -51,11 +51,11 @@
   color: #f2fff2;
 }
 
-li * {
+/*li * {
   display:inline;
   width: 20%;
   max-width: 10em;
-}
+}*/
 .event_item_row {
   width:100%;
 }
