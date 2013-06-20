@@ -1,0 +1,9 @@
+div.hidden {
+    display: none;
+    height: 0;
+}
+
+div.active {
+    display: block;
+}
+

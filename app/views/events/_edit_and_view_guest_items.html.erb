@@ -1,11 +1,57 @@
-<% @event.event_items.each do |ei| %>
-  <%= ei.item.name %> 
-  <%= ei.quantity_needed %> 
-  <%= ei.quantity_assigned %> 
-    <%= ei.assigned_items.each do |ai| %>
-        <%= ai.guest.name %>
-        <%= ai.guest.email %>
-        <%= ai.quantity_provided %>
-        <%= link_to 'remove',remove(ai), :remote => true %>
-    <% end %>
-<% end %>
+<div class="btn-group" id='contribution-btn'>
+  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    Guest Contributions
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+    <li><a tabindex="-1" href="#all">All</a></li>
+       <% @event.guests.each do |guest| %>
+    <li><a tabindex="-1" href="#guest<%=guest.id%>"><%= guest.name %></a></li>  
+       <%end%>
+  </ul>
+</div>
+
+<div class='guest-items'>
+   <div class='active' class='active' id="all" >
+     <% @event.event_items.each do |item| %>
+      <ul>
+        <li><%= item.item.name %></li>
+        <li><%= item.quantity_needed %></li>
+      </ul>
+     <% end %>
+    </div>
+
+    <% @event.guests.each do |guest| %>
+        <div class='hidden' id="guest<%=guest.id%>" >
+          <ul>
+            <li> <%= guest.name %> <%= guest.email %> </li>
+              <% guest.contributions(@event.id).each do |ai| %>
+                <li> <%= ai.event_item.item.name %> </li> 
+                <li><%= ai.quantity_provided %> </li>
+          </ul>
+              <% end %>
+        </div>
+    <%end%>
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function (e) {
+    function showNewBorders(e) {     
+  };
+    
+    $('.dropdown-menu').on('click', 'a', function(e) {
+        e.preventDefault();
+        showNewBorders($(this).closest('li'));
+        var link = $(this).attr('href');
+        $('.guest-items').children().addClass("hidden");
+        $(link).removeClass("hidden");
+        $(link).addClass("active");
+    });
+});
+</script>
+
+
+
+
+

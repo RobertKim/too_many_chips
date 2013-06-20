@@ -10,6 +10,7 @@ class Event < ActiveRecord::Base
   belongs_to :user
   has_many :event_items, :inverse_of => :event
   has_many :items, :through => :event_items
+  has_many :assigned_items, :through => :event_items
 
   accepts_nested_attributes_for :event_items, :reject_if => :all_blank, :allow_destroy => true
 
@@ -24,4 +25,9 @@ class Event < ActiveRecord::Base
   def past?
     self.date  < DateTime.now
   end
+
+  def guests
+    self.assigned_items.map {|item| (item.guest) }.uniq
+  end
+
 end
