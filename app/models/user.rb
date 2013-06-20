@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   def self.from_omniauth(auth)
   	where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user = User.find_or_create_by_email(auth.info.email)
-        if user.token_expired? || user.oauth_token.nil?
+        if user.oauth_token.nil?
           user
         else
       		user.provider = auth.provider

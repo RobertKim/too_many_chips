@@ -65,7 +65,7 @@
 					<h2> 
 						Upcoming Events: 
 					</h2>
-					<% end %>
+					
 					<% current_user.events.each do |event| %>
 					<% if event.upcoming? %>
 					<ul>                    
@@ -77,14 +77,14 @@
 					</ul>
 					<% end %>
 					<% end %>
-
+					<% end %>
 					<% past = current_user.events.where('date<?', Date.today) %>
 
 					<% if past.any? %>
 					<h2> 
 						Past Events: 
 					</h2>
-					<% end %>
+					
 					<% current_user.events.each do |event| %>
 					<% if event.past? %>
 					<ul>
@@ -96,6 +96,8 @@
 					</ul>
 					<% end %>
 					<% end %>
+					<% end %>
+
 
 					
 				</div>
