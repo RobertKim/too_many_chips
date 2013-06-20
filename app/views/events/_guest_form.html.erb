@@ -9,19 +9,21 @@
   </li>
   
   <% @event.event_items.each do |ei| %>
-    <li class="event_item_row">
-      <div class="name"> <%= ei.item.name %> </div>
-      <div class="suggestion"> <%= ei.item.suggestion %> </div>
-      <div class="quantity_needed"> <%= ei.quantity_still_needed %> </div>    
-      <div class="description"> <%= ei.description %> </div>
+    <% if ei.quantity_still_needed > 0 %>
+      <li class="event_item_row">
+        <div class="name"> <%= ei.item.name %> </div>
+        <div class="suggestion"> <%= ei.item.suggestion %> </div>
+        <div class="quantity_needed"> <%= ei.quantity_still_needed %> </div>    
+        <div class="description"> <%= ei.description %> </div>
 
-      <div class="bring_quantity">
-        <%= g.fields_for :assigned_items do |ai| %>
-          <%= ai.select :quantity_provided, 0..ei.quantity_still_needed, {}, :class => "#{ei.item.name}" %>
-          <%= ai.hidden_field :event_item_id, :value => ei.id %>
-        <% end %>
-      </div>
-    </li>
+        <div class="bring_quantity">
+          <%= g.fields_for :assigned_items do |ai| %>
+            <%= ai.select :quantity_provided, 0..ei.quantity_still_needed, {}, :class => "#{ei.item.name}" %>
+            <%= ai.hidden_field :event_item_id, :value => ei.id %>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
   <% end %>
 
   <%= g.text_field :name, :placeholder =>"Your Name", :required => true %>

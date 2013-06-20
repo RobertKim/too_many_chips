@@ -4,6 +4,7 @@ class EventsController < ApplicationController
   # before_filter :check_permissions, :only => [:show, :destroy]
 
   def show
+    p session
     @event = Event.find(params[:id])
     session[:event_id] = @event.id
     @guest = Guest.new
