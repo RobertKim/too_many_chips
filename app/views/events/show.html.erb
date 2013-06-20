@@ -12,15 +12,22 @@
 </div>
 <ul class="event_items">
   <div class="errors"></div>
-  <% if session[:guest_id] %>
-  <% guest = Guest.find(session[:guest_id]) %>
-  <div class="thank_you">
-    <p>Thank you for contributing to <%= @event.name %>! Check out what everyone is bringing <a href="#contributions">below</a>. </p>
-  <p> You can edit your items in the future by visiting your personal url: <a href="http://www.toomanychips.com/rsvp/<%=guest.url%>"> http://www.toomanychips.com/rsvp/<%=guest.url%></a></p>
-  </div>
-  <% end %>
-  <div class="guest_items"></div>
-  <%= render 'guest_form', :guest => @guest %>
+    <% if current_user == @event.user %>
+      <div class="thank_you">
+        <p> Your event has been created! Use this link it to share it with your friends: <a href="http://www.toomanychips.com/<%=@event.url%>" > http://www.toomanychips.com/rsvp/<%=@event.url%></a></p>
+        <p> Edit your event and check out guest contibutions here: <%= link_to 'here', edit_event_path(@event)%></a>. </p>
+      </div>
+    <%else%>
+      <% if session[:guest_id] %>
+        <% guest = Guest.find(session[:guest_id]) %>
+      <div class="thank_you">
+        <p>Thank you for contributing to <%= @event.name %>! Check out what everyone is bringing <a href="#contributions">below</a>. </p>
+        <p> You can edit your items in the future by visiting your personal url: <a href="http://www.toomanychips.com/rsvp/<%=guest.url%>"> http://www.toomanychips.com/rsvp/<%=guest.url%></a></p>
+      </div>
+      <% end %>
+    <% end %>
+    <div class="guest_items"></div>
+    <%= render 'guest_form', :guest => @guest %>
 </ul>
 
 

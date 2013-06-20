@@ -46,6 +46,5 @@ div.active {
 .guest-show td, th{
     height: 15px;
     line-height: 15px;
-    text-align: center;
-    padding-right: 5px;
+   
 }
