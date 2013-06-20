@@ -1,9 +1,0 @@
-.login_form
-  = link_to image_tag('facebook-login-button.png'), 'http://localhost:3000/auth/facebook'
-  = form_tag new_session_path, :method => 'get' do
-    = h text_field_tag :username, nil, :placeholder => "username"
-    %br
-    = h password_field_tag :password, nil, :placeholder => "password" 
-    %br
-    = submit_tag("Submit")
-

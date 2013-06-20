@@ -1,0 +1,21 @@
+ <div class='container'>
+  <div class='guest-show'>
+    <h4>You're signed up to bring: <h4>
+      <table class='table'>
+        <% @guest.assigned_items.each do |item| %>
+        <tr>
+          <th>Item</th>
+          <th>How Many</th>
+          <th>Item Information</th>
+          <th>Event</th>
+        </tr>
+        <tr>  
+          <td><%= item.event_item.item.name %></td>
+          <td><%= item.quantity_provided %></td>
+          <td><%= item.event_item.description%></td>
+            <td> <%= link_to "#{item.event_item.event.name}", event_path(item.event_item.event)%></td></tr>
+            <td> <%= button_to 'remove', assigned_items_path(item), :method => 'destroy', :remote => :true %></td>
+        <% end %>
+      </table>
+  </div>
+</div> 

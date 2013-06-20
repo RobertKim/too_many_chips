@@ -8,16 +8,9 @@ class AssignedItemsController < ApplicationController
     end
   end
 
-  def edit
-
-  end
-
   def show
     @assigned_items = AssignedItem.find(params[:id]).find_all_user_items
   end
 
-  def destroy
-
-  end
 end
 

@@ -1,10 +1,8 @@
 class EventsController < ApplicationController
   respond_to :json, :html
-  before_filter :logged_in?
-  # before_filter :check_permissions, :only => [:show, :destroy]
+  before_filter :check_permissions, :only => [:edit, :new, :update,:create, :destroy]
 
   def show
-    p session
     @event = Event.find(params[:id])
     session[:event_id] = @event.id
     @guest = Guest.new

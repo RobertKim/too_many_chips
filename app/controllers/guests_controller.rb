@@ -6,7 +6,7 @@ class GuestsController < ApplicationController
   end
 
   def create
-    @guest = Guest.new(params[:guest])
+    @guest = Guest.find_or_create_by_email(params[:guest])
 
     if @guest.save
       session[:guest_id] = @guest.id
@@ -17,18 +17,17 @@ class GuestsController < ApplicationController
     end
   end
 
-  def edit
-
+  def rsvp
+    puts "FFFFFF"
+    p params[:url]
+    @guest = Guest.find_by_url(params[:url])
+    render :show
   end
-
-  
 
   def show
-    @guest = Guest.find(params[:guest])
-  end
-
-  def destroy
-
+    p params[:url]
+    @guest = Guest.find_by_url(params[:url])
+    render :show
   end
 end
 
