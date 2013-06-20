@@ -12,11 +12,13 @@
 </div>
 
 <div class='guest-items'>
-   <div class='active' class='active' id="all" >
+   <div class='active' id="all" >
      <% @event.event_items.each do |item| %>
       <ul>
-        <li><%= item.item.name %></li>
-        <li><%= item.quantity_needed %></li>
+        <li><%= item.item.name %> <%= item.quantity_assigned %>/<%= item.quantity_needed %></li>
+          <div class="progress progress-info">
+            <div class="bar" style="width: <%=item.pecentage%>%"></div>
+          </div>
       </ul>
      <% end %>
     </div>
@@ -24,7 +26,7 @@
     <% @event.guests.each do |guest| %>
         <div class='hidden' id="guest<%=guest.id%>" >
           <ul>
-            <li> <%= guest.name %> <%= guest.email %> </li>
+            <li> Name: <%= guest.name %> Email:<%= guest.email %> </li>
               <% guest.contributions(@event.id).each do |ai| %>
                 <li> <%= ai.event_item.item.name %> </li> 
                 <li><%= ai.quantity_provided %> </li>

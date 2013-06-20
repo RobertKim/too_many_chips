@@ -1,7 +1,9 @@
-<h1>Update your event: <%=@event.name%></h1>
-  <%= render 'edit_and_view_guest_items' %>
-  <%= render 'create_event_form' %>
-<div class='footer'>
-  <%= link_to 'Delete This Event' , @event, :confirm =>
-  "Are you sure you want to delete your event?", :method => :delete %>
+<div class='container'>
+  <p class="lead" id="edit-top"><%=@event.name.titleize%> Details</p>
+    <%= render 'edit_and_view_guest_items' %>
+    <%= render 'create_event_form' %>
+  <div class='footer'>
+    <%= link_to 'Delete This Event' , @event, :confirm =>
+    "Are you sure you want to delete your event?", :method => :delete %>
+  </div>
 </div>

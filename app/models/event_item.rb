@@ -27,5 +27,9 @@ class EventItem < ActiveRecord::Base
   def needed?
     self.quantity_needed > 0
   end
+
+  def pecentage
+    (self.quantity_assigned.to_f / self.quantity_needed.to_f).to_f * 100
+  end
 end
 

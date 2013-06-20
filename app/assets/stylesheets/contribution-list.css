@@ -7,3 +7,14 @@ div.active {
     display: block;
 }
 
+#edit-top {
+    padding-top: 15px;
+    text-align: center;
+}
+
+.guest-items {
+    border: #E0E0E0 solid 2px;
+    margin-top: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
