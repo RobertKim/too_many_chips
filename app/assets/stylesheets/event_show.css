@@ -2,7 +2,9 @@
   width: 100%;
   border-radius: 0px;
 }
-
+.hero-unit {
+  color:#FF7D51;
+}
 .hero_content {
   position:relative;
   padding: 40px;
@@ -21,12 +23,13 @@
   font-size: 1.5em;
   z-index: 10;
 }
-.hero_content h1 {
+.hero_content h1 { 
   position: relative;
+  color: #FF7D51;
   z-index: 1;
 }
 .hero_content .cover {
-    background-color: #D3D3D3;
+    background-color: #f8f8f8;
     position: absolute;
     top: 0;
     left: 0;
@@ -115,7 +118,7 @@ ul p.lead {
   width: 9em;
   color: white;
   font-size: 1.2em;
-  background-color: #FF4100;
+  background-color:#FF7D51;;
   /*font-weight: bold; */
   /*position:relative;*/
   /*z-index:1; */
