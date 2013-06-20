@@ -245,7 +245,7 @@ background-color: transparent;
 }
 
 .new_event select {
-    width: 32%;
+    width: 33%;
 }
 
 #event_date_* {
@@ -257,11 +257,11 @@ background-color: transparent;
 }
 
 .item_quantity_needed {
-    width: 17%;
+    width: 15%;
 }
 
 .item_description {
-    width: 310px;
+    width: 410px;
 }
 
 .item_name {
