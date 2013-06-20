@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:id] = @user.id
       # UserMailer.signup_confirmation(@user.id).deliver
-      redirect_to your_profile_path, notice: "Signed in!"
+      redirect_to your_profile_path, notice: "You've successfully signed up!"
     else
       flash[:errors] = @user.errors.messages
       redirect_to root_path
