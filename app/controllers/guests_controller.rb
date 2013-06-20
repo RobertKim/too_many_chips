@@ -6,14 +6,18 @@ class GuestsController < ApplicationController
   end
 
   def create
-    @guest = Guest.find_or_create_by_email(params[:guest])
-
+    if @guest = Guest.find_by_email(params[:guest][:email])
+      params["guest"]["assigned_items_attributes"].each do |e|
+        @guest.assigned_items << AssignedItem.new(quantity_provided: e[1]["quantity_provided"], event_item_id: e[1]["event_item_id"])
+      end
+    else @guest = Guest.new(params[:guest])
+    end
     if @guest.save
       session[:guest_id] = @guest.id
       @event = @guest.assigned_items.first.event_item.event
       render :json => event_path(@event).to_json
     else
-      render :json => @guest.errors.full_messages.join(','), :status => :unprocessable_entity      
+      render :json => @guest.errors.full_messages.join(','), :status => :unprocessable_entity
     end
   end
 
