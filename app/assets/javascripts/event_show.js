@@ -23,6 +23,7 @@ $(function() {
     var selectedName  = $(this).attr('class');
     var selectedID    = this.length;
     var newItem = new BroughtItem(selectedName, selectedValue, selectedID);
+    debugger
     newItem.render();
   });
 

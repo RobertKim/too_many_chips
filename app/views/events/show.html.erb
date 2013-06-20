@@ -16,6 +16,7 @@
       </div>
     </div>
   
+  <div class='event_items'>
     <div class="errors"></div>
       <% if current_user == @event.user %>
         <div class="thank_you">
@@ -31,9 +32,10 @@
         </div>
         <% end %>
       <% end %>
-      <div class="guest_items">
+      <div class="guest_items"></div>
         <%= render 'guest_form', :guest => @guest %>
       </div>
-    </div> 
+    </div>
+ 
 
 
