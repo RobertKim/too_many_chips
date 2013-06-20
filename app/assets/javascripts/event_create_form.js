@@ -1,7 +1,7 @@
 $(document).ready(function(){
   $('.gnup_form').on('click', '.event_button', function(){
     $(this).hide();
-    $('.new_event').removeClass('hidden-event');
+    $('.new_event_form').removeClass('hidden-event');
   });
 });
 
