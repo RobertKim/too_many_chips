@@ -30,6 +30,7 @@
 <% end %>
 
 </table>
+
 <div "bringin_items">
 <%= g.text_field :name, :placeholder =>"Your Name", :required => true %>
 <div class="input-append">
@@ -40,4 +41,6 @@
 </div>
 <% end %>
 
-<%= render 'assigned_items' %>
+<% if @event.assigned_items.length < 0 %>
+  <%= render 'assigned_items' %>
+<%end%>

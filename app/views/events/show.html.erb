@@ -1,35 +1,34 @@
-<div class=''>
-  <div class='hero-unit'>
-    <div class='hero_content'>
-      <h1><%= @event.name %></h1><br>
-      <p><%= @event.description %></p>
-      Date: <p><%= @event.date %> </p>
-      Location: <p><%= @event.location %> </p>
-      <div class="cover"></div>
+<div class='contianer'>
+  <div class='show-event-wrapper'>
+    <div class='hero-unit'>
+      <div class='hero_content'>
+        <h1><%= @event.name %></h1><br>
+        <p><%= @event.description %></p>
+        Date: <p><%= @event.date %> </p>
+        Location: <p><%= @event.location %> </p>
+        <div class="cover"></div>
+      </div>
     </div>
-  </div>
-
-</div>
-<ul class="event_items">
-  <div class="errors"></div>
-    <% if current_user == @event.user %>
-      <div class="thank_you">
-        <p> Your event has been created! Use this link it to share it with your friends: <a href="http://www.toomanychips.com/<%=@event.url%>" > http://www.toomanychips.com/rsvp/<%=@event.url%></a></p>
-        <p> Edit your event and check out guest contibutions here: <%= link_to 'here', edit_event_path(@event)%></a>. </p>
-      </div>
-    <%else%>
-      <% if session[:guest_id] %>
-        <% guest = Guest.find(session[:guest_id]) %>
-      <div class="thank_you">
-        <p>Thank you for contributing to <%= @event.name %>! Check out what everyone is bringing <a href="#contributions">below</a>. </p>
-        <p> You can edit your items in the future by visiting your personal url: <a href="http://www.toomanychips.com/rsvp/<%=guest.url%>"> http://www.toomanychips.com/rsvp/<%=guest.url%></a></p>
-      </div>
+  
+    <div class="errors"></div>
+      <% if current_user == @event.user %>
+        <div class="thank_you">
+          <p> Your event has been created! Use this link it to share it with your friends: <a href="http://www.toomanychips.com/<%=@event.url%>" > http://www.toomanychips.com/rsvp/<%=@event.url%></a></p>
+          <p> Edit your event and check out guest contibutions <%= link_to 'here', edit_event_path(@event)%></a>. </p>
+        </div>
+      <%else%>
+        <% if session[:guest_id] %>
+          <% guest = Guest.find(session[:guest_id]) %>
+        <div class="thank_you">
+          <p>Thank you for contributing to <%= @event.name %>! Check out what everyone is bringing <a href="#contributions">below</a>. </p>
+          <p> You can edit your items using this url: <a href="http://www.toomanychips.com/rsvp/<%=guest.url%>"> http://www.toomanychips.com/rsvp/<%=guest.url%></a></p>
+        </div>
+        <% end %>
       <% end %>
-    <% end %>
-    <div class="guest_items"></div>
-    <%= render 'guest_form', :guest => @guest %>
-
-
-
+      <div class="guest_items">
+        <%= render 'guest_form', :guest => @guest %>
+      </div>
+    </div> 
+</div> 
 
 
