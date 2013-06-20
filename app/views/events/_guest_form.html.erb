@@ -1,4 +1,4 @@
-<%= form_for guest, :remote => true do |g| %> 
+<%= form_for :guest, :remote => true do |g| %> 
 
   <li class="event_item_row">
     <div class="name">NAME</div> | 
@@ -15,9 +15,9 @@
       <div class="quantity_needed"> <%= ei.quantity_still_needed %> </div>    
       <div class="description"> <%= ei.description %> </div>
 
-      <div class="quantity_needed">
+      <div class="bring_quantity">
         <%= g.fields_for :assigned_items do |ai| %>
-          <%= ai.select :quantity_provided, options_for_select(0..ei.quantity_still_needed) %>
+          <%= ai.select :quantity_provided, 0..ei.quantity_still_needed, {}, :class => "#{ei.item.name}" %>
           <%= ai.hidden_field :event_item_id, :value => ei.id %>
         <% end %>
       </div>
@@ -28,3 +28,6 @@
   <%= g.text_field :email, :placeholder => "Your Email", :required => true %>
   <%= g.submit %>
 <% end %>
+
+
+<%= render 'assigned_items' %>
