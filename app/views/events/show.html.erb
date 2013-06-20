@@ -20,7 +20,7 @@
     <div class="errors"></div>
       <% if current_user == @event.user %>
         <div class="thank_you">
-          <p> Your event has been created! Use this link it to share it with your friends: <a href="http://www.toomanychips.com/<%=@event.url%>" > http://www.toomanychips.com/rsvp/<%=@event.url%></a></p>
+          <p> Your event has been created! Use this link it to share it with your friends: <a href="http://www.toomanychips.com/<%=@event.url%>" > http://www.toomanychips.com/<%=@event.url%></a></p>
           <p> Edit your event and check out guest contibutions <%= link_to 'here', edit_event_path(@event)%></a>. </p>
         </div>
       <%else%>
