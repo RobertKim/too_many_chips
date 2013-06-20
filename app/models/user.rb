@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   after_save :registration_emails!
 
   def token_expired?
-    self.oauth_expires_at < DateTime.now
+    self.oauth_expires_at > DateTime.now
   end
 
   def self.from_omniauth(auth)
