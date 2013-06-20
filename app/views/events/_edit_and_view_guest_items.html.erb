@@ -36,19 +36,4 @@
 </div>
 
 
-<script type="text/javascript">
-$(document).ready(function (e) {
-    function showNewBorders(e) {     
-  };
-    
-    $('.dropdown-menu').on('click', 'a', function(e) {
-        e.preventDefault();
-        showNewBorders($(this).closest('li'));
-        var link = $(this).attr('href');
-        $('.guest-items').children().addClass("hidden");
-        $(link).removeClass("hidden");
-        $(link).addClass("active");
-    });
-});
-</script>
 

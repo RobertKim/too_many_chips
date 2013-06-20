@@ -2,7 +2,7 @@
 
 .gnup_forms {
   position: absolute;
-  top: 90px;
+  top: 125px;
 }
 
 .gnup_forms .span6 {
@@ -16,9 +16,17 @@
   z-index: 1;
 }
 
-.gnup_container {
+.gnup_container{
   padding-top: 25px;
   padding-left: 50px;
+}
+
+.gnup_container h3{
+  padding-left: 52px;
+}
+
+.gnup_container h4{
+  padding-left: 52px;
 }
 
 .gnup_container .cover {
@@ -26,10 +34,13 @@
   position: absolute;
   top: 0;
   left: 0;
-  opacity: 0.8;
-  height: 100%;
+  opacity: .5;
+  height: 325px;
   width: 100%;
   z-index: 0;
   border-radius: 4px;
 }
 
+.hidden-event {
+  display: none;
+}

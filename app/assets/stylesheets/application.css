@@ -228,11 +228,11 @@ background-color: transparent;
 
 }
 
-.float-left {
+/*.float-left {
     float: left;
     display: inline-block;
 
-}
+}*/
 
 .description {
     width: 95%;
@@ -267,5 +267,7 @@ background-color: transparent;
 .item_name {
     width: 72%;
 }
+
+
 
 
