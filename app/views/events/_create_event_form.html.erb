@@ -1,19 +1,28 @@
-<div class="span 4">
 <div class='new_event'>
+ 
   <%= form_for(@event) do |e| %>
-  	<%= e.text_field :name, :class => ".name", :placeholder => "Title"%>
-  	<%= e.text_field :location, :class => "location", :placeholder => "Location"%>
-  	<%= e.date_select :date, :class => "date", :placeholder => "Date"%>
-  	<%= e.text_area :description, :class => "description", :placeholder => "Description"%>
-    <ul class='event_items'>
+  <span class="span6 float-left">
+  <%= e.text_field :name, :class => "name", :placeholder => "Title"%>
+  <%= e.text_field :location, :class => "location", :placeholder => "Location"%>
+  <%= e.date_select :date, :class => "date", :placeholder => "Date"%>
+  <%= e.text_area :description, :class => "description", :placeholder => "Description"%>
+</span>
+<span class="span5 float-left">
+  <ul class='event_items'>
+    <div class='form-wrap'>
       <%= e.fields_for :event_items do |ei| %>     
-    		<%= render 'event_items/create_event_items_form', f: ei %>
+      <%= render 'event_items/create_event_items_form', f: ei %>
       <% end %>
-    </ul>
-    <%= link_to_add_fields "Add Item", e, :event_items %>
-  	<%= e.submit %>
-	<% end %>
-</div>
+    </div>
+  </ul>
+
+  <%= link_to_add_fields "Add Item", e, :event_items %>
+
+
+<%= e.submit 'Hello', :class => 'btn btn-small btn-primary' %>
+</span>
+<% end %>
+
 </div>
 
 
