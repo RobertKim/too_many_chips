@@ -3,7 +3,7 @@
     <div class='hero_content'>
       <h1><%= @event.name %></h1><br>
       <p><%= @event.description %></p>
-      Date: <p><%= @event.date %> </p> 
+      Date: <p><%= @event.date %> </p>
       Location: <p><%= @event.location %> </p>
       <div class="cover"></div>
     </div>
@@ -15,14 +15,13 @@
   <% if session[:guest_id] %>
   <% guest = Guest.find(session[:guest_id]) %>
   <div class="thank_you">
-    <p>Thank you for contributing to <%= @event.name %>! Check out what everyone is bringing <a href="#contributions">below</a>. </p> 
+    <p>Thank you for contributing to <%= @event.name %>! Check out what everyone is bringing <a href="#contributions">below</a>. </p>
   <p> You can edit your items in the future by visiting your personal url: <a href="www.toomanychips.com/<%=guest.url%>"> www.toomanychips.com/<%=guest.url%></a></p>
-  </div> 
+  </div>
   <% end %>
+  <div class="guest_items"></div>
   <%= render 'guest_form', :guest => @guest %>
 </ul>
 
-<ul class="guest_items">
 
-</ul>
 
