@@ -1,14 +1,14 @@
 function BroughtItem(name, quantity){
   this.name = name;
   this.quantity = quantity;
-  this.template = '<li class="brought_item"><p class="'+ this.name +'">'+ this.name +'</p><p class="'+ this.name +'_provided">'+ this.quantity +'</p></li>';
+  this.template = '<div class="brought_item"><div class="'+ this.name +'">Item: '+ this.name +'</div><div class="'+ this.name +'_provided">Bringing ' + this.quantity +'</div><div class="show_cover"></div></div>';
 }
 
 BroughtItem.prototype.render = function() {
   quantNode = '.' + this.name + '_provided';
-  nameNode   = '.guest_items li p.' + this.name
+  nameNode   = '.guest_items div .' + this.name
   if($(nameNode).length > 0) {
-    $(quantNode).text(this.quantity);
+    $(quantNode).text("Bringing " + this.quantity);
   }
   else {
     $('.guest_items').append(this.template);

@@ -1,10 +1,57 @@
+.hero-unit{
+  width: 100%;
+  border-radius: 0px;
+}
+
+.hero_content {
+  position:relative;
+  padding: 40px;
+  /*background-color: #ddd;*/
+  border-radius: 4px;
+  /*opacity: 0.5;*/
+}
+
+.hero_content p {
+  position: relative;
+  padding: 0px;
+  margin: 0px;
+  /*color:#00A392;*/
+  color: #363636;
+  font-weight: 600;
+  font-size: 1.5em;
+  z-index: 10;
+}
+.hero_content h1 {
+  position: relative;
+  z-index: 1;
+}
+.hero_content .cover {
+    background-color: #D3D3D3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.7;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    border-radius: 4px;
+}
+
 .event_items{
   float:left;
 }
 
+.thank_you {
+  padding: 10px;
+  border-radius: 4px;
+  background-color:#FF4100;
+  color: #f2fff2;
+}
+
 li * {
   display:inline;
-  width: 25%;
+  width: 20%;
+  max-width: 10em;
 }
 .event_item_row {
   width:100%;
@@ -26,17 +73,79 @@ ul {
   list-style: none;
 }
 
+ul p.lead {
+  text-align: center;
+  color: #009E8E;
+  font-size: 2.5em;
+}
+
+.line {
+  width: 100%;
+  border-top: 3px solid #009E8E;
+  margin-bottom: 10px;
+}
+
 .assigned_items, .guest_items {
   float:left;
 }
 .brought_item {
-  border: 1px solid orange;
-  margin: px;
+  padding: 2em;
+  color: #009E8E;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-bottom: 2px solid #009E8E;
+  /*background-color: white;*/
+  height:2em; 
 }
 
+.brought_item * {
+  /*display: inline;*/
+}
+
+.guest_items {
+  background-color: #aefcea;
+}
+
+.already_provided {
+  border-radius: 4px;
+  margin: 2em;
+  padding: 0.5em;
+  float:left;
+  height:12em;
+  width: 9em;
+  color: white;
+  font-size: 1.2em;
+  background-color: #FF4100;
+  /*font-weight: bold; */
+  /*position:relative;*/
+  /*z-index:1; */
+}
+/*.already_provided ul li {
+  z-index: 1;
+}
+
+.already_provided li {
+  z-index: 1;
+}
+
+.already_provided .show_cover {
+  background-color: #D3D3D3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.2;
+  height:100%;
+  width:100%;
+  z-index: 0;
+  border-radius: 4px;
+}*/
 .guest_item {
   margin: 5px;
-  border: 1px solid purple;
 }
-
-
+.bringin_items {
+  margin-left: 10em;
+}
+select, select * {
+  min-width: 5em;
+  max-width: 6em;
+}

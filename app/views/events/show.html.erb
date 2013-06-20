@@ -1,10 +1,14 @@
-<div class='span12'>
+<div class=''>
   <div class='hero-unit'>
-    <h1><%= @event.name %></h1><br>
-    <h3><%= @event.description %></h3>
-    <h3><%= @event.date %> </h3> 
-    <h3><%= @event.location %> </h3>
+    <div class='hero_content'>
+      <h1><%= @event.name %></h1><br>
+      <p><%= @event.description %></p>
+      <p><%= @event.date %> </p> 
+      <p><%= @event.location %> </p>
+      <div class="cover"></div>
+    </div>
   </div>
+
 </div>
 <ul class="event_items">
   <div class="errors"></div>
@@ -21,3 +25,4 @@
 <ul class="guest_items">
 
 </ul>
+
