@@ -1,4 +1,5 @@
 <div class='container'>
+  <div class='edit_event_container'>
   <p class="lead" id="edit-top"><%=@event.name.titleize%> Details</p>
     <%= render 'edit_and_view_guest_items' %>
     <%= render 'create_event_form' %>
@@ -6,4 +7,5 @@
     <%= link_to 'Delete This Event' , @event, :confirm =>
     "Are you sure you want to delete your event?", :method => :delete %>
   </div>
+</div>
 </div>

@@ -1,10 +1,10 @@
 <div class="btn-group" id='contribution-btn'>
-  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+  <a class="btn btn-warning dropdown-toggle" data-toggle="dropdown" href="#">
     Guest Contributions
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-    <li><a tabindex="-1" href="#all">All</a></li>
+    <li><a tabindex="-1" href="#all">All Items</a></li>
        <% @event.guests.each do |guest| %>
     <li><a tabindex="-1" href="#guest<%=guest.id%>"><%= guest.name %></a></li>  
        <%end%>
@@ -15,7 +15,7 @@
    <div class='active' id="all" >
      <% @event.event_items.each do |item| %>
       <ul>
-        <li><%= item.item.name %> <%= item.quantity_assigned %>/<%= item.quantity_needed %></li>
+        <li><span><%= item.item.name %>: <%= item.quantity_assigned %>/<%= item.quantity_needed %> <span></li>
           <div class="progress progress-info">
             <div class="bar" style="width: <%=item.pecentage%>%"></div>
           </div>
@@ -26,10 +26,9 @@
     <% @event.guests.each do |guest| %>
         <div class='hidden' id="guest<%=guest.id%>" >
           <ul>
-            <li> Name: <%= guest.name %> Email:<%= guest.email %> </li>
+            <li> Name: <%= guest.name %> Email: <%= guest.email %> </li>
               <% guest.contributions(@event.id).each do |ai| %>
-                <li> <%= ai.event_item.item.name %> </li> 
-                <li><%= ai.quantity_provided %> </li>
+                <li> Item: <%= ai.event_item.item.name %> Quanity: <%= ai.quantity_provided %> </li>
               <% end %>
           </ul>
         </div>

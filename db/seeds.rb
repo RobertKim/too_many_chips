@@ -59,9 +59,11 @@ end
 
 25.times do 
   event= Event.create(name: events.sample, description: "Awesome Party!", date: Chronic.parse("tomorrow"), location: "#{Faker::Name.name}'s House", user_id: 1 + rand(20))
+  10.times do
     event_item = EventItem.create(event_id: event.id, description: Faker::Lorem.sentence(word_count = 4), item_id: 1 + rand(40), quantity_needed: 6 + rand(20))
     2.times do
       AssignedItem.create(event_item_id: event_item.id , quantity_provided: rand(6), guest_id: 1 + rand(20)  ) 
+    end
   end
 end
 

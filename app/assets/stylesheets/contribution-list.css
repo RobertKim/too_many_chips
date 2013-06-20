@@ -17,4 +17,20 @@ div.active {
     margin-top: 15px;
     border-radius: 5px;
     margin-bottom: 15px;
+    line-height: 15px;
+    background-color: white;
+}
+
+.guest-items li{
+   padding: 3px;
+}
+
+.progress {
+    margin-left: 0;
+    margin-right: 0;
+    margin-right: 25px;
+}
+
+div.edit_event_container .btn-group{
+ padding-left: 5px;
 }
