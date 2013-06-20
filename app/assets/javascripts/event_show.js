@@ -22,4 +22,11 @@ $(function() {
     newItem = new BroughtItem(selectedName, selectedValue);
     newItem.render();
   });
+
+  $('form.new_guest').on('ajax:success', function(event, data) {
+    debugger;
+  });
+  $('form.new_guest').on('ajax:error', function(event,data) {
+    $('.errors').html(data.responseText);
+  });
 });

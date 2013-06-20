@@ -28,8 +28,8 @@
               <% guest.contributions(@event.id).each do |ai| %>
                 <li> <%= ai.event_item.item.name %> </li> 
                 <li><%= ai.quantity_provided %> </li>
-          </ul>
               <% end %>
+          </ul>
         </div>
     <%end%>
 </div>

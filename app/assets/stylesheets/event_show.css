@@ -26,7 +26,7 @@ ul {
   list-style: none;
 }
 
-.guest_items {
+.assigned_items, .guest_items {
   float:left;
 }
 .brought_item {
@@ -38,3 +38,5 @@ ul {
   margin: 5px;
   border: 1px solid purple;
 }
+
+
