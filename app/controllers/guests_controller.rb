@@ -22,7 +22,6 @@ class GuestsController < ApplicationController
   end
 
   def rsvp
-    puts "FFFFFF"
     p params[:url]
     @guest = Guest.find_by_url(params[:url])
     render :show
