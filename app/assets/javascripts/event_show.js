@@ -24,9 +24,10 @@ $(function() {
   });
 
   $('form.new_guest').on('ajax:success', function(event, data) {
-    debugger;
+    window.location = data;
   });
   $('form.new_guest').on('ajax:error', function(event,data) {
     $('.errors').html(data.responseText);
+    console.log(data.responseText)
   });
 });

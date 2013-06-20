@@ -8,6 +8,13 @@
 </div>
 <ul class="event_items">
   <div class="errors"></div>
+  <% if session[:guest_id] %>
+  <% guest = Guest.find(session[:guest_id]) %>
+  <div class="thank_you">
+    <p>Thank you for contributing to <%= @event.name %>! Check out what everyone is bringing <a href="#contributions">below</a>. </p> 
+  <p> You can edit your items in the future by visiting your personal url: <a href="www.toomanychips.com/<%=guest.url%>"> www.toomanychips.com/<%=guest.url%></a></p>
+  </div> 
+  <% end %>
   <%= render 'guest_form', :guest => @guest %>
 </ul>
 

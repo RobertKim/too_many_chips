@@ -1,12 +1,15 @@
 
-<div class="hero-unit">
+<div class="hero-unit" id="event_new">
+
 	<div class='container'>
+
 
 	</div>
 </div>
 
 
 <div class="container">
+
 	<div class="row gnup_forms">
 		<% if current_user.events.any? %>
 		<div class="span6">
@@ -15,14 +18,17 @@
 	  <% end %>
 			<div class="gnup_container">
 				<div class="gnup_form">
+					
+						
+					
 					<div class="errors">
-						<%flash.each do |name,msg| %>
-						<div class="alert alert-<%= name == :notice %>">
-							<p id="notice"><%= notice %></p>
+					<%flash.each do |name,msg| %>
+						<div class="alert alert-success">
+							
 							<%=msg%>
 						</div>
 						<%end%>
-					</div>
+						</div>
 					<h2> 
 						Welcome, <%= @user.name.titleize %>! 
 					</h2>

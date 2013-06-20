@@ -7,15 +7,11 @@ class GuestsController < ApplicationController
 
   def create
     @guest = Guest.new(params[:guest])
-    
+
     if @guest.save
-      # @assigned_items = @guest.assigned_items
-    #   @items = 
-    #   items = @assigned_items.each do |s|
-    #     @assigned_items.event_item.item.name)
-      render :json => root_path.to_json   
-    #   render :json => @guest.assigned_items
-    # end
+      session[:guest_id] = @guest.id
+      @event = @guest.assigned_items.first.event_item.event
+      render :json => event_path(@event).to_json
     else
       render :json => @guest.errors.full_messages.join(','), :status => :unprocessable_entity      
     end
