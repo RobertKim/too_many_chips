@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   respond_to :json, :html
-  
+
   def show
     @event = Event.find(params[:id])
     session[:event_id] = @event.id
@@ -8,7 +8,7 @@ class EventsController < ApplicationController
     @guest.assigned_items.build
     @assigned_item = AssignedItem.new
   end
-  
+
   def invitation
     @event = Event.find_by_url(params[:url])
     redirect_to event_path(@event)
@@ -51,7 +51,7 @@ class EventsController < ApplicationController
     end
   end
 
- private 
+ private
 
   def check_permissions
     @event = Event.find(params[:id])
@@ -60,7 +60,7 @@ class EventsController < ApplicationController
     end
 
   end
-  
+
   def logged_in?
     unless current_user
       flash[:error] = "You must be logged in to access this section"

@@ -18,7 +18,7 @@
     <p>Thank you for contributing to <%= @event.name %>! Check out what everyone is bringing <a href="#contributions">below</a>. </p>
   <p> You can edit your items in the future by visiting your personal url: <a href="http://www.toomanychips.com/rsvp/<%=guest.url%>"> http://www.toomanychips.com/rsvp/<%=guest.url%></a></p>
   </div>
-  <% session.data.delete :guest_id%>
+  <% session.delete(:guest_id)%>
   <% end %>
   <div class="guest_items"></div>
   <%= render 'guest_form', :guest => @guest %>
