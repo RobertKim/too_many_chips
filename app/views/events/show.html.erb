@@ -12,6 +12,7 @@
 </div>
 <ul class="event_items">
   <div class="errors"></div>
+<<<<<<< HEAD
     <% if current_user == @event.user %>
       <div class="thank_you">
         <p> Your event has been created! Use this link it to share it with your friends: <a href="http://www.toomanychips.com/<%=@event.url%>" > http://www.toomanychips.com/rsvp/<%=@event.url%></a></p>
@@ -28,6 +29,18 @@
     <% end %>
     <div class="guest_items"></div>
     <%= render 'guest_form', :guest => @guest %>
+=======
+  <% if session[:guest_id] %>
+  <% guest = Guest.find(session[:guest_id]) %>
+  <div class="thank_you">
+    <p>Thank you for contributing to <%= @event.name %>! Check out what everyone is bringing <a href="#contributions">below</a>. </p>
+  <p> You can edit your items in the future by visiting your personal url: <a href="http://www.toomanychips.com/rsvp/<%=guest.url%>"> http://www.toomanychips.com/rsvp/<%=guest.url%></a></p>
+  </div>
+  <% session.delete(:guest_id)%>
+  <% end %>
+  <div class="guest_items"></div>
+  <%= render 'guest_form', :guest => @guest %>
+>>>>>>> 781bc286744193506d28e3c08d45511467882ffb
 </ul>
 
 
