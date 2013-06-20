@@ -52,8 +52,7 @@ body {
 }
 
 .hero-unit h1 {
-  /*color: #FF5600;*/
-  color: #FF7D51;
+  color: #FF5600;
 }
 
 .hero-unit h3, h4 {
@@ -262,7 +261,7 @@ background-color: transparent;
 }
 
 .item_description {
-    width: 400px;
+    width: 310px;
 }
 
 .item_name {
