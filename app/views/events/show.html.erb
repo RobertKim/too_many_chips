@@ -1,11 +1,17 @@
-<div class='contianer'>
+
   <div class='show-event-wrapper'>
     <div class='hero-unit'>
       <div class='hero_content'>
         <h1><%= @event.name %></h1><br>
         <p><%= @event.description %></p>
-        Date: <p><%= @event.date %> </p>
-        Location: <p><%= @event.location %> </p>
+        <h3>Date:</h3> 
+        <h4>
+          <p><%= @event.date %> </p>
+        </h4>
+        <h3>Location:</h3>
+         <h4>
+          <p><%= @event.location %> </p>
+         </h4>
         <div class="cover"></div>
       </div>
     </div>
@@ -29,6 +35,5 @@
         <%= render 'guest_form', :guest => @guest %>
       </div>
     </div> 
-</div> 
 
 
