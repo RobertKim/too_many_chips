@@ -43,9 +43,9 @@ div.active {
 .guest-show h4{
     padding-left: 20px; 
 }
-/*.guest-show td, th{
+.guest-show td, th{
     height: 15px;
     line-height: 15px;
     text-align: center;
     padding-right: 5px;
-}*/
+}

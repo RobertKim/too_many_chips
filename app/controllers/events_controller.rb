@@ -29,7 +29,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to event_path(@event)
     else
-      redirect_to new_event_path
+      render: 'user/show'
     end
   end
 
