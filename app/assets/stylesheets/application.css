@@ -197,7 +197,7 @@ background-color: transparent;
     top: 0;
     left: 0;
     opacity: 0.8;
-    height: 200px;
+    height: 250px;
     width: 100%;
     z-index: 0;
     border-radius: 4px;
@@ -206,6 +206,66 @@ background-color: transparent;
 .alert {
     position: relative;
     width: 75%;
+}
+
+.new_event h1 {
+    color: #FF7D51;
+}
+
+.new_event_container {
+    background-color: #D3D3D3;
+    
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+    
+    width: 100%;
+    z-index: 0;
+    border-radius: 4px;
+}
+
+.link_button {
+
+}
+
+.float-left {
+    float: left;
+    display: inline-block;
+
+}
+
+.description {
+    width: 95%;
+}
+
+
+
+.location {
+    width: 46%;
+}
+
+.new_event select {
+    width: 32%;
+}
+
+#event_date_* {
+    color: red;
+}
+
+.name {
+    width: 46%;
+}
+
+.item_quantity_needed {
+    width: 17%;
+}
+
+.item_description {
+    width: 310px;
+}
+
+.item_name {
+    width: 72%;
 }
 
 

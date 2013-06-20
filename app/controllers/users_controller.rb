@@ -4,6 +4,8 @@ class UsersController < ApplicationController
 
   def your_profile
     @user = current_user
+    @event = Event.new
+    @event.event_items.build.item = Item.new
     render :show
   end
 
