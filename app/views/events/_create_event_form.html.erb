@@ -11,8 +11,9 @@
   <div class="span5">
     <ul class='event_items'>
       <div class='form-wrap'>
-        <%= e.fields_for :event_items do |ei| %>    
         <%= link_to_add_fields "Add Item", e, :event_items %>
+        <%= e.fields_for :event_items do |ei| %>    
+        
         <%= e.submit 'Event Complete', :class => 'event_done btn btn-success' %><br><br>
         <%= render 'event_items/create_event_items_form', f: ei %>
         <% end %>
