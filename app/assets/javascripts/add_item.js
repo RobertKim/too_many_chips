@@ -13,7 +13,7 @@ $(document).ready(function(){
     var regexp = new RegExp(link.data('id'), 'g');
     var html = link.data('fields').replace(regexp, time);
      console.log(this)
-    link.closest('ul.event_items').append(html);
+    $('.form-wrap').append(html);
 
   });
 });
