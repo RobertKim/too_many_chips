@@ -8,9 +8,9 @@ class Event < ActiveRecord::Base
     :event_items_attributes
 
   belongs_to :user
-  has_many :event_items, :inverse_of => :event
+  has_many :event_items, :inverse_of => :event, :dependent => :destroy
   has_many :items, :through => :event_items
-  has_many :assigned_items, :through => :event_items
+  has_many :assigned_items, :through => :event_items, :dependent => :destroy
 
   accepts_nested_attributes_for :event_items, :reject_if => :all_blank, :allow_destroy => true
 

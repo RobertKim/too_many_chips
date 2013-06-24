@@ -9,7 +9,7 @@ class EventItem < ActiveRecord::Base
   }
   validates :description, :length => { :maximum => 140 }
 
-  has_many :assigned_items
+  has_many :assigned_items ,:dependent => :destroy
   belongs_to :event, :inverse_of => :event_items
   belongs_to :item, :inverse_of => :event_items
 
