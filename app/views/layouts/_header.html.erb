@@ -1,19 +1,14 @@
-
 <header>
-
 	<nav class="navbar">
 		<div class= "navbar-inner">
-			<h1 id="brand" ><a href="/">TOO<strong>MANY</strong>CHIPS</a></h1>
-
-				<% if current_user %>
-				   
-					  <%= button_to "Sign Out", signout_path, id: "sign_out", class: :"btn btn-warning" %></li>
-
-					  <%= button_to "Your Profile", your_profile_path, :method => :get, id: "profile", class: :"btn btn-warning" %></li>
-					  <%end%>
+				<% if current_user %> 
+				<h1 id="brand" ><a href="/your_profile">TOO<strong>MANY</strong>CHIPS</a></h1>
+					<%= button_to "Sign Out", signout_path, id: "sign_out", class: :"btn btn-warning" %></li>
+					<%= button_to "Your Profile", your_profile_path, :method => :get, id: "profile", class: :"btn btn-warning" %></li>
+				<% else %>
+					<h1 id="brand" ><a href="/">TOO<strong>MANY</strong>CHIPS</a></h1>
+				<%end%>
 			</ul>
-
-	
 		</div>
 	</nav>
 </header>

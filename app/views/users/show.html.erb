@@ -1,15 +1,11 @@
 
 <div class="hero-unit" id="event_new">
-
 	<div class='container'>
-
-
 	</div>
 </div>
 
 
 <div class="event-form-container container">
-
 	<div class="row gnup_forms">
 		<% if current_user.events.any? %>
 		<div class="span6">
@@ -18,31 +14,27 @@
 	  <% end %>
 			<div class="gnup_container">
 				<div class="gnup_form">
-					
-						
-					
 					<div class="errors">
 					<%flash.each do |name,msg| %>
-						<div class="alert alert-success">
-							
+						<div class="alert alert-success">	
 							<%=msg%>
 						</div>
 						<%end%>
 						</div>
 					<h2> 
-						Welcome, <%= @user.name.titleize %>! 
+						Welcome, <%= current_user.name.titleize %>! 
 					</h2>
 					<h3> 
 						Account Details:
 					</h3>
 					<h4>
-						Name: <%= @user.name.titleize %>
+						Name: <%= current_user.name.titleize %>
 					</h4>
 					<h4>
-						Email: <%= @user.email %>
+						Email: <%= current_user.email %>
 					</h4><br>
 				<!-- 	<div class='user_edit_button'>
-						<%#= button_to 'Edit', edit_user_path(@user), class: "btn btn-info" %>
+						<%#= button_to 'Edit', edit_user_path(current_user), class: "btn btn-info" %>
 					</div> -->
 					<div class="event_button">
             <a href="#eventform" class="btn btn-success"> Create Event </a>
@@ -53,9 +45,9 @@
 		</div>
 
 		<% if current_user.events.any? %>
-		<div class="span6">
+			<div class="span6">
 		<% else %>
-		<div class="">
+			<div class="">
 	  <% end %>
 			<div class="gnup_container">
 				<div class="gnin_form">

@@ -4,7 +4,7 @@ class CreateEventItems < ActiveRecord::Migration
     	t.integer :event_id
       t.string  :description
       t.integer :item_id
-      t.integer :quantity_needed
+      t.integer :quantity_needed, :default => 1
 
       t.timestamps
     end

@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20130619044053) do
 
   create_table "assigned_items", :force => true do |t|
     t.integer "event_item_id"
-    t.integer "quantity_provided"
+    t.integer "quantity_provided", :null => false
     t.integer "guest_id"
   end
 
@@ -49,17 +49,17 @@ ActiveRecord::Schema.define(:version => 20130619044053) do
 
   create_table "items", :force => true do |t|
     t.text     "suggestion"
-    t.string   "name"
+    t.string   "name",       :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email"
-    t.string   "password_digest"
+    t.string   "email",            :null => false
+    t.string   "name",             :null => false
+    t.string   "password_digest",  :null => false
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
-    t.string   "name"
     t.string   "provider"
     t.string   "uid"
     t.string   "oauth_token"

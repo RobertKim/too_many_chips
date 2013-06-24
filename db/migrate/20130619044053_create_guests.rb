@@ -13,9 +13,9 @@ class CreateGuests < ActiveRecord::Migration
 
   def down
     drop_table :guests
-    add_column :assigned_items, :guest_name
-    add_column :assigned_items, :guest_email
-    add_column :assigned_items, :url
+    add_column :assigned_items, :guest_name, :null => false
+    add_column :assigned_items, :guest_email, :null => false
+    add_column :assigned_items, :url, :null => false
     remove_column :assigned_items, :guest_id
   end
 end

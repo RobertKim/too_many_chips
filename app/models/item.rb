@@ -5,5 +5,5 @@ class Item < ActiveRecord::Base
   has_many :events, :through => :event_items #:inverse_of => :item
   has_many :event_items, :inverse_of => :item
   
-  accepts_nested_attributes_for :event_items, :allow_destroy => true
+  accepts_nested_attributes_for :event_items, :allow_destroy => true, :reject_if => :all_blank
 end

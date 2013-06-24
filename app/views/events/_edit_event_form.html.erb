@@ -1,7 +1,7 @@
   <h2> What are the details of your event? </h2><br>
   <%= form_for(@event) do |e| %>
   <div class="span6">
-    <%= e.text_field :name, :class => "name", :placeholder => "Title"%>
+    <%= e.text_field :name, :class => "name", :placeholder => "Title", :required => true%>
     <%= e.text_field :location, :class => "location", :placeholder => "Location"%>
     <%= e.date_select :date, :class => "date", :placeholder => "Date"%>
     <%= e.text_area :description, :class => "description", :placeholder => "Description"%>
