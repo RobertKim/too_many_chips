@@ -4,6 +4,8 @@ gem 'rails', '3.2.13'
 gem 'sinatra', require: false
 gem 'slim'
 
+gem 'thin'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

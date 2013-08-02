@@ -80,7 +80,8 @@ body {
 .hero-unit {
     background-image: url('black_pants.png');
 	background-repeat: no-repeat;
-    background-size: 1500px 550px;
+    width: 100%;
+    height: 500px;
   
 }
 
