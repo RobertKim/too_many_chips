@@ -23,8 +23,9 @@ body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     line-height: 20px;
-   
-    background-repeat:no-repeat;
+    background-image: url('furley_bg.png');
+    /*background-repeat:no-repeat;*/
+    /*background-size: cover;*/
 }
 
  
@@ -41,11 +42,26 @@ body {
     margin-bottom: 0;
 }
 
+.hero-unit {
+  background-image: url('http://farm4.static.flickr.com/3132/2881116786_fa9351331e.jpg');
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 380px;
+  background-size: 100%;
+  
+}
+
+.hero-unit h1, h2 {
+  color: #FF5600;
+}
+
+.hero-unit h3, h4 {
+  color: #363636;
+}
+
 
 .navbar-inner {
-  /*  color: black;
-    background-color: black;
-    background-image: linear-gradient(to bottom, #FF7D51, #FF7D51);*/
+
     background-repeat: repeat-x;
     /*border: 1px solid black;*/
     border-radius: 0;
@@ -76,7 +92,6 @@ body {
     position: absolute;
 }
 
-
 .hero-unit {
     background-image: url('black_pants.png');
 	background-repeat: no-repeat;
@@ -94,9 +109,10 @@ body {
 }
 
 
-/*.carousel-caption {
+.carousel-caption {
+
 background-color: transparent;
-}*/
+}
 
 .carousel-caption h1 {
     color: #FF5600;
@@ -126,7 +142,7 @@ background-color: transparent;
 }
 
 .item3 {
-    background-image: url('potluck.png');
+    background-image: url('http://www.co-operativefood.co.uk/Food/xmas2012/Images/scroller-large/sparkle_scroller_large_chilled_party.jpg');
     background-size: cover;
     background-repeat: no-repeat; 
 }
@@ -136,37 +152,35 @@ background-color: transparent;
     top: 90px;
 }
 
-
-
-.ignup_forms {
-    position: absolute;
-   
-}
-
 .signup_forms .span6 {
     position: relative;
     height: 350px;
 }
 
-.ignup_forms .span4 {
+.signup_container {
+    padding-top: 25px;
+    padding-left: 60px;
+}
+
+.index_panels {
+    position: absolute;
+}
+
+
+.index_panels .span4 {
     position: relative;
     height: 240px;
 }
 
-.ignup_forms .span4 h2{
+.index_panels .span4 h2{
     color: #00A392;
 }
 
-.ignup_forms .span4 h4{
+.index_panels .span4 h5{
     color: #FF7D51;
 }
 
-.signup_container {
-    padding-top: 25px;
-    padding-left: 90px;
-}
-
-.ignup_container {
+.panel_container {
     padding: 25px;
 }
 
@@ -176,8 +190,9 @@ background-color: transparent;
     z-index: 1;
 }
 
-.ignup_form,
-.ignin_form {
+.panel_1,
+.panel_2,
+.panel_3 {
     position: relative;
     z-index: 1;
 }
@@ -185,24 +200,94 @@ background-color: transparent;
 .signup_container .cover {
     background-color: #f8f8f8;
     position: absolute;
-    top: 0;
+    top: 10px;
     left: 0;
     opacity: 0.8;
     height: 100%;
+    width: 90%;
+    z-index: 0;
+    border-radius: 4px;
+}
+
+.panel_container .cover {
+    background-color: #D3D3D3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+    height: 250px;
     width: 100%;
     z-index: 0;
     border-radius: 4px;
 }
 
-.ignup_container .cover {
-    background-color: #8EE3DA;
-    position: absolute;
+.alert {
+    position: relative;
+    width: 75%;
+}
+
+.new_event h1 {
+    color: #FF7D51;
+}
+
+.new_event_container {
+    background-color: #D3D3D3;
+    
     top: 0;
     left: 0;
     opacity: 0.8;
-    height: 300px;
+    
     width: 100%;
     z-index: 0;
     border-radius: 4px;
 }
+
+.link_button {
+
+}
+
+.float-left {
+    float: left;
+    display: inline-block;
+
+}
+
+.description {
+    width: 95%;
+}
+
+
+
+.location {
+    width: 46%;
+}
+
+.new_event select {
+    width: 33%;
+}
+
+#event_date_* {
+    color: red;
+}
+
+.name {
+    width: 46%;
+}
+
+.item_quantity_needed {
+    width: 15%;
+}
+
+.item_description {
+    width: 410px;
+}
+
+.item_name {
+    width: 72%;
+}
+
+.lead {
+    color: #FF5600;
+}
+
 

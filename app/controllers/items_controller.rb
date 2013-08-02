@@ -18,7 +18,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    p "Item Saved!!!!!!!!!!!!!"
     @item = Item.new(params[:item])
     if @item.save
       render :json => render_to_string(:partial => 'items/single', :locals => {:item => @item}).to_json

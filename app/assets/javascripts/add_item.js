@@ -1,20 +1,19 @@
 $(document).ready(function(){
-  $('.new_event form').on('click','.remove_fields', function(e){
+  $('.event_items').on('click','.remove_fields', function(e){
     e.preventDefault();
-    console.log('hi');
+    console.log(this)
     $(this).prev('input[type=hidden]').val('1');
     $(this).closest('fieldset').hide();
   });
 
-  $('.new_event form').on ('click', '.add_fields', function(e){
+  $('.form-wrap').on ('click', '.add_fields', function(e){
     e.preventDefault();
     var link = $(this);
     var time =  new Date().getTime();
     var regexp = new RegExp(link.data('id'), 'g');
-
     var html = link.data('fields').replace(regexp, time);
-
-    link.closest('.new_event form').find('ul.event_items').append(html);
+     console.log(this)
+    $('ul.event_items').prepend(html);
 
   });
 });

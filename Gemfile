@@ -14,12 +14,13 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'chronic'
 
 gem 'omniauth-facebook'
-
+ gem 'faker'
 # gem "mail"
 gem 'redis'
 gem 'sidekiq', '>= 2.12.1'
 gem 'sidekiq-status'
 gem 'sidekiq-failures'
+
 gem 'simple_form'
 # Gems used only for assets and not required
 # in production environments by default.
@@ -40,7 +41,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'sextant'
   gem 'better_errors'
-  gem 'faker'
+ 
   gem 'factory_girl_rails'
   gem 'shoulda'
   gem 'capybara'

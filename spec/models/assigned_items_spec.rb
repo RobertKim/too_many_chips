@@ -3,8 +3,9 @@ require 'spec_helper'
 
 describe AssignedItem do
 
-  let(:assigned_item)  { build(:assigned_item) }
+  let(:assigned_item)  {  build(:assigned_item) }
   let(:assigned_item3) { create(:assigned_item, quantity_provided: 3) }
+  let(:assigned_item0) {  build(:assigned_item, quantity_provided: 0) }
   let(:event_item)     { create(:event_item) }
 
   it { should belong_to :event_item }
@@ -32,6 +33,15 @@ describe AssignedItem do
     it "should find all assigned_items associated with the email address " do
       assigned_item.save
       assigned_item.find_all_user_items.length.should == 1
+    end
+  end
+
+  describe "delete_if_zero" do
+    it "should detele an assigned item after create if it's quantity_provided is 0" do
+      a = :assigned_item0
+      a.quantity_provided.should == 0
+      a.save
+      a.should == nil
     end
   end
 

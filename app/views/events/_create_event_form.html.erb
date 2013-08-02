@@ -1,21 +1,26 @@
-<div class="span 4">
-<div class='new_event'>
+<div id="eventform" class="new_event_form hidden-event">
+
+  <h2> What are the details of your event? </h2><br>
   <%= form_for(@event) do |e| %>
-  	<%= e.text_field :name, :class => ".name", :placeholder => "Title"%>
-  	<%= e.text_field :location, :class => "location", :placeholder => "Location"%>
-  	<%= e.date_select :date, :class => "date", :placeholder => "Date"%>
-  	<%= e.text_area :description, :class => "description", :placeholder => "Description"%>
-    <ul class='event_items'>
-      <%= e.fields_for :event_items do |ei| %>     
-    		<%= render 'event_items/create_event_items_form', f: ei %>
-      <% end %>
+  <div class="span6">
+    <%= e.text_field :name, :class => "name", :placeholder => "Title", :required => true%>
+    <%= e.text_field :location, :class => "location", :placeholder => "Location", :required => true %>
+    <%= e.date_select :date, :class => "date", :placeholder => "Date" , :required => true%>
+    <%= e.text_area :description, :class => "description", :placeholder => "Description"%>
+  </div>
+  <div class="span5">
+    
+      <div class='form-wrap'>
+        <%= link_to_add_fields "Add Item", e, :event_items %>
+        <%= e.submit 'Create!', :class => 'event_done btn btn-success' %><br><br>
+       </div>
+       <ul class='event_items'>
+        <%= e.fields_for :event_items do |ei| %>    
+        <%= render 'event_items/create_event_items_form', f: ei %>
+        <% end %>
+     
     </ul>
-    <%= link_to_add_fields "Add Item", e, :event_items %>
-  	<%= e.submit %>
-	<% end %>
+  </div>
+  <% end %>
 </div>
-</div>
-
-
-
 

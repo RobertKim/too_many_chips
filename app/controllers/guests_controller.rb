@@ -1,30 +1,36 @@
 class GuestsController < ApplicationController
-
-  def create
-    @guest = Guest.new(params[:guest])    
-    if @guest.save
-      redirect_to root_path  
-    else
-      render :new
-    end
-  end
-
-  def edit
-
-  end
-
   def new
     @guest = Guest.new
     @guest.assigned_items.build
     @assigned_item = AssignedItem.new
   end
 
-  def show
-    @guest = Guest.find(params[:guest])
+  def create
+    if @guest = Guest.find_by_email(params[:guest][:email])
+      params["guest"]["assigned_items_attributes"].each do |e|
+        @guest.assigned_items << AssignedItem.new(quantity_provided: e[1]["quantity_provided"], event_item_id: e[1]["event_item_id"])
+      end
+    else @guest = Guest.new(params[:guest])
+    end
+    if @guest.save
+      session[:guest_id] = @guest.id
+      @event = @guest.assigned_items.first.event_item.event
+      render :json => event_path(@event).to_json
+    else
+      render :json => @guest.errors.full_messages.join(','), :status => :unprocessable_entity
+    end
   end
 
-  def destroy
+  def rsvp
+    p params[:url]
+    @guest = Guest.find_by_url(params[:url])
+    render :show
+  end
 
+  def show
+    p params[:url]
+    @guest = Guest.find_by_url(params[:url])
+    render :show
   end
 end
 

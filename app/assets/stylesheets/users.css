@@ -1,3 +1,47 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.gnup_forms {
+  position: absolute;
+  top: 125px;
+}
+
+.gnup_forms .span6 {
+  position: relative;
+  height: 475px;
+}
+
+.gnup_form,
+.gnin_form {
+  position: relative;
+  z-index: 1;
+}
+
+.gnup_container{
+  padding-top: 25px;
+  padding-left: 50px;
+}
+
+.gnup_container h3{
+  padding-left: 52px;
+}
+
+.gnup_container h4{
+  padding-left: 52px;
+  color: #FF7D51;
+}
+
+.gnup_container .cover {
+  background-color: #f8f8f8;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: .5;
+  height: 325px;
+  width: 100%;
+  z-index: 0;
+  border-radius: 4px;
+}
+
+.hidden-event {
+  display: none;
+}

@@ -1,59 +1,108 @@
 
-<div class="hero-unit">
-	
-	<%flash.each do |name,msg| %>
-	<div class="alert alert-<%= name == :notice %>">
-		<!-- <p id="notice"><%= notice %></p> -->
-		<%=msg%>
+<div class="hero-unit" id="event_new">
+	<div class='container'>
 	</div>
-	<%end%>
+</div>
 
 	<div class="cover">
 
-		<h1> Welcome, <%= @user.name.titleize %>, to TooManyChips! </h1><br><br><br><br>
-		
 
-		<h3> 
-			Account Details:
-		</h3>
+<div class="event-form-container container">
+	<div class="row gnup_forms">
+		<% if current_user.events.any? %>
+		<div class="span6">
+		<% else %>
+		<div class="span7">
+	  <% end %>
+			<div class="gnup_container">
+				<div class="gnup_form">
+					<div class="errors">
+					<%flash.each do |name,msg| %>
+						<div class="alert alert-success">	
+							<%=msg%>
+						</div>
+						<%end%>
+						</div>
+					<h2> 
+						Welcome, <%= current_user.name.titleize %>! 
+					</h2>
+					<h3> 
+						Account Details:
+					</h3>
+					<h4>
+						Name: <%= current_user.name.titleize %>
+					</h4>
+					<h4>
+						Email: <%= current_user.email %>
+					</h4><br>
+				<!-- 	<div class='user_edit_button'>
+						<%#= button_to 'Edit', edit_user_path(current_user), class: "btn btn-info" %>
+					</div> -->
+					<div class="event_button">
+            <a href="#eventform" class="btn btn-success"> Create Event </a>
+          </div>
+				</div>				
+				<div class="cover"></div>
+			</div>
+		</div>
 
-		<h4>
-			Name:<%= @user.name.titleize %>
-		</h4>
+		<% if current_user.events.any? %>
+			<div class="span6">
+		<% else %>
+			<div class="">
+	  <% end %>
+			<div class="gnup_container">
+				<div class="gnin_form">
+					<% upcoming = current_user.events.where('date>?', Date.today) %>
 
-		<h4>
-			Email:<%= @user.email %>
-		</h4><br><br>
-		
+					<% if upcoming.any? %>
+					<h2> 
+						Upcoming Events: 
+					</h2>
+					
+					<% current_user.events.each do |event| %>
+					<% if event.upcoming? %>
+					<ul>                    
+						<h5>
+							<li>
+								<%= link_to event.name.titleize, event_path(event) %>: <%= event.date %>
+							</li>
+						</h5>
+					</ul>
+					<% end %>
+					<% end %>
+					<% end %>
+					<% past = current_user.events.where('date<?', Date.today) %>
+
+					<% if past.any? %>
+					<h2> 
+						Past Events: 
+					</h2>
+					
+					<% current_user.events.each do |event| %>
+					<% if event.past? %>
+					<ul>
+						<h5>
+							<li>
+								<%= link_to event.name.titleize, event_path(event) %>: <%= event.date %>
+							</li>
+						</h5>
+					</ul>
+					<% end %>
+					<% end %>
+					<% end %>
+
+
+					
+				</div>
+				<div class="cover"></div>
+			</div>
+		</div>
 	</div>
+	  <%= render 'events/create_event_form' %>
+</div>
 
 
-
-	<%= button_to 'Edit', edit_user_path(@user), class: "btn btn-warning" %>
-	<%= button_to "Create an Event!", new_event_path, :method => "get", class: "btn btn-warning" %>
-
-
-	<div id="created_events">
-		<h4> 
-			Upcoming Events: 
-		</h4>
-		<ul>
-			<% @user.events do |event| %>
-			<% if event.upcoming? %>
-			<li><%= link_to upcoming.name, event_path(event) %> </li>
-			<%end%>
-			<%end%>
-		</ul>
-		<h4> Past Events: </h4>
-		<ul>
-			<% @user.events do |event| %>
-			<% if event.past? %>
-			<li><%= link_to past.name, event_path(past) %></li>
-			<% end %>
-			<%end%>
-
-		</ul><br>
-	</div>
 
 
 

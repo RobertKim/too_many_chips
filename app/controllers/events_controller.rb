@@ -1,7 +1,5 @@
 class EventsController < ApplicationController
   respond_to :json, :html
-  before_filter :logged_in?
-  # before_filter :check_permissions, :only => [:show, :destroy]
 
   def show
     @event = Event.find(params[:id])
@@ -10,7 +8,7 @@ class EventsController < ApplicationController
     @guest.assigned_items.build
     @assigned_item = AssignedItem.new
   end
-  
+
   def invitation
     @event = Event.find_by_url(params[:url])
     redirect_to event_path(@event)
@@ -31,7 +29,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to event_path(@event)
     else
-      redirect_to new_event_path
+      render 'users/show'
     end
   end
 
@@ -53,12 +51,16 @@ class EventsController < ApplicationController
     end
   end
 
- private 
+ private
 
   def check_permissions
-    current_user.id == @event.user.id
+    @event = Event.find(params[:id])
+    unless current_user.id == @event.user.id
+       redirect_to event_path(@event)
+    end
+
   end
-  
+
   def logged_in?
     unless current_user
       flash[:error] = "You must be logged in to access this section"

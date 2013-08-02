@@ -1,0 +1,51 @@
+div.hidden {
+    display: none;
+    height: 0;
+}
+
+div.active {
+    display: block;
+}
+
+#edit-top {
+    padding-top: 15px;
+    text-align: center;
+}
+
+.guest-items {
+    border: #E0E0E0 solid 2px;
+    margin-top: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    line-height: 15px;
+    background-color: white;
+}
+
+.guest-items li{
+   padding: 3px;
+}
+
+.progress {
+    margin-left: 0;
+    margin-right: 0;
+    margin-right: 25px;
+}
+
+.guest-show {
+    border: #E0E0E0 solid 2px;
+    margin-top: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    line-height: 15px;
+    background-color: white;
+}
+
+.guest-show h4{
+    padding-left: 20px; 
+}
+.guest-show td, th{
+    height: 15px;
+    line-height: 15px;
+    text-align: center;
+   
+}

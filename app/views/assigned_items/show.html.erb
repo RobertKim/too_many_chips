@@ -1,6 +1,6 @@
 <h4>You're signed up to bring: <h4>
 <table>
-  <% @assigned_items.each do |item| %>
+  <% @guest.assigned_items.each do |item| %>
 <tr>
 <td><%= item.event_item.item.name %></td>
 <td><%= item.quantity_provided %></td>

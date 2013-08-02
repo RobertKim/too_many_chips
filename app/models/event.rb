@@ -8,11 +8,11 @@ class Event < ActiveRecord::Base
     :event_items_attributes
 
   belongs_to :user
-  has_many :event_items, :inverse_of => :event
+  has_many :event_items, :inverse_of => :event, :dependent => :destroy
   has_many :items, :through => :event_items
+  has_many :assigned_items, :through => :event_items, :dependent => :destroy
 
   accepts_nested_attributes_for :event_items, :reject_if => :all_blank, :allow_destroy => true
-
   def set_url
     self.url ||= SecureRandom.urlsafe_base64
   end
@@ -22,6 +22,11 @@ class Event < ActiveRecord::Base
   end
 
   def past?
-    self.date  < DateTime.now
+    self.date  <= DateTime.now
   end
+
+  def guests
+    self.assigned_items.map {|item| (item.guest) }.uniq
+  end
+
 end

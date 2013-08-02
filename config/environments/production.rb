@@ -1,4 +1,4 @@
-PotluckyGopher::Application.configure do
+Toomanychips::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
@@ -67,6 +67,7 @@ PotluckyGopher::Application.configure do
    :domain =>         'heroku.com',
    :authentication => :plain
      }
+    ActionMailer::Base.delivery_method = :smtp
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify

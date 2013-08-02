@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-PotluckyGopher::Application.load_tasks
+Toomanychips::Application.load_tasks

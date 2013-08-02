@@ -1,30 +1,45 @@
 <%= form_for guest, :remote => true do |g| %> 
-
-  <li class="event_item_row">
-    <div class="name">NAME</div> | 
-    <div class="suggestion">Suggestions</div> | 
-    <div class="quantity_needed">Quant Needed</div> | 
-    <div class"quantity_needed">Item Description</div> | 
-    <div class="quantity_needed">Bring some</div>
-  </li>
-  
-  <% @event.event_items.each do |ei| %>
-    <li class="event_item_row">
-      <div class="name"> <%= ei.item.name %> </div>
-      <div class="suggestion"> <%= ei.item.suggestion %> </div>
-      <div class="quantity_needed"> <%= ei.quantity_still_needed %> </div>    
-      <div class="description"> <%= ei.description %> </div>
-
-      <div class="quantity_needed">
-        <%= g.fields_for :assigned_items do |ai| %>
-          <%= ai.select :quantity_provided, options_for_select(0..ei.quantity_still_needed) %>
-          <%= ai.hidden_field :event_item_id, :value => ei.id %>
-        <% end %>
-      </div>
-    </li>
+<table class="table table-striped">
+  <caption>...</caption>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Suggestions</th>
+      <th>Quant Needed</th>
+      <th>Item Description</th>
+      <th>Bring some</th>
+    </tr>
+  </thead>
+  <tbody>
+<% @event.event_items.each do |ei| %>
+  <% if ei.quantity_still_needed > 0 %>
+      <tr>
+        <td> <%= ei.item.name %> </td>
+        <td> <%= ei.item.suggestion %> </td>
+        <td> <%= ei.quantity_still_needed %> </td>
+        <td> <%= ei.description %> </td>
+        <td>
+          <%= g.fields_for :assigned_items do |ai| %>
+            <%= ai.select :quantity_provided, 0..ei.quantity_still_needed, {}, :class => "#{ei.item.name}" %>
+            <%= ai.hidden_field :event_item_id, :value => ei.id %>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
   <% end %>
-
-  <%= g.text_field :name, :placeholder =>"Your Name", :required => true %>
-  <%= g.text_field :email, :placeholder => "Your Email", :required => true %>
-  <%= g.submit %>
 <% end %>
+
+</table>
+
+<div "bringin_items">
+<%= g.text_field :name, :placeholder =>"Your Name", :required => true %>
+<div class="input-append">
+<%= g.text_field :email, :placeholder => "Your Email", :required => true %>
+  <!-- <input class="span2" id="appendedInputButton" type="text"> -->
+  <%= g.submit "Bring Items", :class=>"btn" %>
+</div>
+</div>
+<% end %>
+
+  <%= render 'assigned_items' %>
+

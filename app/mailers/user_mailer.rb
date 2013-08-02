@@ -13,6 +13,7 @@ class UserMailer < ActionMailer::Base
     
   #   mail(:to => "#{user.name} <#{user.email}>", :subject => "Registered")
   # end
+  
   def signup_confirmation(user_id)
     @user = User.find(user_id)
     email_with_name = "#{@user.name} <#{@user.email}>"
