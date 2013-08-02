@@ -6,22 +6,23 @@ The application aimed to solve the problem of event planning, specifically for p
 
 # To view the site:
 
-At the moment, the site is no longer deployed to Heroku, but can be accessed through the standard Ruby on Rails server, [*localhost:3000*], upon following these instructions to enable background jobs with Sidekiq and Redis.
+At the moment, the site is no longer deployed to Heroku, but can be accessed through the standard Ruby on Rails server, localhost:3000, upon following these instructions to enable background jobs with Sidekiq and Redis.
 
 You will need to open three separate tabs in the terminal.
 
 1) In the first tab of the terminal, enter the following lines:
 
-[*brew install redis*]
-[*redis-server /usr/local/etc/redis.conf*]
+brew install redis
+
+redis-server /usr/local/etc/redis.conf
 
 2) In the second tab, simply enter:
 
-[*sidekiq*]
+sidekiq
 
 3) Finally, in the third tab, enter:
 
-[*rails s*]
+rails s
 
 Please enjoy TooManyChips!
 
